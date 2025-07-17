@@ -157,7 +157,7 @@ const ProductDetails = () => {
                                             <h3 className="product-name">Handmade Golden Necklace Full Family Package</h3>
                                             <div className="ratings d-flex">
                                                 {[...Array(5)].map((_, i) => (
-                                                    <span><i key={i} className="fa fa-star-o"></i></span>
+                                                    <span key={i}><i className="fa fa-star-o"></i></span>
                                                 ))}
                                                 <div className="pro-review">
                                                     <span>1 Reviews</span>
