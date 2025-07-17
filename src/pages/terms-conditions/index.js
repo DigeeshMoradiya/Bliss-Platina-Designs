@@ -2,8 +2,8 @@
 import Breadcrumb from "@/components/common/Breadcrumb";
 import Link from "next/link";
 
-export default function PrivacyPolicy() {
-    const policySections = [
+export default function TermsConditions() {
+    const termsConditions = [
         {
             title: "Who we are?",
             content: (
@@ -53,7 +53,7 @@ export default function PrivacyPolicy() {
                         If you have an account and log in, we will set a temporary cookie to determine if your browser accepts cookies.
                     </p>
                     <p>
-                        When you log in, we will also set up cookies to save your login info and display choices. Login cookies last two days, screen options one year. "Remember Me" keeps you logged in for two weeks.
+                        When you log in, we will also set up cookies to save your login info and display choices. Login cookies last two days, screen options one year. &quot;Remember Me&quot; keeps you logged in for two weeks.
                     </p>
                     <p>
                         If you edit or publish an article, an additional cookie will be saved in your browser. It expires after 1 day.
@@ -111,14 +111,10 @@ export default function PrivacyPolicy() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            {policySections.map((section, index) => (
-
+                            {termsConditions.map((section, index) => (
                                 <div key={index} className="policy-list">
-                                    <div key={index} className="policy-list">
-                                        <h3 className="policy-title">{section.title}</h3>
-                                        {section.content}
-                                    </div>
-
+                                    <h3 className="policy-title">{section.title}</h3>
+                                    {section.content}
                                 </div>
                             ))}
                         </div>
