@@ -273,7 +273,7 @@ const ProductDetails = () => {
                                                                 <div className="review-box">
                                                                     <div className="ratings">
                                                                         {[...Array(4)].map((_, i) => (
-                                                                            <span className="good"><i className="fa fa-star"></i></span>
+                                                                            <span className="good" key={i}><i className="fa fa-star"></i></span>
                                                                         ))}
                                                                         <i className="fas fa-star text-gray-400"></i>
                                                                     </div>
