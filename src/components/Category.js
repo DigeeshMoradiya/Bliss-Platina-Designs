@@ -5,7 +5,7 @@ export default function Category() {
 
 
   return (
-    <div className="banner-statistics-area  section-padding">
+    <div className="banner-statistics-area  section-padding pb-0">
       <div className="container">
         <div className="row row-20 mtn-20">
           {/* Item 1 */}

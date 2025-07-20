@@ -6,7 +6,7 @@ export default function AboutUsSection() {
   return (
     <>
       {/* About Section - Left Image */}
-      <section className="about-us section-padding">
+      <section className="about-us section-padding pb-0">
         <div className="container">
           <div className="row items-center">
             <div className="col-lg-5">
@@ -19,7 +19,7 @@ export default function AboutUsSection() {
                 />
               </div>
             </div>
-            <div className="col-lg-7">
+            <div className="col-lg-7 d-flex align-items-center">
               <div className="about-content">
                 <h2 className="about-title">About Us</h2>
                 <h5 className="about-sub-title">
@@ -38,12 +38,12 @@ export default function AboutUsSection() {
       </section>
 
       {/* About Section - Right Image */}
-      <section className="about-us">
+      <section className="about-us section-padding">
         <div className="container">
           <div className="row items-center">
             <div className="col-lg-7">
-              <div className="about-content">
-                <h2 className="about-title">About Us</h2>
+              <div className="about-content-2">
+                <h2 className="about-title">Our Mission</h2>
                 <h5 className="about-sub-title">
                   Founded in 1986, I.D. Jewelry, LLC, a family owned & operated business has become a house-hold name in states all over the USA as well as countries all over the world.
                 </h5>
@@ -58,7 +58,7 @@ export default function AboutUsSection() {
             <div className="col-lg-5">
               <div className="about-thumb">
                 <Image
-                  src="/assets/img/about/about.jpg"
+                  src="/assets/img/about/our-mission.png"
                   alt="about"
                   width={500}
                   height={500}

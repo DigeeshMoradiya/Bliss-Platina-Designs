@@ -224,7 +224,7 @@ const ProductDetails = () => {
                                     <div className="col-lg-12">
                                         <div className="product-review-info">
                                             <ul className="nav review-tab">
-                                                {['description', 'information', 'reviews'].map((tab) => (
+                                                {['description', 'information'].map((tab) => (
                                                     <li key={tab}>
                                                         <a
                                                             onClick={() => setActiveTab(tab)}
@@ -245,7 +245,6 @@ const ProductDetails = () => {
                                                         </div>
                                                     </div>
                                                 )}
-                                                {console.log(activeTab, "activeTab")}
                                                 {activeTab === 'information' && (
                                                     <div className="tab-pane fade show active">
                                                         <table className="table table-bordered">

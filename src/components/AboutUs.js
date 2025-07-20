@@ -18,9 +18,9 @@ export default function AboutUs() {
             />
             <Breadcrumb pageTitle="About Us" />
             <AboutSection />
-            <WhyChooseUs />
             <Testimonials />
-            <Team />
+            <WhyChooseUs />
+            {/* <Team /> */}
         </>
     );
 }

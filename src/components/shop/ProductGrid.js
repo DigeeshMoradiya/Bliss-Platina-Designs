@@ -57,7 +57,7 @@ const ProductGrid = ({ products: initialProducts, viewMode }) => {
 
             {/* Loader and infinite scroll trigger */}
             <div ref={loaderRef} className="load-more-trigger">
-                {!loading && <Loader />}
+                {loading && <Loader />}
             </div>
 
          

@@ -9,7 +9,7 @@ const ProductItem = ({ product, viewMode }) => {
             <div className="product-item">
                 <figure className="product-thumb">
                     <Link href={`/product-details/${product.id}`}>
-                            <Image
+                            {/* <Image
                                 className="pri-img"
                                 src={product.primaryImage}
                                 alt={product.name}
@@ -22,7 +22,9 @@ const ProductItem = ({ product, viewMode }) => {
                                 alt={product.name}
                                 width={300}
                                 height={300}
-                            />
+                            /> */}
+                              <img className="pri-img" src={product.primaryImage} alt="product" />
+                          <img className="sec-img" src={product.secondaryImage} alt="product" />
                     </Link>
                     <div className="product-badge">
                         {product.isNew && (

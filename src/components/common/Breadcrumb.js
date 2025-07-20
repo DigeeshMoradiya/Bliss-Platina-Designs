@@ -15,7 +15,7 @@ export default function Breadcrumb({ pageTitle, secondTitle }) {
                                             <i className="fa fa-home"></i>
                                         </Link>
                                     </li>
-                                    {secondTitle && <li className="breadcrumb-item"><a href="shop.html">{secondTitle}</a></li>}
+                                    {secondTitle && <li className="breadcrumb-item"><Link href="/shop">{secondTitle}</Link></li>}
                                     <li className="breadcrumb-item active">{pageTitle}</li>
                                 </ul>
                             </nav>

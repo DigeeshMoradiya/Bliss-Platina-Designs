@@ -24,8 +24,8 @@ export default function TermsConditions() {
                     </p>
                     <p>
                         An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here:{" "}
-                        <a href="https://automattic.com/privacy/" className="text-blue-500 hover:underline" target="_blank">
-                            https://automattic.com/privacy/
+                        <a href="https://bliss-platina-design.com" className="text-blue-500 hover:underline" target="_blank">
+                            https://bliss-platina-design.com
                         </a>.
                     </p>
                     <p>

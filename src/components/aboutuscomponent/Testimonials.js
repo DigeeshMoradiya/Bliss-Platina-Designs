@@ -2,9 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick'; 
 
 const testimonials = [
   {
@@ -41,7 +39,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="testimonial-area section-padding bg-img" style={{ backgroundImage: 'url(/assets/img/testimonial/testimonials-bg.jpg)' }}>
+    <section className="testimonial-area section-padding bg-img " style={{ backgroundImage: 'url(/assets/img/testimonial/testimonials-bg.jpg)' }}>
       <div className="container">
         <div className="row">
           <div className="col-12">

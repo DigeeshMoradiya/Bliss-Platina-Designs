@@ -15,7 +15,8 @@ export default function Footer() {
                                 <div className="widget-title">
                                     <div className="widget-logo">
                                         <Link href="/">
-                                            <Image src="/assets/img/logo/logo.png" alt="brand logo" width={150} height={50} />
+                                            {/* <Image src="/assets/img/logo/logo.png" alt="brand logo" width={150} height={50} />   */}
+                                            <img src="/assets/img/logo/logo.png" alt="Brand Logo" />
                                         </Link>
                                     </div>
                                 </div>
@@ -66,8 +67,8 @@ export default function Footer() {
                                 <h6 className="widget-title">Follow Us</h6>
                                 <div className="widget-body social-link">
                                     <a href="#"><i className="fa fa-facebook"></i></a>
-                                    <a href="#"><i className="fa fa-twitter"></i></a>
                                     <a href="#"><i className="fa fa-instagram"></i></a>
+                                    <a href="#"><i className="fa fa-pinterest-p"></i></a>
                                     <a href="#"><i className="fa fa-youtube"></i></a>
                                 </div>
                             </div>
@@ -101,8 +102,8 @@ export default function Footer() {
                         <div className="col-12">
                             <div className="copyright-text text-center">
                                 <p>
-                                    &copy; 2022 <b>Corano</b> Made with <i className="fa fa-heart text-danger"></i> by{' '}
-                                    <a href="https://hasthemes.com/" target="_blank" rel="noopener noreferrer"><b>HasThemes</b></a>
+                                    &copy; {new Date().getFullYear()} <b>Bliss Platina</b> Made with <i className="fa fa-heart text-danger"></i> by{' '}
+                                    <a href="https://bliss-platina-design.com" target="_blank" rel="noopener noreferrer"><b>Bliss Platina</b></a>
                                 </p>
                             </div>
                         </div>

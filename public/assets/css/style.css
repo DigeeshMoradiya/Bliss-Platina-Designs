@@ -386,7 +386,7 @@ only screen and (max-width: 767.98px) {
 }
 
 
-.corano-loader {
+.blis-platina-design-loader {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -394,7 +394,7 @@ only screen and (max-width: 767.98px) {
   padding: 40px 0;
 }
 
-.corano-spinner {
+.blis-platina-design-spinner {
   position: relative;
   width: 80px;
   height: 80px;
@@ -1305,6 +1305,14 @@ only screen and (max-width: 767.98px) {
   line-height: 1;
 }
 
+.mobile-number p {
+  color: #555555;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+}
+
+
 /*----------- header top area end -----------*/
 /*---------- header mini cart start ----------*/
 .header-configure-area {
@@ -1491,10 +1499,10 @@ only screen and (max-width: 767.98px) {
 .main-menu ul li a {
   color: #222222;
   font-size: 15px;
-  padding: 37px 15px;
+  padding: 37px 14px;
   font-weight: 400;
   display: block;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .main-menu ul li a i {
@@ -1762,7 +1770,7 @@ only screen and (max-width: 767.98px) {
 }
 
 .sticky.is-sticky .main-menu li a {
-  padding: 20px 15px;
+  padding: 20px 14px;
 }
 
 .sticky.is-sticky .main-menu li:first-child a {
@@ -2918,6 +2926,7 @@ only screen and (max-width: 767.98px) {
   display: flex;
   margin-top: 30px;
   margin-bottom: -3px;
+  align-items: center;
 }
 
 @media only screen and (max-width: 767.98px) {
@@ -5013,6 +5022,31 @@ only screen and (max-width: 767.98px) {
 }
 
 .about-content p:last-child {
+  padding-bottom: 0;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px),
+only screen and (max-width: 767.98px) {
+  .about-content-2 {
+    text-align: center;
+    padding: 0 30px 52px;
+    margin-bottom: -6px;
+  }
+}
+
+@media only screen and (max-width: 479.98px) {
+  .about-content-2 {
+    padding: 0 0 52px 0;
+  }
+}
+
+.about-content-2 p {
+  font-size: 15px;
+  line-height: 1.8;
+  padding-bottom: 12px;
+}
+
+.about-content-2 p:last-child {
   padding-bottom: 0;
 }
 

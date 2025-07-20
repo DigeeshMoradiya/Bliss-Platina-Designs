@@ -25,11 +25,12 @@ export default function ScrollTop() {
     });
   };
 
+ 
+
   return (
     <div
-      className={`scroll-top ${
-        visible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className={`scroll-top ${visible ? 'opacity-100' : 'not-visible'}
+        }`}
       onClick={scrollToTop}
     >
       <i className="fa fa-angle-up text-xl" />

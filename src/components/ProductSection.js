@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Slider from 'react-slick'; 
+import Slider from 'react-slick';
 
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
@@ -117,6 +117,34 @@ const products = [
     secondaryImage: '/assets/img/product/product-13.jpg',
     colors: ['LightSteelblue', 'Darktan', 'Grey', 'Brown'],
   },
+  {
+    id: 7,
+    category: 'Entertainment',
+    name: 'Perfect Diamond Jewelry',
+    manufacturer: 'Gold',
+    price: 60.0,
+    oldPrice: 70.0,
+    discount: '10%',
+    isNew: true,
+    isSale: false,
+    primaryImage: '/assets/img/product/product-1.jpg',
+    secondaryImage: '/assets/img/product/product-18.jpg',
+    colors: ['LightSteelblue', 'Darktan', 'Grey', 'Brown'],
+  },
+  {
+    id: 8,
+    category: 'Entertainment',
+    name: 'Perfect Diamond Jewelry',
+    manufacturer: 'Gold',
+    price: 60.0,
+    oldPrice: 70.0,
+    discount: '10%',
+    isNew: true,
+    isSale: false,
+    primaryImage: '/assets/img/product/product-1.jpg',
+    secondaryImage: '/assets/img/product/product-18.jpg',
+    colors: ['LightSteelblue', 'Darktan', 'Grey', 'Brown'],
+  },
   // Add more products as needed
 ];
 
@@ -131,105 +159,87 @@ export default function ProductSection() {
 
   // Slick Slider settings
   const sliderSettings = {
-    speed: 1000,
-    autoplay: true,
-    slidesToShow: 4,
-    adaptiveHeight: true,
-    prevArrow: <PrevArrow className="slick-prev" />,
-    nextArrow: <NextArrow className="slick-next" />,
-    responsive: [{
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 3
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        arrows: false
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        arrows: false
-      }
-    }]
+  speed: 1000,
+		slidesToShow: 4,
+		autoplay: true,
+		rows: 2,
+		adaptiveHeight: true,
+		prevArrow: <PrevArrow className="slick-prev" />,
+		nextArrow: <NextArrow className="slick-next" />,
+		responsive: [{
+			breakpoint: 992,
+			settings: {
+				slidesToShow: 3
+			}
+		},
+		{
+			breakpoint: 768,
+			settings: {
+				slidesToShow: 2,
+				arrows: false,
+				rows: 1
+			}
+		},
+		{
+			breakpoint: 480,
+			settings: {
+				slidesToShow: 1,
+				arrows: false,
+				rows: 1
+			}
+		}]
   };
 
   return (
-    <section className="product-area section-padding">
+    <section className="feature-product section-padding">
       <div className="container">
         <div className="row">
           <div className="col-12">
             <div className="section-title text-center">
-              <h2 className="title">Our Products</h2>
-              <p className="sub-title">Add our products to weekly lineup</p>
+              <h2 className="title">featured products</h2>
+              <p className="sub-title">Add featured products to weekly lineup</p>
             </div>
           </div>
         </div>
         <div className="row">
-          <div className="col-12">
-            <div className="product-container">
-              <div className="product-tab-menu">
-                <ul className="nav justify-content-center">
-                  {categories.map((category) => (
-                    <li key={category}>
-                      <a
-                        className={`${activeTab === category ? 'active' : ''}`}
-                        onClick={() => setActiveTab(category)}
-                        style={{ cursor: 'pointer' }}
-                      >
-                        {category}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="tab-content">
-                {categories.map((category) => (
-                  <div
-                    key={category}
-                    className={`tab-pane fade ${activeTab === category ? 'show active' : ''}`}
-                    id={`tab${categories.indexOf(category) + 1}`}
-                  >
-                    <Slider {...sliderSettings} className="slick-row-10 slick-arrow-style">
-                      {products
-                        .filter((product) => product.category === category)
-                        .map((product) => (
-                          <div key={product.id} className="product-item">
-                            <figure className="product-thumb">
-                              <Link href="/product-details">
-                                <Image
-                                  src={product.primaryImage}
-                                  alt={product.name}
-                                  width={300}
-                                  height={300}
-                                  className="pri-img"
-                                />
-                                <Image
-                                  src={product.secondaryImage}
-                                  alt={product.name}
-                                  width={300}
-                                  height={300}
-                                  className="sec-img"
-                                />
-                              </Link>
-                              <div className="product-badge">
-                                {product.isNew && (
-                                  <div className="product-label new">
-                                    <span>new</span>
-                                  </div>
-                                )}
-                                {product.discount && (
-                                  <div className="product-label discount">
-                                    <span>{product.discount}</span>
-                                  </div>
-                                )}
-                              </div>
-                              {/* <div className="button-group">
+          <div className="col-12"> 
+              <Slider {...sliderSettings} className="slick-row-10 slick-arrow-style">
+                {products
+                  .filter((product) => product.category)
+                  .map((product) => (
+                    <div key={product.id} className="product-item">
+                      <figure className="product-thumb">
+                        <Link href="/product-details">
+                          {/* <img
+                            src={product.primaryImage}
+                            alt={product.name}
+                            width={300}
+                            height={300}
+                            className="pri-img"
+                          />
+                          <Image
+                            src={product.secondaryImage}
+                            alt={product.name}
+                            width={300}
+                            height={300}
+                            className="sec-img"
+                          /> */}
+                          <img className="pri-img" src={product.primaryImage} alt="product" />
+                          <img className="sec-img" src={product.secondaryImage} alt="product" />
+                        </Link>
+                        <div className="product-badge">
+                          {product.isNew && (
+                            <div className="product-label new">
+                              <span>new</span>
+                            </div>
+                          )}
+                          {product.discount && (
+                            <div className="product-label discount">
+                              <span>{product.discount}</span>
+                            </div>
+                          )}
+                        </div>
+                        {/* <div className="button-group">
                                 <a
                                   href="wishlist.html"
                                   data-bs-toggle="tooltip"
@@ -259,50 +269,46 @@ export default function ProductSection() {
                               <div className="cart-hover">
                                 <button className="btn btn-cart">Add to cart</button>
                               </div> */}
-                            </figure>
-                            <div className="product-caption text-center">
-                              <div className="product-identity">
-                                <p className="manufacturer-name">
-                                  <Link href="/product-details">{product.manufacturer}</Link>
-                                </p>
-                              </div>
-                              <ul className="color-categories">
-                                {product.colors.map((color) => (
-                                  <li key={color}>
-                                    <a
-                                      href="#"
-                                      className={`${color.toLowerCase() === 'lightsteelblue'
-                                          ? 'c-lightblue'
-                                          : color.toLowerCase() === 'darktan'
-                                            ? 'c-darktan'
-                                            : color.toLowerCase() === 'grey'
-                                              ? 'c-grey'
-                                              : 'c-brown'
-                                        }`}
-                                      title={color}
-                                    ></a>
-                                  </li>
-                                ))}
-                              </ul>
-                              <h6 className="product-name">
-                                <Link href="/product-details">{product.name}</Link>
-                              </h6>
-                              <div className="price-box">
-                                <span className="price-regular">${product.price.toFixed(2)}</span>
-                                {product.oldPrice && (
-                                  <span className="price-old">
-                                    <del>${product.oldPrice.toFixed(2)}</del>
-                                  </span>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                    </Slider>
-                  </div>
-                ))}
-              </div>
-            </div>
+                      </figure>
+                      <div className="product-caption text-center">
+                        <div className="product-identity">
+                          <p className="manufacturer-name">
+                            <Link href="/product-details">{product.manufacturer}</Link>
+                          </p>
+                        </div>
+                        <ul className="color-categories">
+                          {product.colors.map((color) => (
+                            <li key={color}>
+                              <a
+                                href="#"
+                                className={`${color.toLowerCase() === 'lightsteelblue'
+                                  ? 'c-lightblue'
+                                  : color.toLowerCase() === 'darktan'
+                                    ? 'c-darktan'
+                                    : color.toLowerCase() === 'grey'
+                                      ? 'c-grey'
+                                      : 'c-brown'
+                                  }`}
+                                title={color}
+                              ></a>
+                            </li>
+                          ))}
+                        </ul>
+                        <h6 className="product-name">
+                          <Link href="/product-details">{product.name}</Link>
+                        </h6>
+                        <div className="price-box">
+                          <span className="price-regular">${product.price.toFixed(2)}</span>
+                          {product.oldPrice && (
+                            <span className="price-old">
+                              <del>${product.oldPrice.toFixed(2)}</del>
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </Slider> 
           </div>
         </div>
       </div>
