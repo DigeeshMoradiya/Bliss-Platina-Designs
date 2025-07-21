@@ -44,7 +44,7 @@ export default function FAQPage() {
                     <div className="col-12">
                         <div className="section-title text-center">
                             <h2 className="title">Frequently Asked Questions</h2>
-                            <p className="sub-title">Explore our FAQ for common queries. Can't find your answer? Contact us via email or chat for assistance!</p>
+                            <p className="sub-title">Explore our FAQ for common queries. Can&rsquo;t find your answer? Contact us via email or chat for assistance!</p>
                         </div>
                 </div>
 
