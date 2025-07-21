@@ -3741,22 +3741,22 @@ only screen and (max-width: 479.98px) {
 }
 
 .color-categories li a {
-  height: 12px;
-  width: 12px;
+  height: 16px;
+  width: 16px;
   display: block;
   border-radius: 50%;
 }
 
 .c-lightblue {
-  background-color: #b0c4de;
+  background-color: #E9E9E9;
 }
 
 .c-darktan {
-  background-color: #aa9e78;
+  background-color: #E5CE83;
 }
 
 .c-grey {
-  background-color: #808080;
+  background-color: #E7BA9A;
 }
 
 .c-brown {
@@ -4160,6 +4160,10 @@ only screen and (max-width: 767.98px) {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.cursor-pointer-none {
+  cursor: default;
 }
 
 .sidebar-single .sidebar-title {
@@ -5359,6 +5363,29 @@ only screen and (max-width: 767.98px) {
 
 .pro-nav-thumb {
   cursor: pointer;
+}
+
+.faq-icon {
+  color: #c29958;
+  font-size: 20px;
+  line-height: 1;
+
+}
+
+.faq-paragraph {
+  color: #555555;
+  font-size: 18px;
+  font-weight: 400;
+}
+.main-faq {
+  color: #555555; 
+  &:hover {
+    color: #c29958;
+  } 
+}
+.faq-border {
+  border: 1px solid #c29958 !important; 
+  
 }
 
 .pro-nav {

@@ -9,7 +9,7 @@ const ProductItem = ({ product, viewMode }) => {
             <div className="product-item">
                 <figure className="product-thumb">
                     <Link href={`/product-details/${product.id}`}>
-                            {/* <Image
+                        {/* <Image
                                 className="pri-img"
                                 src={product.primaryImage}
                                 alt={product.name}
@@ -23,8 +23,8 @@ const ProductItem = ({ product, viewMode }) => {
                                 width={300}
                                 height={300}
                             /> */}
-                              <img className="pri-img" src={product.primaryImage} alt="product" />
-                          <img className="sec-img" src={product.secondaryImage} alt="product" />
+                        <img className="pri-img" src={product.primaryImage} alt="product" />
+                        <img className="sec-img" src={product.secondaryImage} alt="product" />
                     </Link>
                     <div className="product-badge">
                         {product.isNew && (
@@ -38,7 +38,7 @@ const ProductItem = ({ product, viewMode }) => {
                             </div>
                         )}
                     </div>
-                    <div className="button-group">
+                    {/* <div className="button-group">
                         <a href="wishlist.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to wishlist">
                             <i className="pe-7s-like"></i>
                         </a>
@@ -50,29 +50,36 @@ const ProductItem = ({ product, viewMode }) => {
                                 <i className="pe-7s-search"></i>
                             </span>
                         </a>
-                    </div>
+                    </div> */}
                     <div className="cart-hover">
-                        <button className="btn btn-cart">add to cart</button>
+                        <button className="btn btn-cart">Buy Now</button>
                     </div>
                 </figure>
                 <div className="product-caption text-center">
                     <div className="product-identity">
                         <p className="manufacturer-name">
-                            <Link href={`/product-details/${product.id}`}>
+                            <Link href={`/product-details`}>
                                 {product.manufacturer}
                             </Link>
                         </p>
                     </div>
-                    <ul className="color-categories">
+                    {/* <ul className="color-categories">
                         {product.colors.map((color, index) => (
                             <li key={index}>
                                 <a className={`c-${color.toLowerCase()}`} href="#" title={color}></a>
                             </li>
                         ))}
+
+                    </ul> */}
+                    <ul className="color-categories">
+                        <li><a className="c-lightblue cursor-pointer-none" title="LightSteelblue"></a></li>
+                        <li><a className="c-darktan cursor-pointer-none" title="Darktan"></a></li>
+                        <li><a className="c-grey cursor-pointer-none" title="Grey"></a></li>
+                        {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
                     </ul>
                     <h6 className="product-name">
                         <Link href={`/product-details/${product.id}`}>
-                    {product.name}
+                            {product.name}
                         </Link>
                     </h6>
                     <div className="price-box">
@@ -89,20 +96,20 @@ const ProductItem = ({ product, viewMode }) => {
             <div className="product-list-item">
                 <figure className="product-thumb">
                     <Link href={`/product-details/${product.id}`}>
-                            <Image
-                                className="pri-img"
-                                src={product.primaryImage}
-                                alt={product.name}
-                                width={300}
-                                height={300}
-                            />
-                            <Image
-                                className="sec-img"
-                                src={product.secondaryImage}
-                                alt={product.name}
-                                width={300}
-                                height={300}
-                            />
+                        <Image
+                            className="pri-img"
+                            src={product.primaryImage}
+                            alt={product.name}
+                            width={300}
+                            height={300}
+                        />
+                        <Image
+                            className="sec-img"
+                            src={product.secondaryImage}
+                            alt={product.name}
+                            width={300}
+                            height={300}
+                        />
                     </Link>
                     <div className="product-badge">
                         {product.isNew && (

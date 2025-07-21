@@ -50,7 +50,7 @@ export default function Header() {
                                     </Link>
                                 </div>
                             </div>
-                            <div className="col-lg-8 position-static">
+                            <div className="col-lg-8 position-static d-flex justify-content-center">
                                 <div className="main-menu-area">
                                     <div className="main-menu">
                                         <nav className="desktop-menu">

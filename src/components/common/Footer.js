@@ -53,6 +53,7 @@ export default function Footer() {
                                     <ul className="info-list">
                                         <li><Link href="/aboutus">About Us</Link></li>
                                         <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                                        <li><Link href="/faq">FAQ&rsquo;s</Link></li>
                                         <li><Link href="/terms-conditions">Terms & Conditions</Link></li>
                                         <li><Link href="/contact-us">Contact Us</Link></li>
                                     </ul>

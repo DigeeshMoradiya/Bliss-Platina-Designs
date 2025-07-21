@@ -274,23 +274,11 @@ export default function NewArrivalSection() {
                                                 </p>
                                             </div>
                                             <ul className="color-categories">
-                                                {product.colors.map((color) => (
-                                                    <li key={color}>
-                                                        <a
-                                                            href="#"
-                                                            className={`${color.toLowerCase() === 'lightsteelblue'
-                                                                ? 'c-lightblue'
-                                                                : color.toLowerCase() === 'darktan'
-                                                                    ? 'c-darktan'
-                                                                    : color.toLowerCase() === 'grey'
-                                                                        ? 'c-grey'
-                                                                        : 'c-brown'
-                                                                }`}
-                                                            title={color}
-                                                        ></a>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                                    <li><a className="c-lightblue cursor-pointer-none" title="LightSteelblue"></a></li>
+                                                    <li><a className="c-darktan cursor-pointer-none"  title="Darktan"></a></li>
+                                                    <li><a className="c-grey cursor-pointer-none" title="Grey"></a></li>
+                                                    {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
+                                                </ul>
                                             <h6 className="product-name">
                                                 <Link href="/product-details">{product.name}</Link>
                                             </h6>

@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import Link from 'next/link';
 import Breadcrumb from './common/Breadcrumb';
 
+
 // Custom Arrow Components
 const PrevArrow = (props) => {
     const { className, style, onClick } = props;
@@ -61,13 +62,26 @@ const ProductDetails = () => {
         slidesToScroll: 1,
         asNavFor: navMain,
         dots: false,
-        centerMode: false, // centerMode + variable widths can get weird; enable if you really want it
+        infinite: false,
         focusOnSelect: true,
         swipeToSlide: true,
         arrows: false,
-
-        // responsive breakpoints if needed
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                },
+            },
+        ],
     };
+
 
     const handleQuantityChange = (e) => {
         setQuantity(parseInt(e.target.value) || 1);
@@ -88,38 +102,38 @@ const ProductDetails = () => {
         { id: 5, name: 'Citygold Exclusive Ring', price: 60, oldPrice: 70, img1: '/assets/img/product/product-15.jpg', img2: '/assets/img/product/product-4.jpg', badge: ['new', '20%'], brand: 'mony' }
     ];
 
-   const settings = {
-    speed: 1000,
-    autoplay: true,
-    slidesToShow: 4,
-     centerMode: false, 
-    adaptiveHeight: true,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
-    responsive: [
-      {
-        breakpoint: 992, // < 992px
-        settings: {
-          slidesToShow: 3,
-          arrows: true,
-        },
-      },
-      {
-        breakpoint: 768, // < 768px
-        settings: {
-          slidesToShow: 2,
-          arrows: false,
-        },
-      },
-      {
-        breakpoint: 480, // < 480px
-        settings: {
-          slidesToShow: 1,
-          arrows: false,
-        },
-      },
-    ],
-  };
+    const settings = {
+        speed: 1000,
+        autoplay: true,
+        slidesToShow: 4,
+        centerMode: false,
+        adaptiveHeight: true,
+        prevArrow: <PrevArrow />,
+        nextArrow: <NextArrow />,
+        responsive: [
+            {
+                breakpoint: 992, // < 992px
+                settings: {
+                    slidesToShow: 3,
+                    arrows: true,
+                },
+            },
+            {
+                breakpoint: 768, // < 768px
+                settings: {
+                    slidesToShow: 2,
+                    arrows: false,
+                },
+            },
+            {
+                breakpoint: 480, // < 480px
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false,
+                },
+            },
+        ],
+    };
     return (
         <main>
             {/* Breadcrumb Area */}
@@ -141,7 +155,11 @@ const ProductDetails = () => {
                                                 </div>
                                             ))}
                                         </Slider>
-                                        <Slider {...thumbSettings} ref={slider => setNavThumbs(slider)} className="pro-nav slick-row-10 slick-arrow-style">
+                                        <Slider
+                                            {...thumbSettings}
+                                            ref={(slider) => setNavThumbs(slider)}
+                                            className="pro-nav slick-row-10 slick-arrow-style"
+                                        >
                                             {imageFiles.map((img, index) => (
                                                 <div key={index} className="pro-nav-thumb">
                                                     <img src={`/assets/img/product/${img}`} alt="product-details" />
@@ -155,66 +173,76 @@ const ProductDetails = () => {
                                                 <Link href="/product-details">HasTech</Link>
                                             </div>
                                             <h3 className="product-name">Handmade Golden Necklace Full Family Package</h3>
-                                            <div className="ratings d-flex">
+                                            {/* <div className="ratings d-flex">
                                                 {[...Array(5)].map((_, i) => (
                                                     <span key={i}><i className="fa fa-star-o"></i></span>
                                                 ))}
                                                 <div className="pro-review">
                                                     <span>1 Reviews</span>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                             <div className="price-box">
                                                 <span className="price-regular">$70.00</span>
-                                                <span className="price-old">$90.00</span>
+                                                <span className="price-old"><del>$90.00</del></span>
                                             </div>
-                                            <h5 className="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
+                                            {/* <h5 className="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
                                             <div className="product-countdown" data-countdown="2022/12/20"></div>
                                             <div className="availability">
                                                 <i className="fa fa-check-circle"></i>
                                                 <span>200 in stock</span>
-                                            </div>
+                                            </div> */}
                                             <p className="pro-desc">
                                                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
                                                 eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
                                                 voluptua. Phasellus id nisi quis justo tempus mollis sed et dui.
                                             </p>
-                                            <div className="quantity-cart-box d-flex align-items-center">
-                                                <h6 className="option-title">qty:</h6>
+                                            <div className="quantity-cart-box d-flex align-items-center ">
+                                                <h6 className="option-title">Matel:</h6>
                                                 <div className="quantity">
-                                                    <div className="pro-qty"><input type="text" value="1" /></div>
+                                                    {/* <div className="pro-qty"><input type="text" value="1" /></div> */}
+                                                    <span className="px-3 py-1 border rounded-md text-sm text-gray-700 mr-5">10KT</span>
+                                                    <span className="px-3 py-1 border rounded-md text-sm text-gray-700">12KT</span>
+                                                    <span className="px-3 py-1 border rounded-md text-sm text-gray-700">18KT</span>
+                                                    <span className="px-3 py-1 border rounded-md text-sm text-gray-700">950 Platinum</span>
                                                 </div>
-                                                <div className="action_link">
+                                                {/* <div className="action_link">
                                                     <button className="btn btn-cart2">Add to cart</button>
-                                                </div>
+                                                </div> */}
                                             </div>
                                             <div className="pro-size">
                                                 <h6 className="option-title">size:</h6>
-                                                <select className="nice-select">
+                                                <p>
+                                                    Custom Size Available
+                                                </p>
+                                                {/* <select className="nice-select">
                                                     <option>S</option>
                                                     <option>M</option>
                                                     <option>L</option>
                                                     <option>XL</option>
-                                                </select>
+                                                </select> */}
                                             </div>
                                             <div className="color-option">
                                                 <h6 className="option-title">color:</h6>
                                                 <ul className="color-categories">
-                                                    <li><a className="c-lightblue" href="#" title="LightSteelblue"></a></li>
-                                                    <li><a className="c-darktan" href="#" title="Darktan"></a></li>
-                                                    <li><a className="c-grey" href="#" title="Grey"></a></li>
-                                                    <li><a className="c-brown" href="#" title="Brown"></a></li>
+                                                    <li><a className="c-lightblue cursor-pointer-none" title="LightSteelblue"></a></li>
+                                                    <li><a className="c-darktan cursor-pointer-none" title="Darktan"></a></li>
+                                                    <li><a className="c-grey cursor-pointer-none" title="Grey"></a></li>
+                                                    {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
                                                 </ul>
                                             </div>
-                                            <div className="useful-links">
+                                            <div className="action_link">
+                                                <button className="btn btn-cart2">Buy Now</button>
+                                            </div>
+                                            {/* <div className="useful-links">
                                                 <a href="#" title="Compare"><i className="pe-7s-refresh-2"></i> compare</a>
                                                 <a href="#" title="Wishlist"><i className="pe-7s-like"></i> wishlist</a>
-                                            </div>
-                                            <div className="like-icon">
+                                            </div> */}
+                                            {/* <div className="like-icon">
                                                 <a href="#" className="facebook"><i className="fa fa-facebook"></i> like</a>
                                                 <a href="#" className="twitter"><i className="fa fa-twitter"></i> tweet</a>
                                                 <a href="#" className="pinterest"><i className="fa fa-pinterest"></i> save</a>
                                                 <a href="#" className="google"><i className="fa fa-google-plus"></i> share</a>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -251,11 +279,11 @@ const ProductDetails = () => {
                                                             <tbody>
                                                                 <tr>
                                                                     <td>color</td>
-                                                                    <td>black, blue, red</td>
+                                                                    <td>White Gold, Yellow Gold, Rose Gold</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>size</td>
-                                                                    <td>L, M, S</td>
+                                                                    <td>Custom Size Available</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -375,13 +403,13 @@ const ProductDetails = () => {
                                                     </div>
                                                 ))}
                                             </div>
-                                            <div className="button-group">
+                                            {/* <div className="button-group">
                                                 <a href="#" title="Add to wishlist"><i className="pe-7s-like"></i></a>
                                                 <a href="#" title="Add to Compare"><i className="pe-7s-refresh-2"></i></a>
                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><i className="pe-7s-search"></i></a>
-                                            </div>
+                                            </div> */}
                                             <div className="cart-hover">
-                                                <button className="btn btn-cart">add to cart</button>
+                                                <button className="btn btn-cart">buy now</button>
                                             </div>
                                         </figure>
                                         <div className="product-caption text-center">
@@ -389,15 +417,15 @@ const ProductDetails = () => {
                                                 <p className="manufacturer-name"><Link href="/product-details">{product.brand}</Link></p>
                                             </div>
                                             <ul className="color-categories">
-                                                <li><a className="c-lightblue" href="#" title="LightSteelblue"></a></li>
-                                                <li><a className="c-darktan" href="#" title="Darktan"></a></li>
-                                                <li><a className="c-grey" href="#" title="Grey"></a></li>
-                                                <li><a className="c-brown" href="#" title="Brown"></a></li>
+                                                <li><a className="c-lightblue cursor-pointer-none" title="LightSteelblue"></a></li>
+                                                <li><a className="c-darktan cursor-pointer-none" title="Darktan"></a></li>
+                                                <li><a className="c-grey cursor-pointer-none" title="Grey"></a></li>
+                                                {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
                                             </ul>
                                             <h6 className="product-name"><Link href="/product-details">{product.name}</Link></h6>
                                             <div className="price-box">
                                                 <span className="price-regular">${product.price}.00</span>
-                                                {product.oldPrice && <span className="price-old">${product.oldPrice}.00</span>}
+                                                {product.oldPrice && <span className="price-old"><del>${product.oldPrice}.00</del></span>}
                                             </div>
                                         </div>
                                     </div>
