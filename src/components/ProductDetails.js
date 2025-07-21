@@ -181,9 +181,17 @@ const ProductDetails = () => {
                                                     <span>1 Reviews</span>
                                                 </div>
                                             </div> */}
-                                            <div className="price-box">
-                                                <span className="price-regular">$70.00</span>
-                                                <span className="price-old"><del>$90.00</del></span>
+                                            <div className="d-flex align-items-center justify-content-between">
+                                                <div className="price-box">
+                                                    <span className="price-regular">$70.00</span>
+                                                    <span className="price-old"><del>$90.00</del></span>
+                                                </div>
+                                                <div className="pro-size mb-0">
+                                                    <h6 className="option-title ">SKU:</h6>
+                                                    <p>
+                                                        LGER0015
+                                                    </p>
+                                                </div>
                                             </div>
                                             {/* <h5 className="offer-text"><strong>Hurry up</strong>! offer ends in:</h5>
                                             <div className="product-countdown" data-countdown="2022/12/20"></div>
