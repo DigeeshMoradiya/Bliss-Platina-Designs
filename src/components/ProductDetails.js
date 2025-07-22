@@ -40,46 +40,53 @@ const ProductDetails = () => {
     const [navThumbs, setNavThumbs] = useState(null);
     const mainSliderRef = useRef(null);
     const navSliderRef = useRef(null);
+    const thumbSliderRef = useRef(null);
 
     useEffect(() => {
-        if (navMain && navThumbs) {
-            navMain.slickGoTo(0);
-            navThumbs.slickGoTo(0);
+        if (mainSliderRef.current && thumbSliderRef.current) {
+            mainSliderRef.current.slickGoTo(0);
+            thumbSliderRef.current.slickGoTo(0);
         }
-    }, [navMain, navThumbs]);
-
+    }, []);
     const mainSettings = {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
         fade: true,
-        asNavFor: navThumbs,
-        // you can add responsive, prevArrow, nextArrow, etc.
-    };
+        asNavFor: thumbSliderRef.current,
 
+        ref: mainSliderRef
+    };
     const thumbSettings = {
         slidesToShow: 4,
         slidesToScroll: 1,
-        asNavFor: navMain,
+        asNavFor: mainSliderRef.current,
         dots: false,
-        infinite: false,
-        focusOnSelect: true,
-        swipeToSlide: true,
         arrows: false,
+        focusOnSelect: true,
+        vertical: false,
+        infinite: false,
         responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
             {
                 breakpoint: 768,
                 settings: {
                     slidesToShow: 3,
-                },
+                    vertical: false
+                }
             },
             {
-                breakpoint: 480,
+                breakpoint: 576,
                 settings: {
-                    slidesToShow: 2,
-                },
-            },
-        ],
+                    slidesToShow: 2
+                }
+            }
+        ]
     };
 
 
@@ -147,8 +154,8 @@ const ProductDetails = () => {
                             <div className="product-details-inner">
                                 <div className="row">
                                     <div className="col-lg-5">
-                                        <Slider {...mainSettings} ref={slider => setNavMain(slider)}
-                                            className="product-large-slider">
+                                        <Slider {...mainSettings} className='product-large-slider'
+                                        >
                                             {imageFiles.map((img, index) => (
                                                 <div key={index} className="pro-large-img img-zoom">
                                                     <img src={`/assets/img/product/${img}`} alt="product-details" />
@@ -157,11 +164,10 @@ const ProductDetails = () => {
                                         </Slider>
                                         <Slider
                                             {...thumbSettings}
-                                            ref={(slider) => setNavThumbs(slider)}
-                                            className="pro-nav slick-row-10 slick-arrow-style"
+                                            className='pro-nav'
                                         >
                                             {imageFiles.map((img, index) => (
-                                                <div key={index} className="pro-nav-thumb">
+                                                <div key={index} className="pro-nav-thumb p-1">
                                                     <img src={`/assets/img/product/${img}`} alt="product-details" />
                                                 </div>
                                             ))}
