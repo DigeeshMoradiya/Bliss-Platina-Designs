@@ -44,10 +44,16 @@ const ProductDetails = () => {
 
     useEffect(() => {
         if (mainSliderRef.current && thumbSliderRef.current) {
+            // Force update the asNavFor references
             mainSliderRef.current.slickGoTo(0);
             thumbSliderRef.current.slickGoTo(0);
+
+            // Update the slider references
+            mainSettings.asNavFor = thumbSliderRef.current;
+            thumbSettings.asNavFor = mainSliderRef.current;
         }
     }, []);
+
     const mainSettings = {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -55,7 +61,7 @@ const ProductDetails = () => {
         fade: true,
         asNavFor: thumbSliderRef.current,
 
-        ref: mainSliderRef
+        ref: (slider) => (mainSliderRef.current = slider)
     };
     const thumbSettings = {
         slidesToShow: 4,
@@ -64,6 +70,7 @@ const ProductDetails = () => {
         dots: false,
         arrows: false,
         focusOnSelect: true,
+        // ref: (slider) => (thumbSliderRef.current = slider),
         vertical: false,
         infinite: false,
         responsive: [
@@ -141,6 +148,28 @@ const ProductDetails = () => {
             },
         ],
     };
+
+    const handleZoom = (e) => {
+        const zoomer = e.currentTarget;
+        const offsetX = e.nativeEvent.offsetX;
+        const offsetY = e.nativeEvent.offsetY;
+        const x = (offsetX / zoomer.offsetWidth) * 100;
+        const y = (offsetY / zoomer.offsetHeight) * 100;
+        zoomer.style.transformOrigin = `${x}% ${y}%`;
+        zoomer.style.transform = 'scale(1.2)';
+    };
+
+    const resetZoom = () => {
+        const zoomImages = document.querySelectorAll('.pro-large-img img');
+        zoomImages.forEach(img => {
+            img.style.transform = 'scale(1)';
+            img.style.transformOrigin = 'center center';
+        });
+    };
+
+    const handleWhatsapp = () => {
+        window.open("https://api.whatsapp.com/send?phone=919898206379", "_blank");
+    };
     return (
         <main>
             {/* Breadcrumb Area */}
@@ -153,12 +182,16 @@ const ProductDetails = () => {
                         <div className="col-lg-12 order-1 order-lg-2">
                             <div className="product-details-inner">
                                 <div className="row">
-                                    <div className="col-lg-5">
+                                    <div className="col-lg-6">
                                         <Slider {...mainSettings} className='product-large-slider'
                                         >
                                             {imageFiles.map((img, index) => (
                                                 <div key={index} className="pro-large-img img-zoom">
-                                                    <img src={`/assets/img/product/${img}`} alt="product-details" />
+                                                    <img src={`/assets/img/product/${img}`} alt="product-details"
+                                                        onMouseMove={handleZoom}
+                                                        onMouseLeave={resetZoom}
+                                                    // className="transition-transform duration-300 ease-in-out"
+                                                    />
                                                 </div>
                                             ))}
                                         </Slider>
@@ -168,12 +201,15 @@ const ProductDetails = () => {
                                         >
                                             {imageFiles.map((img, index) => (
                                                 <div key={index} className="pro-nav-thumb p-1">
-                                                    <img src={`/assets/img/product/${img}`} alt="product-details" />
+                                                    <img src={`/assets/img/product/${img}`} alt="product-details"
+                                                        onClick={() => {
+                                                            mainSliderRef.current.slickGoTo(index);
+                                                        }} />
                                                 </div>
                                             ))}
                                         </Slider>
                                     </div>
-                                    <div className="col-lg-7">
+                                    <div className="col-lg-6">
                                         <div className="product-details-des">
                                             <div className="manufacturer-name">
                                                 <Link href="/product-details">HasTech</Link>
@@ -212,12 +248,12 @@ const ProductDetails = () => {
                                             </p>
                                             <div className="quantity-cart-box d-flex align-items-center ">
                                                 <h6 className="option-title">Matel:</h6>
-                                                <div className="quantity">
+                                                <div className="quantity d-flex align-items-center gap-3">
                                                     {/* <div className="pro-qty"><input type="text" value="1" /></div> */}
-                                                    <span className="px-3 py-1 border rounded-md text-sm text-gray-700 mr-5">10KT</span>
-                                                    <span className="px-3 py-1 border rounded-md text-sm text-gray-700">12KT</span>
-                                                    <span className="px-3 py-1 border rounded-md text-sm text-gray-700">18KT</span>
-                                                    <span className="px-3 py-1 border rounded-md text-sm text-gray-700">950 Platinum</span>
+                                                    <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">10KT</div>
+                                                    <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">12KT</div>
+                                                    <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">18KT</div>
+                                                    <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">950 Platinum</div>
                                                 </div>
                                                 {/* <div className="action_link">
                                                     <button className="btn btn-cart2">Add to cart</button>
@@ -237,15 +273,15 @@ const ProductDetails = () => {
                                             </div>
                                             <div className="color-option">
                                                 <h6 className="option-title">color:</h6>
-                                                <ul className="color-categories">
-                                                    <li><a className="c-lightblue cursor-pointer-none" title="LightSteelblue"></a></li>
-                                                    <li><a className="c-darktan cursor-pointer-none" title="Darktan"></a></li>
-                                                    <li><a className="c-grey cursor-pointer-none" title="Grey"></a></li>
+                                                <ul className="color-categories-details">
+                                                    <li><a className="c-lightblue cursor-pointer-none" title="White Gold"></a></li>
+                                                    <li><a className="c-darktan cursor-pointer-none" title="Yellow Gold"></a></li>
+                                                    <li><a className="c-grey cursor-pointer-none" title="Rose Gold"></a></li>
                                                     {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
                                                 </ul>
                                             </div>
                                             <div className="action_link">
-                                                <button className="btn btn-cart2">Buy Now</button>
+                                                <button className="btn btn-cart2" onClick={handleWhatsapp}>Buy Now</button>
                                             </div>
                                             {/* <div className="useful-links">
                                                 <a href="#" title="Compare"><i className="pe-7s-refresh-2"></i> compare</a>
@@ -431,9 +467,9 @@ const ProductDetails = () => {
                                                 <p className="manufacturer-name"><Link href="/product-details">{product.brand}</Link></p>
                                             </div>
                                             <ul className="color-categories">
-                                                <li><a className="c-lightblue cursor-pointer-none" title="LightSteelblue"></a></li>
-                                                <li><a className="c-darktan cursor-pointer-none" title="Darktan"></a></li>
-                                                <li><a className="c-grey cursor-pointer-none" title="Grey"></a></li>
+                                                <li><a className="c-lightblue cursor-pointer-none" title="White Gold"></a></li>
+                                                <li><a className="c-darktan cursor-pointer-none" title="Yellow Gold"></a></li>
+                                                <li><a className="c-grey cursor-pointer-none" title="Rose Gold"></a></li>
                                                 {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
                                             </ul>
                                             <h6 className="product-name"><Link href="/product-details">{product.name}</Link></h6>

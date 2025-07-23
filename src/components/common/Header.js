@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 
 export default function Header() {
     const [offCanvasOpen, setOffCanvasOpen] = useState(false);
-
+    const pathname = usePathname();
     return (
         <header className="header-area header-wide">
             {/* Top Bar */}
@@ -15,7 +16,7 @@ export default function Header() {
                         <div className="row align-items-center">
                             <div className="col-lg-4">
                                 <div className="welcome-message">
-                                    <p>Welcome to Corano Jewelry online store</p>
+                                    <p>Welcome to Bliss Platina Jewelry online store</p>
                                 </div>
                             </div>
                             <div className="col-lg-4">
@@ -55,7 +56,7 @@ export default function Header() {
                                     <div className="main-menu">
                                         <nav className="desktop-menu">
                                             <ul>
-                                                <li className="active position-static">
+                                                <li className={pathname === '/' ? 'active position-static' : 'position-static'}>
                                                     <Link href="/">
                                                         Engagement Rings <i className="fa fa-angle-down"></i>
                                                     </Link>
@@ -181,8 +182,8 @@ export default function Header() {
 
                                                     </ul>
                                                 </li>
-                                                <li>
-                                                    <Link href="/custom-design">
+                                                <li className={pathname === '/custom-design' ? 'active' : ''}>
+                                                    <Link href="/custom-design" >
                                                         Custom Design
                                                     </Link>
                                                 </li>
@@ -342,30 +343,30 @@ export default function Header() {
                                         </ul>
                                     </li>
 
-                                     <li className="menu-item-has-children">
+                                    <li className="menu-item-has-children">
                                         <Link href="/">Fine Jewelry</Link>
                                         <ul className="dropdown">
                                             <li className="menu-item-has-children">
                                                 <Link href="/">Lab Grown Diamonds</Link>
                                                 <ul className="dropdown">
-                                                   <li><Link href="/shop">Earrings</Link></li>
-                                                                <li><Link href="/shop">Pendants & Necklaces</Link></li>
-                                                                <li><Link href="/shop">Bracelets</Link></li>
-                                                                <li><Link href="/shop">Bridal Sets</Link></li>
+                                                    <li><Link href="/shop">Earrings</Link></li>
+                                                    <li><Link href="/shop">Pendants & Necklaces</Link></li>
+                                                    <li><Link href="/shop">Bracelets</Link></li>
+                                                    <li><Link href="/shop">Bridal Sets</Link></li>
                                                 </ul>
                                             </li>
                                             <li className="menu-item-has-children">
                                                 <Link href="/">Moissanite</Link>
                                                 <ul className="dropdown">
-                                                     <li><Link href="/shop">Moissanite</Link></li>
-                                                                <li><Link href="/shop">Earrings</Link></li>
-                                                                <li><Link href="/shop">Pendants</Link></li>
-                                                                <li><Link href="/shop">Bracelets</Link></li>
-                                                                <li><Link href="/shop">Bridal Sets</Link></li>
+                                                    <li><Link href="/shop">Moissanite</Link></li>
+                                                    <li><Link href="/shop">Earrings</Link></li>
+                                                    <li><Link href="/shop">Pendants</Link></li>
+                                                    <li><Link href="/shop">Bracelets</Link></li>
+                                                    <li><Link href="/shop">Bridal Sets</Link></li>
                                                 </ul>
                                             </li>
-                                            
-                                            
+
+
                                         </ul>
                                     </li>
 
@@ -398,7 +399,7 @@ export default function Header() {
                                             <Link className="dropdown-item" href="/login-register">Register</Link>
                                         </div> */}
 
-                                          <div className="language cursor-auto">
+                                        <div className="language cursor-auto">
                                             <Image src="/assets/img/icon/en.png" alt="flag" width={20} height={13} /> English
                                         </div>
                                     </div>

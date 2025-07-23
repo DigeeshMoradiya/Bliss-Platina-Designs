@@ -10,6 +10,7 @@ import SidebarBanner from '@/components/shop/Sidebar/SidebarBanner';
 import ShopTopBar from '@/components/shop/ShopTopBar';
 import ProductGrid from '@/components/shop/ProductGrid';
 import Pagination from '@/components/shop/Pagination';
+import SEO from '@/components/common/SEO';
 
 
 const ShopPage = () => {
@@ -227,10 +228,7 @@ const ShopPage = () => {
 
     return (
         <>
-            <Head>
-                <title>Shop - Your Store Name</title>
-                <meta name="description" content="Browse our amazing product collection" />
-            </Head>
+           <SEO/>
 
             <main>
                 <Breadcrumb pageTitle="Shop" />

@@ -274,9 +274,9 @@ export default function NewArrivalSection() {
                                                 </p>
                                             </div>
                                             <ul className="color-categories">
-                                                    <li><a className="c-lightblue cursor-pointer-none" title="LightSteelblue"></a></li>
-                                                    <li><a className="c-darktan cursor-pointer-none"  title="Darktan"></a></li>
-                                                    <li><a className="c-grey cursor-pointer-none" title="Grey"></a></li>
+                                                    <li><a className="c-lightblue cursor-pointer-none" title="White Gold"></a></li>
+                                                    <li><a className="c-darktan cursor-pointer-none" title="Yellow Gold"></a></li>
+                                                    <li><a className="c-grey cursor-pointer-none" title="Rose Gold"></a></li>
                                                     {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
                                                 </ul>
                                             <h6 className="product-name">

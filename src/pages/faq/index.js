@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
@@ -31,50 +31,74 @@ export default function FAQPage() {
         },
     ];
 
-    const [openIndex, setOpenIndex] = useState(null);
+    const [openId, setOpenId] = useState(null);
 
-    const toggleFAQ = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const handleShown = (e) => setOpenId(e.target.id);
+            const handleHidden = (e) => setOpenId(null);
+
+            const items = document.querySelectorAll(".accordion-collapse");
+            items.forEach((item) => {
+                item.addEventListener("shown.bs.collapse", handleShown);
+                item.addEventListener("hidden.bs.collapse", handleHidden);
+            });
+
+            return () => {
+                items.forEach((item) => {
+                    item.removeEventListener("shown.bs.collapse", handleShown);
+                    item.removeEventListener("hidden.bs.collapse", handleHidden);
+                });
+            };
+        }
+    }, []);
 
     return (
         <>
             <Breadcrumb pageTitle="FAQ" />
             <section className="feature-product section-padding pb-0">
-                    <div className="col-12">
-                        <div className="section-title text-center">
-                            <h2 className="title">Frequently Asked Questions</h2>
-                            <p className="sub-title">Explore our FAQ for common queries. Can&rsquo;t find your answer? Contact us via email or chat for assistance!</p>
-                        </div>
+                <div className="col-12">
+                    <div className="section-title text-center">
+                        <h2 className="title">Frequently Asked Questions</h2>
+                        <p className="sub-title">
+                            Explore our FAQ for common queries. Can&rsquo;t find your answer? Contact us via email or chat for assistance!
+                        </p>
+                    </div>
                 </div>
 
-                <img src="/assets/img/faq/faq-image.png" alt="FAQ Image" />
-
-                <div className="max-w-3xl mx-auto section-padding">
-                    {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className="border border-gray-200 rounded-lg p-4 shadow-sm transition duration-300 bg-white main-faq"
-                        >
-                            <div
-                                onClick={() => toggleFAQ(index)}
-                                className={`d-flex align-items-center justify-content-between  ${openIndex === index ? "mb-1" : ""} cursor-pointer w-full`}
-                            >
-                                <h3 className="product-name">
-                                    {faq.question}
-                                </h3>
-                                <div className={`${openIndex === index ? "faq-icon" : ""}`}>
-                                    {openIndex === index ? <ChevronUp size={38} /> : <ChevronDown size={38} />}
-                                </div>
+                <div className="container">
+                    <div className="section-padding pt-0">
+                        <div className="checkoutaccordion" id="checkOutAccordion">
+                            <div className="card">
+                                {faqs.map((faq, index) => {
+                                    const collapseId = `logInaccordion-${index}`;
+                                    return (
+                                        <div className="px-3" key={index}>
+                                            <div className="border-faq rounded-lg transition duration-300 bg-white main-faq">
+                                                <div
+                                                    data-bs-toggle="collapse"
+                                                    data-bs-target={`#${collapseId}`}
+                                                    className="d-flex align-items-center justify-content-between py-3 cursor-pointer w-full"
+                                                >
+                                                    <h4 className="product-name">{faq.question}</h4>
+                                                    <div>
+                                                        {openId === collapseId ? <ChevronUp size={38} /> : <ChevronDown size={38} />}
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    id={collapseId}
+                                                    className="collapse accordion-collapse"
+                                                    data-bs-parent="#checkOutAccordion"
+                                                >
+                                                    <p className="faq-paragraph py-2 text-gray-700">{faq.answer}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                             </div>
-                            {openIndex === index && (
-                                
-                                    <p className="faq-paragraph py-2 text-gray-700">{faq.answer}</p>
-                                 
-                            )}
-
                         </div>
-                    ))}
+                    </div>
                 </div>
             </section>
         </>
