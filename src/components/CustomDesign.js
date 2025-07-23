@@ -68,7 +68,7 @@ export default function CustomDesign() {
                 <div className="col-12">
                     <div className="section-title text-center col-lg-7 m-auto">
                         <h2 className="title">Design Your Own Engagement Ring</h2>
-                        <p className="sub-title m-auto">Design your unique jewelry with Bliss Platina. Tailor every detail to your taste for a truly personal touch. Create the one-of-a-kind piece you've always dreamed of.</p>
+                        <p className="sub-title m-auto">Design your unique jewelry with Bliss Platina. Tailor every detail to your taste for a truly personal touch. Create the one-of-a-kind piece you&rsquo;ve always dreamed of.</p>
                     </div>
                 </div>
             </section>
@@ -266,7 +266,7 @@ export default function CustomDesign() {
                                     <div className="hero-slider-content slide-1">
                                         <h2 className="slide-title"><span>Find Your Ring Size</span></h2>
                                         <h4 className="slide-desc">Unsure of Your Ring Size? No Problem!
-                                            <br /> Click on 'Find Now' and let us assist you in choosing the right ring size for you.</h4>
+                                            <br /> Click on &rsquo;Find Now&rsquo; and let us assist you in choosing the right ring size for you.</h4>
                                         <div className="d-flex gap-3">
                                             <Link href="/shop" className="btn btn-hero">Print Now</Link>
                                             <Link href="/find-size" className="btn btn-find-now">Find Now</Link>
@@ -281,8 +281,8 @@ export default function CustomDesign() {
             <section className="feature-product section-padding pt-0">
                 <div className="col-12">
                     <div className="section-title text-center">
-                        <h2 className="title">Bliss Platina’s Promise</h2>
-                        <p className="sub-title">How We’re Distinct From Others!
+                        <h2 className="title">Bliss Platina&rsquo;s Promise</h2>
+                        <p className="sub-title">How We&rsquo;re Distinct From Others!
                         </p>
                     </div>
                 </div>
@@ -307,7 +307,7 @@ export default function CustomDesign() {
                     <div className="row mtn-30">
                         <div className="section-title text-center">
                             <h2 className="title mb-3">Why To Buy Custom Engagement Ring?</h2>
-                            <p className="sub-title">The custom engagement rings has more sentiments and attachments then the premade rings, which are specially made only for you, so it's like one of a kind. Diamondrensu allows users to get their dream engagement ring by allowing 100% customization and design your own engagement ring your way. Viewers can submit the details on the form above, including the reference or inspiration images, and we can make the same design for you. We can custom made engagement rings in any shape, size, and color of lab grown diamonds, moissanite, or other gemstones. For custom orders Diamondrensu specializes in lab grown diamond engagement rings, moissanite engagement rings, stud earrings, moissanite wedding bands, bracelets and many more. If you have questions or would like an expert opinion feel free to schedule a virtual appointment with us.
+                            <p className="sub-title">The custom engagement rings has more sentiments and attachments then the premade rings, which are specially made only for you, so it&rsquo;s like one of a kind. Diamondrensu allows users to get their dream engagement ring by allowing 100% customization and design your own engagement ring your way. Viewers can submit the details on the form above, including the reference or inspiration images, and we can make the same design for you. We can custom made engagement rings in any shape, size, and color of lab grown diamonds, moissanite, or other gemstones. For custom orders Diamondrensu specializes in lab grown diamond engagement rings, moissanite engagement rings, stud earrings, moissanite wedding bands, bracelets and many more. If you have questions or would like an expert opinion feel free to schedule a virtual appointment with us.
                             </p>
                             <p className="sub-title">Customized Diamond Rings are specially made by experienced craftsmen, with perfection and high quality finishing. Design your own rings with Diamondrensu and get one of a kind ring which will be made by you for you and your loved ones. Diamondrensu not only makes custom engagement rings but we also make custom moissanite earrings which are very useful for gifting purposes.
                             </p>
