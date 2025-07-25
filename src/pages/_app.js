@@ -20,6 +20,8 @@ export default function App({ Component, pageProps }) {
       <Script src="/assets/js/plugins/ajaxchimp.js" strategy="afterInteractive" />
       <Script src="/assets/js/plugins/ajax-mail.js" strategy="afterInteractive" />
 
+      
+
       {/* Load map if needed */}
       {/* 
       <Script

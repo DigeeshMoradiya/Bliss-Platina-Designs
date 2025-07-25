@@ -5377,6 +5377,10 @@ only screen and (max-width: 767.98px) {
   padding: 0 10px;
 }
 
+.error-message {
+  color: rgb(233, 14, 14);
+}
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .nice-select {
     width: 170px;
@@ -5391,6 +5395,28 @@ only screen and (max-width: 767.98px) {
 
 .nice-select.open {
   border-color: #c29958;
+}
+
+/* Custom phone input field styles */
+.react-tel-input .form-control {
+  border: 1px solid c29958 !important;
+  height: 48px !important;
+  color: #555555 !important;
+  font-size: 16px;
+  border-radius: 0px !important; /* optional */
+  /* padding-left: 48px !important; space for flag */
+  font-family: "Lato", sans-serif !important;
+  width: 100% !important;
+}
+
+
+.custom-select {
+  appearance: none;
+  background: url('/assets/img/icons/dropdown-arrow.svg') no-repeat right center;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  /* Add more as per your nice-select.css */
 }
 
 .nice-select .list {
@@ -6661,11 +6687,12 @@ only screen and (min-width: 768px) and (max-width: 991px) {
   color: #222222;
   margin: 0;
 }
-.text-dots { 
-  color: #AA9E78; 
+
+.text-dots {
+  color: #AA9E78;
 }
 
- /* .pro-country {
+/* .pro-country {
     text-align: center;
     font-weight: 500;
     white-space: nowrap;

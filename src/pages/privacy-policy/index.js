@@ -1,5 +1,6 @@
 "use client";
 import Breadcrumb from "@/components/common/Breadcrumb";
+import SEO from "@/components/common/SEO";
 import Link from "next/link";
 
 export default function PrivacyPolicy() {
@@ -105,8 +106,12 @@ export default function PrivacyPolicy() {
         },
     ];
     return (
-        <> 
-            <Breadcrumb pageTitle="Privacy Policy" /> 
+        <>
+            <SEO
+                title="Privacy Policy"
+                description="Learn how we collect, use, and protect your personal data when you browse or purchase from our jewelry website."
+            />
+            <Breadcrumb pageTitle="Privacy Policy" />
             <section className="policy-section section-padding">
                 <div className="container">
                     <div className="row">

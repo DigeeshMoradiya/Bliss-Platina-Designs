@@ -1,20 +1,12 @@
-import { useState } from 'react';
-import Head from 'next/head';
 import Breadcrumb from '@/components/common/Breadcrumb';
-import Categories from '@/components/shop/Sidebar/Categories';
-import PriceFilter from '@/components/shop/Sidebar/PriceFilter';
-import BrandFilter from '@/components/shop/Sidebar/BrandFilter';
-import ColorFilter from '@/components/shop/Sidebar/ColorFilter';
-import SizeFilter from '@/components/shop/Sidebar/SizeFilter';
-import SidebarBanner from '@/components/shop/Sidebar/SidebarBanner';
-import ShopTopBar from '@/components/shop/ShopTopBar';
-import ProductGrid from '@/components/shop/ProductGrid';
-import Pagination from '@/components/shop/Pagination';
 import SEO from '@/components/common/SEO';
+import ProductGrid from '@/components/shop/ProductGrid';
+import { usePathname } from 'next/navigation';
 
 
 const ShopPage = () => {
-    const [viewMode, setViewMode] = useState('grid');
+    const router = usePathname()
+
 
     // Sample product data
     const products = [
@@ -226,10 +218,15 @@ const ShopPage = () => {
         // Add all other products from the original HTML
     ];
 
+
+    console.log(router);
+
     return (
         <>
-           <SEO/>
-
+            <SEO
+                title="Jewelry Shop | Elegant & Handcrafted Designs"
+                description="Browse our exclusive jewelry collection featuring handcrafted rings, necklaces, bracelets, and more. Find timeless elegance and luxury pieces for every occasion."
+            />
             <main>
                 <Breadcrumb pageTitle="Shop" />
 
@@ -253,7 +250,7 @@ const ShopPage = () => {
                                 <div className="shop-product-wrapper">
                                     {/* <ShopTopBar viewMode={viewMode} onViewChange={setViewMode} /> */}
 
-                                    <ProductGrid products={products} viewMode={viewMode} />
+                                    <ProductGrid products={products} viewMode={"grid"} />
 
                                     {/* <Pagination /> */}
                                 </div>

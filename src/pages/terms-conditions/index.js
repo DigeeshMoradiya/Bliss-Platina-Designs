@@ -1,5 +1,6 @@
 "use client";
 import Breadcrumb from "@/components/common/Breadcrumb";
+import SEO from "@/components/common/SEO";
 import Link from "next/link";
 
 export default function TermsConditions() {
@@ -105,8 +106,13 @@ export default function TermsConditions() {
         },
     ];
     return (
-        <> 
-            <Breadcrumb pageTitle="Terms and Conditions" /> 
+        <>
+            <SEO
+                title="Terms & Conditions"
+                description="Read the terms and conditions for shopping on our jewelry site, including payments, returns, and disclaimers."
+            />
+
+            <Breadcrumb pageTitle="Terms and Conditions" />
             <section className="policy-section section-padding">
                 <div className="container">
                     <div className="row">

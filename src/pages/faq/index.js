@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import SEO from "@/components/common/SEO";
 
 export default function FAQPage() {
     const faqs = [
@@ -55,6 +56,10 @@ export default function FAQPage() {
 
     return (
         <>
+            <SEO
+                title="FAQs"
+                description="Find answers to frequently asked questions about jewelry care, returns, shipping, custom orders, and more."
+            />
             <Breadcrumb pageTitle="FAQ" />
             <section className="feature-product section-padding pb-0">
                 <div className="col-12">
