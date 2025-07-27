@@ -2,9 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import ProductItem from './ProductItem';
 import Loader from '../common/Loader';
 
-const ProductGrid = ({ products: initialProducts, viewMode }) => {
+const ProductGrid = ({ products: initialProducts, viewMode,setLoading ,loading}) => {
     const [products, setProducts] = useState(initialProducts.slice(0, 3));
-    const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(initialProducts.length > 3);
     const loaderRef = useRef(null);
 

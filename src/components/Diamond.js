@@ -455,7 +455,6 @@ export default function Diamond() {
             }),
         }),
         onSubmit: async (values) => {
-            console.log('Submitted values:', values);
         },
     });
 

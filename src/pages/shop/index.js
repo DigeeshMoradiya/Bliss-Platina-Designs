@@ -2,11 +2,14 @@ import Breadcrumb from '@/components/common/Breadcrumb';
 import SEO from '@/components/common/SEO';
 import ProductGrid from '@/components/shop/ProductGrid';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react';
 
 
 const ShopPage = () => {
     const router = usePathname()
 
+        const [loading, setLoading] = useState(false);
+    
 
     // Sample product data
     const products = [
@@ -219,7 +222,6 @@ const ShopPage = () => {
     ];
 
 
-    console.log(router);
 
     return (
         <>
@@ -230,7 +232,7 @@ const ShopPage = () => {
             <main>
                 <Breadcrumb pageTitle="Shop" />
 
-                <div className="shop-main-wrapper section-padding">
+                <div className={`shop-main-wrapper section-padding ${loading ? "pb-0" :" "}`}>
                     <div className="container">
                         <div className="row">
                             {/* Sidebar Area */}
@@ -250,7 +252,7 @@ const ShopPage = () => {
                                 <div className="shop-product-wrapper">
                                     {/* <ShopTopBar viewMode={viewMode} onViewChange={setViewMode} /> */}
 
-                                    <ProductGrid products={products} viewMode={"grid"} />
+                                    <ProductGrid products={products} viewMode={"grid"} setLoading={setLoading} loading={loading}/>
 
                                     {/* <Pagination /> */}
                                 </div>

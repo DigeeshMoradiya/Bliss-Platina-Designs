@@ -72,12 +72,12 @@ export default function FindSize() {
         {
             id: 3,
             name: 'Mark With Marker On Strip',
-            primaryImage: '/assets/img/find-size/step-1.png',
+            primaryImage: '/assets/img/find-size/step-3.png',
         },
         {
             id: 4,
             name: 'Measure With Scale On Point',
-            primaryImage: '/assets/img/find-size/step-2.png',
+            primaryImage: '/assets/img/find-size/step-4.png',
         },
 
     ];
