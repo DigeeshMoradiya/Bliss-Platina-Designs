@@ -26,7 +26,7 @@ export default function AboutUsSection() {
                   Established in 1986, I.D. Jewelry, LLC is a family-owned and operated business that has earned a reputation for excellence in fine jewelry. With a legacy rooted in trust, craftsmanship, and personalized service, we have proudly served customers across the United States and around the globe for nearly four decades.
                 </h5>
                 <p>
-                  Located in the heart of New York City's renowned 47th Street Diamond District, we are part of one of the world&rsquo;s largest and most prestigious jewelry communities. Our showroom offers an immersive, one-on-one experience for those who value the tradition of in-store shopping, allowing clients to explore our carefully curated collection in person.
+                  Located in the heart of New York City&rsquo;s renowned 47th Street Diamond District, we are part of one of the world&rsquo;s largest and most prestigious jewelry communities. Our showroom offers an immersive, one-on-one experience for those who value the tradition of in-store shopping, allowing clients to explore our carefully curated collection in person.
                 </p>
                 <p>
                   Over the years, our passion for quality and commitment to our customers has made us a household name. From engagement rings and wedding bands to custom designs and timeless classics, we are honored to be a part of your most meaningful moments.
