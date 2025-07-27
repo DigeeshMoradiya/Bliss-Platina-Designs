@@ -44,14 +44,15 @@ export default function AboutUsSection() {
             <div className="col-lg-7">
               <div className="about-content-2">
                 <h2 className="about-title">Our Mission</h2>
+
                 <h5 className="about-sub-title">
                   At I.D. Jewelry, our mission is to create a personalized and memorable jewelry experience for every client. We believe that fine jewelry should not only be beautiful but also meaningful, which is why we focus on craftsmanship, quality materials, and attention to detail in every piece we offer.
                 </h5>
                 <p>
-                  Since our founding in 1986, we’ve remained committed to providing exceptional value and service. By operating from the heart of New York’s Diamond District, we’re able to offer some of the most competitive prices in the market while maintaining the highest standards in design and quality.
+                  Since our founding in 1986, we&rsquo;ve remained committed to providing exceptional value and service. By operating from the heart of New York&rsquo;s Diamond District, we&rsquo;re able to offer some of the most competitive prices in the market while maintaining the highest standards in design and quality.
                 </p>
                 <p>
-                  Whether you're searching for the perfect engagement ring, a custom design, or a timeless gift, our goal is to help you celebrate life’s most important moments. We take pride in building lasting relationships with our clients and being a trusted part of their jewelry journey.
+                  Whether you&rsquo;re searching for the perfect engagement ring, a custom design, or a timeless gift, our goal is to help you celebrate life&rsquo;s most important moments. We take pride in building lasting relationships with our clients and being a trusted part of their jewelry journey.
 
 
                 </p>
