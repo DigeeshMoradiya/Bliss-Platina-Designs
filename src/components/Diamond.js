@@ -10,28 +10,24 @@ import Breadcrumb from "./common/Breadcrumb";
 import SEO from "./common/SEO";
 
 export default function Diamond() {
-    const policies = [
-        {
-            icon: "/assets/img/custom-design/Customer Service.png",
-            title: '24/7 Customer Service',
-            description: 'Free shipping all order',
-        },
-        {
-            icon: "/assets/img/custom-design/Bliss Platina’s Trust.png",
-            title: 'Bliss Platina’s Trust',
-            description: 'Support 24 hours a day',
-        },
-        {
-            icon: "/assets/img/custom-design/Unbeatable Market Price.png",
-            title: 'Unbeatable Market Price',
-            description: '30 days for free return',
-        },
-        {
-            icon: "/assets/img/custom-design/Eco Friendly Element.png",
-            title: 'Eco Friendly Element',
-            description: 'We ensure secure payment',
-        },
-    ];
+   const policies = [
+  {
+    icon: "/assets/img/diamond/Mining Free.png",
+    title: "Ethically Grown, Mining-Free",
+    description: "Our lab-grown diamonds are created responsibly without mining — eliminating environmental harm and unethical practices.",
+  },
+  {
+    icon: "/assets/img/diamond/Beauty Quality.png",
+    title: "Unmatched Beauty & Quality",
+    description: "Engineered to perfection, our diamonds match the physical, chemical, and optical properties of natural mined diamonds.",
+  },
+  {
+    icon: "/assets/img/diamond/Value.png",
+    title: "Smart Luxury, Greater Value",
+    description: "Experience luxurious sparkle without the hefty price tag. Lab-grown diamonds deliver premium brilliance at an affordable cost.",
+  },
+];
+
 
 
 
@@ -116,7 +112,7 @@ export default function Diamond() {
         { value: "Other", label: "Other" }
     ];
 
-       const budgetOptions = [
+    const budgetOptions = [
         { value: "", label: "Select an option" },
         { value: "Below $800", label: "Below $800" },
         { value: "$800-$1199", label: "$800-$1199" },
@@ -433,7 +429,7 @@ export default function Diamond() {
                 is: (val) => val === "other",
                 then: (schema) => schema.required("Please enter your custom lab"),
                 otherwise: (schema) => schema.notRequired(),
-            }), 
+            }),
             othercontainbudget: Yup.string().when("budget", {
                 is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom budget"),
@@ -1027,7 +1023,7 @@ export default function Diamond() {
                                             )}
                                         </>
                                     )}
-                                </div> 
+                                </div>
 
                                 <div className="single-input-item">
                                     <label htmlFor="budget" className="required">What’s your approximate budget?</label>
@@ -1135,8 +1131,8 @@ export default function Diamond() {
             <section className="feature-product section-padding pt-0">
                 <div className="hero-single-slide hero-overlay hero-slider-item" style={{ position: 'relative', height: '500px' }}>
                     <Image
-                        src="/assets/img/custom-design/find-size.png"
-                        alt="Find Ring Size"
+                        src="/assets/img/diamond/daimond-section.jpg"
+                        alt="Daimond"
                         fill
                         style={{ objectFit: 'cover', zIndex: -1 }}
                         priority
@@ -1163,7 +1159,7 @@ export default function Diamond() {
             <section className="feature-product section-padding pt-0">
                 <div className="col-12">
                     <div className="section-title text-center">
-                        <h2 className="title">Bliss Platina&rsquo;s Promise</h2>
+                        <h2 className="title">Why Choose Lab Grown Diamonds?</h2>
                         <p className="sub-title">How We&rsquo;re Distinct From Others!</p>
                     </div>
                 </div>
@@ -1171,11 +1167,11 @@ export default function Diamond() {
                     <div className="container">
                         <div className="row mtn-30">
                             {policies.map((item, i) => (
-                                <div className="col-lg-3 col-md-3" key={i}>
+                                <div className="col-lg-4 col-md-4" key={i}>
                                     <div className="single-choose-item text-center mb-30">
                                         <img src={item.icon} alt={item.title} />
                                         <h6 className="mt-3">{item.title}</h6>
-                                        <p>{item.description}</p>
+                                        <p className="mt-3">{item.description}</p>
                                     </div>
                                 </div>
                             ))}
@@ -1183,7 +1179,11 @@ export default function Diamond() {
                     </div>
                 </div>
             </section>
-            <img src="/assets/img/custom-design/Section.png" alt="Policy Background" className="img-fluid" />
+
+            <img src="/assets/img/diamond/Diamond Second Banner.jpg" alt="Policy Background"
+                style={{ width: '100%' }} />
+
+
             <section className="feature-product section-padding pb-0">
                 <div className="container">
                     <div className="row mtn-30">

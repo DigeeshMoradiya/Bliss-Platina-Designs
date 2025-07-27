@@ -751,7 +751,11 @@ export default function CustomDesign() {
                     </div>
                 </div>
             </section>
-            <img src="/assets/img/custom-design/Section.png" alt="Policy Background" className="img-fluid" />
+            <img
+                src="/assets/img/custom-design/Section.png"
+                alt="Custom Design Sketch"
+                style={{ width: '100%'}}
+            />
             <section className="feature-product section-padding pb-0">
                 <div className="container">
                     <div className="row mtn-30">

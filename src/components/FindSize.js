@@ -167,7 +167,7 @@ export default function FindSize() {
                                                     <span class="text-dots">•</span> Início-Diameter <br />
                                                     <span class="text-dots">•</span> Circunferência (MM)
                                                 </th>
-                                                 
+
                                             </tr>
                                         </thead>
 
@@ -207,8 +207,11 @@ export default function FindSize() {
                     </div>
                 </div>
             </div>
+            <section className="section-padding pt-0">
+                <img src="/assets/img/find-size/banner.jpg" alt="Policy Background" style={{ width: '100%' }} />
 
-            <img src="/assets/img/find-size/banner.png" alt="Policy Background" className="img-fluid" />
+            </section>
+
         </>
     );
 }

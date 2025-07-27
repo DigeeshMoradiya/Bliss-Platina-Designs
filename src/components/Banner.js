@@ -71,7 +71,7 @@ export default function Banner() {
             <div className="container">
               <div className="row">
                 <div className="col-md-12">
-                  <div className="hero-slider-content slide-2 float-md-end float-none">
+                  <div className="hero-slider-content slide-3">
                     <h2 className="slide-title">Brilliant Diamond <span>Jewelry Collection</span></h2>
                     <h4 className="slide-desc">Certified diamonds & exclusive saving plans.</h4>
                     <Link href="/shop" className="btn btn-hero">Read More</Link>
