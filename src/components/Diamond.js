@@ -1193,7 +1193,7 @@ export default function Diamond() {
                                 Buying loose diamonds gives you the freedom to design your jewelry exactly the way you want it. At Bliss Platina, we offer a wide range of certified diamonds—available in different shapes, sizes, cuts, colors, and clarity grades—to perfectly match your taste and budget. Our diamonds are ethically sourced and hand-selected for brilliance and quality.
                             </p>
                             <p className="sub-title">
-                                Whether you're planning to create a custom engagement ring, earrings, pendant, or bracelet, our loose diamonds give you full creative control. We also provide detailed Excel catalogs with images and specifications so you can review and compare with ease. Need help choosing? Schedule a virtual consultation with our diamond experts for personalized guidance.
+                                Whether you&rsquo;re planning to create a custom engagement ring, earrings, pendant, or bracelet, our loose diamonds give you full creative control. We also provide detailed Excel catalogs with images and specifications so you can review and compare with ease. Need help choosing? Schedule a virtual consultation with our diamond experts for personalized guidance.
                             </p>
                         </div>
                     </div>

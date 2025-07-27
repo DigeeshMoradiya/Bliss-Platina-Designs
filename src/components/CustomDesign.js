@@ -757,7 +757,7 @@ export default function CustomDesign() {
                     <div className="row mtn-30">
                         <div className="section-title text-center">
                             <h2 className="title mb-3">Why Choose a Custom Engagement Ring?</h2>
-                            <p className="sub-title">A custom engagement ring holds deeper meaning and emotional value—it’s designed exclusively for you, making it truly one of a kind. At Bliss Platina, we offer complete customization, allowing you to bring your dream ring to life. Whether it’s based on inspiration images or a design you’ve envisioned, we tailor every detail to match your style.
+                            <p className="sub-title">A custom engagement ring holds deeper meaning and emotional value—it&rsquo;s designed exclusively for you, making it truly one of a kind. At Bliss Platina, we offer complete customization, allowing you to bring your dream ring to life. Whether it&rsquo;s based on inspiration images or a design you&rsquo;ve envisioned, we tailor every detail to match your style.
                             </p>
                             <p className="sub-title">Our artisans specialize in crafting rings using lab-grown diamonds, moissanite, and other premium gemstones in any shape, size, or color. From engagement rings and stud earrings to wedding bands and bracelets, our bespoke pieces are made to celebrate your unique love story.
                             </p>
