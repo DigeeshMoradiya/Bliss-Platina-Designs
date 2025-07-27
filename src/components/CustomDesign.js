@@ -17,23 +17,23 @@ export default function CustomDesign() {
     const policies = [
         {
             icon: "/assets/img/custom-design/Customer Service.png",
-            title: '24/7 Customer Service',
-            description: 'Free shipping all order',
+            title: '24/7 Customer Support',
+            description: 'Always available to assist you with care and expertise—day or night.',
         },
         {
             icon: "/assets/img/custom-design/Bliss Platina’s Trust.png",
-            title: 'Bliss Platina’s Trust',
-            description: 'Support 24 hours a day',
+            title: 'Trusted by Thousands',
+            description: 'Our reputation is built on honesty, craftsmanship, and lasting relationships.',
         },
         {
             icon: "/assets/img/custom-design/Unbeatable Market Price.png",
-            title: 'Unbeatable Market Price',
-            description: '30 days for free return',
+            title: 'Best Price Assurance',
+            description: 'High-quality jewelry at competitive prices—without compromising on elegance.',
         },
         {
             icon: "/assets/img/custom-design/Eco Friendly Element.png",
-            title: 'Eco Friendly Element',
-            description: 'We ensure secure payment',
+            title: 'Eco-Friendly Commitment',
+            description: 'We prioritize sustainable practices and responsibly sourced materials.',
         },
     ];
 
@@ -308,8 +308,8 @@ export default function CustomDesign() {
             <section className="feature-product section-padding pb-0">
                 <div className="col-12">
                     <div className="section-title text-center col-lg-7 m-auto">
-                        <h2 className="title">Design Your Own Engagement Ring</h2>
-                        <p className="sub-title m-auto">Design your unique jewelry with Bliss Platina. Tailor every detail to your taste for a truly personal touch. Create the one-of-a-kind piece you&rsquo;ve always dreamed of.</p>
+                        <h2 className="title">Create Your Custom Jewelry</h2>
+                        <p className="sub-title m-auto">Bring your jewelry vision to life with custom designs crafted uniquely for you at Bliss Platina.</p>
                     </div>
                 </div>
             </section>
@@ -711,12 +711,12 @@ export default function CustomDesign() {
                             <div className="col-md-12">
                                 <div className="hero-slider-content slide-1">
                                     <h2 className="slide-title">
-                                        <span>Find Your Ring Size</span>
+                                        <span>Find Your Perfect Ring Size</span>
                                     </h2>
                                     <h4 className="slide-desc">
-                                        Unsure of Your Ring Size? No Problem!
+                                        Designing a custom ring? Start with the right fit
                                         <br />
-                                        Click on &rsquo;Find Now&rsquo; and let us assist you in choosing the right ring size for you.
+                                        Use our easy ring sizing tool to ensure your personalized jewelry fits perfectly.
                                     </h4>
                                     <div className="d-flex gap-3">
                                         <Link href="/shop" className="btn btn-hero">Print Now</Link>
@@ -732,7 +732,7 @@ export default function CustomDesign() {
                 <div className="col-12">
                     <div className="section-title text-center">
                         <h2 className="title">Bliss Platina&rsquo;s Promise</h2>
-                        <p className="sub-title">How We&rsquo;re Distinct From Others!
+                        <p className="sub-title">What Makes Us Truly Unique
                         </p>
                     </div>
                 </div>
@@ -756,10 +756,12 @@ export default function CustomDesign() {
                 <div className="container">
                     <div className="row mtn-30">
                         <div className="section-title text-center">
-                            <h2 className="title mb-3">Why To Buy Custom Engagement Ring?</h2>
-                            <p className="sub-title">The custom engagement rings has more sentiments and attachments then the premade rings, which are specially made only for you, so it&rsquo;s like one of a kind. Diamondrensu allows users to get their dream engagement ring by allowing 100% customization and design your own engagement ring your way. Viewers can submit the details on the form above, including the reference or inspiration images, and we can make the same design for you. We can custom made engagement rings in any shape, size, and color of lab grown diamonds, moissanite, or other gemstones. For custom orders Diamondrensu specializes in lab grown diamond engagement rings, moissanite engagement rings, stud earrings, moissanite wedding bands, bracelets and many more. If you have questions or would like an expert opinion feel free to schedule a virtual appointment with us.
+                            <h2 className="title mb-3">Why Choose a Custom Engagement Ring?</h2>
+                            <p className="sub-title">A custom engagement ring holds deeper meaning and emotional value—it’s designed exclusively for you, making it truly one of a kind. At Bliss Platina, we offer complete customization, allowing you to bring your dream ring to life. Whether it’s based on inspiration images or a design you’ve envisioned, we tailor every detail to match your style.
                             </p>
-                            <p className="sub-title">Customized Diamond Rings are specially made by experienced craftsmen, with perfection and high quality finishing. Design your own rings with Diamondrensu and get one of a kind ring which will be made by you for you and your loved ones. Diamondrensu not only makes custom engagement rings but we also make custom moissanite earrings which are very useful for gifting purposes.
+                            <p className="sub-title">Our artisans specialize in crafting rings using lab-grown diamonds, moissanite, and other premium gemstones in any shape, size, or color. From engagement rings and stud earrings to wedding bands and bracelets, our bespoke pieces are made to celebrate your unique love story.
+                            </p>
+                            <p className="sub-title">Crafted by expert jewelers with unmatched precision and care, each custom ring reflects excellence and elegance. Not only do we create custom engagement rings, but we also design personalized moissanite earrings and jewelry sets—perfect for meaningful gifts and unforgettable moments.
                             </p>
                         </div>
                     </div>

@@ -45,7 +45,7 @@ export default function Header() {
                     <div className="container">
                         <div className="row align-items-center position-relative">
                             <div className="col-lg-2">
-                                <div className="logo">
+                                <div className="logo pt-3 pb-3">
                                     <Link href="/">
                                         <img src="/assets/img/logo/logo.png" alt="Brand Logo" />
                                     </Link>

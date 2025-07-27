@@ -2,10 +2,24 @@
 
 export default function WhyChooseUs() {
     const items = [
-        { icon: 'globe', title: 'free shipping' },
-        { icon: 'plane', title: 'fast delivery' },
-        { icon: 'comments', title: 'customers support' },
+        {
+            icon: 'globe',
+            title: 'Free Shipping',
+            description: 'Enjoy free delivery on all jewelry orders — elegant pieces, no extra cost.',
+        },
+        {
+            icon: 'plane',
+            title: 'Fast & Secure Delivery',
+            description: 'Your jewelry arrives safely, beautifully packaged and on time.',
+        },
+        {
+            icon: 'comments',
+            title: 'Personal WhatsApp Support',
+            description: 'Need help choosing? Chat with us on WhatsApp and shop with ease.',
+        },
     ];
+
+
 
     return (
         <div className="choosing-area section-padding">
@@ -14,7 +28,7 @@ export default function WhyChooseUs() {
                     <div className="col-12">
                         <div className="section-title text-center">
                             <h2 className="title">Why Choose Us</h2>
-                            <p>Accumsan vitae pede lacus ut ullamcorper sollicitudin quisque libero</p>
+                            <p>Experience the elegance of shopping fine jewelry, made simple and personal</p>
                         </div>
                     </div>
                 </div>
@@ -24,7 +38,7 @@ export default function WhyChooseUs() {
                             <div className="single-choose-item text-center mb-30">
                                 <i className={`fa fa-${item.icon}`} />
                                 <h4>{item.title}</h4>
-                                <p>Amadea Shop is a very slick and clean e-commerce template with endless possibilities.</p>
+                                <p>{item.description}</p>
                             </div>
                         </div>
                     ))}

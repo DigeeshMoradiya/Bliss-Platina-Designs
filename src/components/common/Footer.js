@@ -22,8 +22,8 @@ export default function Footer() {
                                 </div>
                                 <div className="widget-body">
                                     <p>
-                                        We are a team of designers and developers that create high quality wordpress, shopify,
-                                        Opencart
+                                        We create handcrafted gold, diamond, and custom jewelry—designed to reflect timeless elegance and exceptional quality.
+
                                     </p>
                                 </div>
                             </div>
@@ -80,7 +80,8 @@ export default function Footer() {
                     <div className="row align-items-center mt-20">
                         <div className="col-md-6">
                             <div className="newsletter-wrapper">
-                                <h6 className="widget-title-text">Signup for newsletter</h6>
+                                <h6 className="widget-title-text">Stay Sparkling — Join Our Jewelry Newsletter
+                                </h6>
                                 <form className="newsletter-inner" id="mc-form">
                                     <input type="email" className="news-field" id="mc-email" autoComplete="off" placeholder="Enter your email address" />
                                     <button type="submit" className="news-btn" id="mc-submit">Subscribe</button>
@@ -104,7 +105,7 @@ export default function Footer() {
                             <div className="copyright-text text-center">
                                 <p>
                                     &copy; {new Date().getFullYear()} <b>Bliss Platina</b> Made with <i className="fa fa-heart text-danger"></i> by{' '}
-                                    <a href="https://bliss-platina-design.com" target="_blank" rel="noopener noreferrer"><b>Bliss Platina</b></a>
+                                    <a href="https://blissplatina.com" target="_blank" rel="noopener noreferrer"><b>Bliss Platina</b></a>
                                 </p>
                             </div>
                         </div>

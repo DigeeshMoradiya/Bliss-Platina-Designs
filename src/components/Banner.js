@@ -56,8 +56,8 @@ export default function Banner() {
               <div className="row">
                 <div className="col-md-12">
                   <div className="hero-slider-content slide-1">
-                    <h2 className="slide-title">Family Jewelry <span>Collection</span></h2>
-                    <h4 className="slide-desc">Designer Jewelry Necklaces-Bracelets-Earings</h4>
+                    <h2 className="slide-title">Timeless Family <span>Jewelry Collection</span></h2>
+                    <h4 className="slide-desc">Gold necklaces, bangles & earrings for all generations.</h4>
                     <Link href="/shop" className="btn btn-hero">Read More</Link>
                   </div>
                 </div>
@@ -72,8 +72,8 @@ export default function Banner() {
               <div className="row">
                 <div className="col-md-12">
                   <div className="hero-slider-content slide-2 float-md-end float-none">
-                    <h2 className="slide-title">Diamonds Jewelry <span>Collection</span></h2>
-                    <h4 className="slide-desc">Shukra Yogam & Silver Power Silver Saving Schemes.</h4>
+                    <h2 className="slide-title">Brilliant Diamond <span>Jewelry Collection</span></h2>
+                    <h4 className="slide-desc">Certified diamonds & exclusive saving plans.</h4>
                     <Link href="/shop" className="btn btn-hero">Read More</Link>
                   </div>
                 </div>
@@ -88,8 +88,8 @@ export default function Banner() {
               <div className="row">
                 <div className="col-md-12">
                   <div className="hero-slider-content slide-3">
-                    <h2 className="slide-title">Grace Designer <span>Jewelry</span></h2>
-                    <h4 className="slide-desc">Rings, Occasion Pieces, Pandora & More.</h4>
+                    <h2 className="slide-title">Grace Designer <span>Jewelry Line</span></h2>
+                    <h4 className="slide-desc">Rings, bridal sets & modern designer pieces.</h4>
                     <Link href="/shop" className="btn btn-hero">Read More</Link>
                   </div>
                 </div>

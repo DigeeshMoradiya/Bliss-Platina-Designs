@@ -6,101 +6,93 @@ import Link from "next/link";
 export default function TermsConditions() {
     const termsConditions = [
         {
-            title: "Who we are?",
+            title: "Introduction",
             content: (
                 <p>
-                    Our website address is:{" "}
-                    <a href="http://hasthemes.com/" className="text-blue-500 hover:underline">
-                        http://hasthemes.com
+                    By using our website (
+                    <a href="https://blissplatina.com" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                        https://blissplatina.com
                     </a>
+                    ) and placing orders via WhatsApp, you agree to the following Terms and Conditions. Bliss Platina Design may update these terms without prior notice.
                 </p>
             ),
         },
         {
-            title: "What personal data we collect and why we collect it - Comments",
-            content: (
-                <>
-                    <p>
-                        When visitors leave comments on the site, we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.
-                    </p>
-                    <p>
-                        An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here:{" "}
-                        <a href="https://bliss-platina-design.com" className="text-blue-500 hover:underline" target="_blank">
-                            https://bliss-platina-design.com
-                        </a>.
-                    </p>
-                    <p>
-                        After approval of your comment, your profile picture is visible to the public in the context of your comment.
-                    </p>
-                </>
-            ),
-        },
-        {
-            title: "Media",
+            title: "Product Information",
             content: (
                 <p>
-                    If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors can download and extract location data from images on the site.
+                    We strive to provide accurate details about our jewelry, including descriptions, pricing, and images. However, slight variations may occur due to handmade craftsmanship or screen display differences.
                 </p>
             ),
         },
         {
-            title: "Cookies",
+            title: "Order Placement via WhatsApp",
             content: (
                 <>
                     <p>
-                        If you leave a comment, you may opt-in to saving your name, email address, and website in cookies. These are for your convenience so you don’t have to fill in your details again.
+                        Orders must be confirmed through WhatsApp. By confirming an order, you agree to the discussed price, design, and timeline.
                     </p>
                     <p>
-                        If you have an account and log in, we will set a temporary cookie to determine if your browser accepts cookies.
-                    </p>
-                    <p>
-                        When you log in, we will also set up cookies to save your login info and display choices. Login cookies last two days, screen options one year. &quot;Remember Me&quot; keeps you logged in for two weeks.
-                    </p>
-                    <p>
-                        If you edit or publish an article, an additional cookie will be saved in your browser. It expires after 1 day.
+                        Custom-made jewelry is non-cancellable and non-refundable after order confirmation.
                     </p>
                 </>
             ),
         },
         {
-            title: "Embedded content from other websites",
+            title: "Pricing and Payment",
             content: (
                 <>
                     <p>
-                        Articles may include embedded content (e.g. videos, images, etc.). Embedded content behaves the same as if you visited the other website.
+                        All prices are in INR unless specified otherwise. We accept UPI, bank transfers, or any approved payment method discussed during order confirmation.
                     </p>
                     <p>
-                        These websites may collect data, use cookies, embed third-party tracking, and monitor your interaction with their content.
+                        Full or partial advance payment may be required to process your order.
                     </p>
                 </>
             ),
         },
         {
-            title: "How long we retain your data",
-            content: (
-                <>
-                    <p>
-                        If you leave a comment, it and its metadata are retained indefinitely. This helps us recognize and approve follow-up comments automatically.
-                    </p>
-                    <p>
-                        For registered users, we store personal info in their profile. All users can see, edit, or delete their info anytime (except the username). Admins can also edit this information.
-                    </p>
-                </>
-            ),
-        },
-        {
-            title: "What rights you have over your data",
+            title: "Shipping and Delivery",
             content: (
                 <p>
-                    You can request an exported file of your personal data we hold, or request erasure of any data, excluding what we must keep for legal or security purposes.
+                    Orders are shipped via trusted courier partners. Delivery timeframes depend on location and order complexity. We are not liable for delays caused by third-party services or unforeseen circumstances.
                 </p>
             ),
         },
         {
-            title: "Where we send your data",
+            title: "Returns and Exchanges",
+            content: (
+                <>
+                    <p>
+                        We do not accept returns for customized or personalized jewelry unless the item received is damaged or incorrect.
+                    </p>
+                    <p>
+                        Any issues must be reported within 24 hours of delivery with supporting images and order proof.
+                    </p>
+                </>
+            ),
+        },
+        {
+            title: "Intellectual Property",
             content: (
                 <p>
-                    Visitor comments may be checked through an automated spam detection service.
+                    All content, designs, and images on our website are the property of Bliss Platina Design and cannot be copied or reproduced without permission.
+                </p>
+            ),
+        },
+        {
+            title: "Limitation of Liability",
+            content: (
+                <p>
+                    Bliss Platina Design is not liable for any indirect or consequential damages related to the use of our website or services.
+                </p>
+            ),
+        },
+        {
+            title: "Governing Law",
+            content: (
+                <p>
+                    These terms are governed by the laws of India. Any disputes shall be subject to the jurisdiction of the courts in India.
                 </p>
             ),
         },

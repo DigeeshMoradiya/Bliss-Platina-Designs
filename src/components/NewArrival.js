@@ -193,8 +193,8 @@ export default function NewArrivalSection() {
                 <div className="row">
                     <div className="col-12">
                         <div className="section-title text-center">
-                            <h2 className="title">New Arrival</h2>
-                            <p className="sub-title">Add our products to weekly lineup</p>
+                            <h2 className="title">New Arrivals</h2>
+                            <p className="sub-title">Discover the latest in fine jewelry</p>
                         </div>
                     </div>
                 </div>

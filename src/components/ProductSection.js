@@ -196,8 +196,8 @@ export default function ProductSection() {
         <div className="row">
           <div className="col-12">
             <div className="section-title text-center">
-              <h2 className="title">featured products</h2>
-              <p className="sub-title">Add featured products to weekly lineup</p>
+              <h2 className="title">Featured Collections</h2>
+              <p className="sub-title">Elevate your style with our handpicked jewelry favorites of the week</p>
             </div>
           </div>
         </div>

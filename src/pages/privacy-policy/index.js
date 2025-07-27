@@ -6,31 +6,38 @@ import Link from "next/link";
 export default function PrivacyPolicy() {
     const policySections = [
         {
-            title: "Who we are?",
+            title: "Who We Are",
             content: (
                 <p>
-                    Our website address is:{" "}
-                    <a href="https://bliss-platina-design.com" className="text-blue-500 hover:underline">
-                        https://bliss-platina-design.com
-                    </a>
+                    Bliss Platina Design is a trusted jewelry brand specializing in handcrafted gold and diamond jewelry. Our website address is{" "}
+                    <a href="https://blissplatina.com" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                        https://blissplatina.com
+                    </a>. We serve our customers primarily through personalized WhatsApp communication and online browsing experiences.
                 </p>
             ),
         },
         {
-            title: "What personal data we collect and why we collect it - Comments",
+            title: "What Personal Data We Collect and Why",
             content: (
                 <>
                     <p>
-                        When visitors leave comments on the site, we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.
+                        When you place an order or contact us via WhatsApp or our website, we collect information such as your name, contact number, address, and jewelry preferences. This data is used strictly for processing your orders and offering a seamless customer experience.
                     </p>
                     <p>
-                        An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here:{" "}
-                        <a href="https://bliss-platina-design.com" className="text-blue-500 hover:underline" target="_blank">
-                            https://bliss-platina-design.com
-                        </a>.
+                        We may also collect non-personal data like IP address and browser information to analyze site traffic and improve usability.
+                    </p>
+                </>
+            ),
+        },
+        {
+            title: "WhatsApp Communication",
+            content: (
+                <>
+                    <p>
+                        All purchases and customer support are primarily handled through WhatsApp. When you message us, your phone number and chat history are stored for order management and service reference.
                     </p>
                     <p>
-                        After approval of your comment, your profile picture is visible to the public in the context of your comment.
+                        We do not share your WhatsApp details with any third-party marketing platforms or unrelated services.
                     </p>
                 </>
             ),
@@ -39,7 +46,7 @@ export default function PrivacyPolicy() {
             title: "Media",
             content: (
                 <p>
-                    If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors can download and extract location data from images on the site.
+                    If you send us images for customized jewelry or design references via WhatsApp or forms, please ensure no sensitive metadata (like location data) is embedded. We do not intentionally extract or use such data.
                 </p>
             ),
         },
@@ -48,63 +55,72 @@ export default function PrivacyPolicy() {
             content: (
                 <>
                     <p>
-                        If you leave a comment, you may opt-in to saving your name, email address, and website in cookies. These are for your convenience so you don’t have to fill in your details again.
+                        Our website uses basic cookies to improve your experience, such as remembering your browsing preferences or language settings.
                     </p>
                     <p>
-                        If you have an account and log in, we will set a temporary cookie to determine if your browser accepts cookies.
-                    </p>
-                    <p>
-                        When you log in, we will also set up cookies to save your login info and display choices. Login cookies last two days, screen options one year. &quot;Remember Me&quot; keeps you logged in for two weeks.
-                    </p>
-                    <p>
-                        If you edit or publish an article, an additional cookie will be saved in your browser. It expires after 1 day.
+                        These cookies do not store any sensitive personal data and can be disabled via your browser settings without affecting core browsing functionality.
                     </p>
                 </>
             ),
         },
         {
-            title: "Embedded content from other websites",
+            title: "Embedded Content from Other Platforms",
             content: (
                 <>
                     <p>
-                        Articles may include embedded content (e.g. videos, images, etc.). Embedded content behaves the same as if you visited the other website.
+                        Pages on our website may include embedded content like Instagram posts, YouTube videos, or third-party design tools.
                     </p>
                     <p>
-                        These websites may collect data, use cookies, embed third-party tracking, and monitor your interaction with their content.
+                        These platforms may collect data about you, use cookies, and track your interaction with the embedded content, just as if you visited their site directly.
                     </p>
                 </>
             ),
         },
         {
-            title: "How long we retain your data",
+            title: "How Long We Retain Your Data",
             content: (
                 <>
                     <p>
-                        If you leave a comment, it and its metadata are retained indefinitely. This helps us recognize and approve follow-up comments automatically.
+                        Data from customer inquiries and WhatsApp chats is retained for as long as necessary to manage your order history and support requests.
                     </p>
                     <p>
-                        For registered users, we store personal info in their profile. All users can see, edit, or delete their info anytime (except the username). Admins can also edit this information.
+                        We may keep records securely to improve our customer service or as required by applicable legal obligations.
                     </p>
                 </>
             ),
         },
         {
-            title: "What rights you have over your data",
+            title: "Your Rights Over Your Data",
             content: (
                 <p>
-                    You can request an exported file of your personal data we hold, or request erasure of any data, excluding what we must keep for legal or security purposes.
+                    You have the right to request access to, correction of, or deletion of any personal data we hold. If you wish to update or remove your details, you can contact us directly through our official WhatsApp or email.
                 </p>
             ),
         },
         {
-            title: "Where we send your data",
+            title: "Data Sharing and Security",
+            content: (
+                <>
+                    <p>
+                        We do not sell or trade your personal data. Your information is only shared with trusted delivery or service partners when required to fulfill your orders.
+                    </p>
+                    <p>
+                        All personal information is handled with care and protected using standard security measures.
+                    </p>
+                </>
+            ),
+        },
+        {
+            title: "Where We Send Your Data",
             content: (
                 <p>
-                    Visitor comments may be checked through an automated spam detection service.
+                    Messages or inquiries submitted through our website forms may be processed through automated spam detection services to protect the platform from abuse.
                 </p>
             ),
         },
     ];
+
+
     return (
         <>
             <SEO

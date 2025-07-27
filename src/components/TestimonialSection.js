@@ -6,24 +6,24 @@ import Slider from 'react-slick';
 
 const testimonials = [
   {
-    name: 'Lindsy Niloms',
+    name: 'Lindsy Niloms — USA',
     img: '/assets/img/testimonial/testimonial-1.png',
-    text: 'Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque',
+    text: 'Absolutely in love with the necklace I received! The craftsmanship is stunning and it arrived beautifully packaged. Will definitely order again.',
   },
   {
-    name: 'Daisy Millan',
+    name: 'Daisy Millan — UK',
     img: '/assets/img/testimonial/testimonial-2.png',
-    text: 'Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque',
+    text: 'The earrings were elegant and even more beautiful in person. Excellent service and fast shipping made the experience even better!',
   },
   {
-    name: 'Anamika Lusy',
+    name: 'Anamika Lusy — UAE',
     img: '/assets/img/testimonial/testimonial-3.png',
-    text: 'Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque',
+    text: 'I ordered a bracelet for my sister and she loved it! Smooth WhatsApp support and premium quality—highly recommended.',
   },
   {
-    name: 'Maria Mora',
+    name: 'Maria Mora — Australia',
     img: '/assets/img/testimonial/testimonial-2.png',
-    text: 'Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque',
+    text: 'Unique designs and exceptional detail. This is now my go-to jewelry store for gifting and personal purchases!',
   },
 ];
 

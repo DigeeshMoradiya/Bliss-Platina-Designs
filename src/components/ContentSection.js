@@ -13,8 +13,9 @@ export default function ContentSection() {
             <div className="row">
               <div className="col-md-12">
                 <div className="hero-slider-content slide-1">
-                  <h2 className="slide-title">Lorem <span>Ipsum Text</span></h2>
-                  <h4 className="slide-desc">Designer Jewelry Necklaces-Bracelets-Earings <br /> Designer Jewelry Necklaces-Bracelets-Earings</h4>
+                  <h2 className="slide-title">Timeless Elegance</h2>
+                  <h4 className="slide-desc">Handcrafted jewelry made to shine.
+                    <br /> Necklaces • Bracelets • Earrings</h4>
                   <Link href="/shop" className="btn btn-hero">Read More</Link>
                 </div>
               </div>

@@ -9,11 +9,7 @@ import * as Yup from 'yup';
 import Breadcrumb from "./common/Breadcrumb";
 import SEO from "./common/SEO";
 
-
-
-
 export default function Diamond() {
-
     const policies = [
         {
             icon: "/assets/img/custom-design/Customer Service.png",
@@ -37,16 +33,7 @@ export default function Diamond() {
         },
     ];
 
-    const designOptions = [
-        { value: "", label: "Select an option" },
-        { value: "Engagement/Special Occasion Ring", label: "Engagement/Special Occasion Ring" },
-        { value: "Wedding/Anniversary Band", label: "Wedding/Anniversary Band" },
-        { value: "Wedding Set", label: "Wedding Set" },
-        { value: "Earrings", label: "Earrings" },
-        { value: "Necklace/Pendant", label: "Necklace/Pendant" },
-        { value: "Bracelet/Bangle", label: "Bracelet/Bangle" },
-        { value: "Other", label: "Other" }
-    ];
+
 
     const stoneOptions = [
         { value: "", label: "Select an option" },
@@ -59,54 +46,77 @@ export default function Diamond() {
 
     const shapeOptions = [
         { value: "", label: "Select an option" },
-        { value: "Round", label: "Round" },
-        { value: "Oval", label: "Oval" },
-        { value: "Cushion", label: "Cushion" },
-        { value: "Princess", label: "Princess" },
-        { value: "Radiant", label: "Radiant" },
-        { value: "Emerald", label: "Emerald" },
-        { value: "Marquise", label: "Marquise" },
-        { value: "Pear", label: "Pear" },
-        { value: "Asscher", label: "Asscher" },
-        { value: "Heart", label: "Heart" },
-        { value: "Rose Cut", label: "Rose Cut" },
-        { value: "Old European Cut", label: "Old European Cut" },
-        { value: "Other", label: "Other" },
+        { value: "round", label: "Round" },
+        { value: "oval", label: "Oval" },
+        { value: "pear", label: "Pear" },
+        { value: "cush_mod", label: "Cush Mod" },
+        { value: "cush_brill", label: "Cush Brill" },
+        { value: "emerald", label: "Emerald" },
+        { value: "radiant", label: "Radiant" },
+        { value: "princess", label: "Princess" },
+        { value: "asscher", label: "Asscher" },
+        { value: "square", label: "Square" },
+        { value: "marquise", label: "Marquise" },
+        { value: "heart", label: "Heart" },
+        { value: "trilliant", label: "Trilliant" },
+        { value: "euro_cut", label: "Euro Cut" },
+        { value: "old_miner", label: "Old Miner" },
+        { value: "bri", label: "Bri" },
+        { value: "other", label: "Other" },
+        { value: "baguette", label: "Baguette" },
+        { value: "tap_bag", label: "Tap Bag" },
+        { value: "half_moon", label: "Half Moon" },
+        { value: "flanders", label: "Flanders" },
+        { value: "trapezoid", label: "Trapezoid" },
+        { value: "bullets", label: "Bullets" },
+        { value: "kite", label: "Kite" },
+        { value: "shield", label: "Shield" },
+        { value: "star", label: "Star" },
+        { value: "pentagon", label: "Pentagon" },
+        { value: "hexagon", label: "Hexagon" },
+        { value: "octagonal", label: "Octagonal" },
+        { value: "rose_cut", label: "Rose Cut" },
+        { value: "lozenge", label: "Lozenge" },
+        { value: "Other", label: "Other" }
     ];
 
     const caratOptions = [
         { value: "", label: "Select an option" },
-        { value: "0.5", label: "0.5" },
-        { value: "1", label: "1" },
-        { value: "1.5", label: "1.5" },
-        { value: "2", label: "2" },
-        { value: "2.5", label: "2.5" },
-        { value: "3", label: "3" },
-        { value: "3.5", label: "3.5" },
-        { value: "4", label: "4" },
-        { value: "4.5", label: "4.5" },
-        { value: "5", label: "5" },
-        { value: "Other", label: "Other" },
+        { value: "0.30-0.39", label: "0.30-0.39" },
+        { value: "0.40-0.49", label: "0.40-0.49" },
+        { value: "0.50-0.69", label: "0.50-0.69" },
+        { value: "0.70-0.89", label: "0.70-0.89" },
+        { value: "0.90-0.99", label: "0.90-0.99" },
+        { value: "1.00-1.49", label: "1.00-1.49" },
+        { value: "1.50-1.99", label: "1.50-1.99" },
+        { value: "2.00-2.99", label: "2.00-2.99" },
+        { value: "3.00-3.99", label: "3.00-3.99" },
+        { value: "4.00-4.99", label: "4.00-4.99" },
+        { value: "5.00-5.99", label: "5.00-5.99" },
+        { value: "6.00-7.99", label: "6.00-7.99" },
+        { value: "8.00-9.99", label: "8.00-9.99" },
+        { value: "10+", label: "10+" },
+        { value: "Other", label: "Other" }
     ];
 
-    const metalOptions = [
+    const clarityOptions = [
         { value: "", label: "Select an option" },
-        { value: "Platinum", label: "Platinum" },
-        { value: "18k White Gold", label: "18k White Gold" },
-        { value: "18K Yellow Gold", label: "18K Yellow Gold" },
-        { value: "18k Rose Gold", label: "18k Rose Gold" },
-        { value: "14k White Gold", label: "14k White Gold" },
-        { value: "14K Yellow Gold", label: "14K Yellow Gold" },
-        { value: "14k Rose Gold", label: "14k Rose Gold" },
-        { value: "10k White Gold", label: "10k White Gold" },
-        { value: "10K Yellow Gold", label: "10K Yellow Gold" },
-        { value: "10k Rose Gold", label: "10k Rose Gold" },
-        { value: "925 Sterling Silver", label: "925 Sterling Silver" },
-        { value: "Two-Toned", label: "Two-Toned" },
-        { value: "Other", label: "Other" },
+        { value: "fl", label: "FL" },
+        { value: "if", label: "IF" },
+        { value: "vvs1", label: "VVS1" },
+        { value: "vvs2", label: "VVS2" },
+        { value: "vs1", label: "VS1" },
+        { value: "vs2", label: "VS2" },
+        { value: "si1", label: "SI1" },
+        { value: "si2", label: "SI2" },
+        { value: "si3", label: "SI3" },
+        { value: "i1", label: "I1" },
+        { value: "i2", label: "I2" },
+        { value: "i3", label: "I3" },
+        { value: "Other", label: "Other" }
     ];
 
-    const budgetOptions = [
+       const budgetOptions = [
         { value: "", label: "Select an option" },
         { value: "Below $800", label: "Below $800" },
         { value: "$800-$1199", label: "$800-$1199" },
@@ -120,6 +130,135 @@ export default function Diamond() {
         { value: "Other", label: "Other" },
     ];
 
+    const cutOptions = [
+        { value: "", label: "Select an option" },
+        { value: "8x", label: "8X" },
+        { value: "ideal", label: "Ideal" },
+        { value: "excellent", label: "Excellent" },
+        { value: "very_good", label: "Very Good" },
+        { value: "good", label: "Good" },
+        { value: "fair", label: "Fair" },
+        { value: "poor", label: "Poor" },
+        { value: "other", label: "Other" }
+    ];
+
+    const polishOptions = [
+        { value: "", label: "Select an option" },
+        { value: "8x", label: "8X" },
+        { value: "ideal", label: "Ideal" },
+        { value: "excellent", label: "Excellent" },
+        { value: "very_good", label: "Very Good" },
+        { value: "good", label: "Good" },
+        { value: "fair", label: "Fair" },
+        { value: "poor", label: "Poor" },
+        { value: "other", label: "Other" }
+    ];
+
+    const symmetryOptions = [
+        { value: "", label: "Select an option" },
+        { value: "8x", label: "8X" },
+        { value: "ideal", label: "Ideal" },
+        { value: "excellent", label: "Excellent" },
+        { value: "very_good", label: "Very Good" },
+        { value: "good", label: "Good" },
+        { value: "fair", label: "Fair" },
+        { value: "poor", label: "Poor" },
+        { value: "other", label: "Other" },
+    ];
+
+    const fluorescenceOptions = [
+        { value: "", label: "Select an option" },
+        { value: "none", label: "None" },
+        { value: "faint", label: "Faint" },
+        { value: "medium", label: "Medium" },
+        { value: "strong", label: "Strong" },
+        { value: "v_strong", label: "V Strong" },
+        { value: "other", label: "Other" },
+    ];
+
+    const labOptions = [
+        { value: "", label: "Select an option" },
+        { value: "igi", label: "IGI" },
+        { value: "gia", label: "GIA" },
+        { value: "gccal", label: "GCCAL" },
+        { value: "other", label: "Other" },
+        { value: "none", label: "None" }
+    ];
+
+    const colorOptions = [
+        { value: "", label: "Select an option" },
+        { value: "d", label: "D" },
+        { value: "e", label: "E" },
+        { value: "f", label: "F" },
+        { value: "g", label: "G" },
+        { value: "h", label: "H" },
+        { value: "i", label: "I" },
+        { value: "j", label: "J" },
+        { value: "k", label: "K" },
+        { value: "l", label: "L" },
+        { value: "m", label: "M" },
+        { value: "n", label: "N" },
+        { value: "o", label: "O" },
+        { value: "p", label: "P" },
+        { value: "q", label: "Q" },
+        { value: "yellow", label: "Yellow" },
+        { value: "orange", label: "Orange" },
+        { value: "pink", label: "Pink" },
+        { value: "blue", label: "Blue" },
+        { value: "green", label: "Green" },
+        { value: "brown", label: "Brown" },
+        { value: "red", label: "Red" },
+        { value: "white", label: "White" },
+        { value: "violet", label: "Violet" },
+        { value: "purple", label: "Purple" },
+        { value: "gray", label: "Gray" },
+        { value: "olive", label: "Olive" },
+        { value: "black", label: "Black" },
+        { value: "other", label: "Other" }
+    ];
+
+    const overtoneOptions = [
+        { value: "", label: "Select an option" },
+        { value: "yellow", label: "Yellow" },
+        { value: "yellowish", label: "Yellowish" },
+        { value: "pink", label: "Pink" },
+        { value: "pinkish", label: "Pinkish" },
+        { value: "blue", label: "Blue" },
+        { value: "bluish", label: "Bluish" },
+        { value: "red", label: "Red" },
+        { value: "reddish", label: "Reddish" },
+        { value: "green", label: "Green" },
+        { value: "greenish", label: "Greenish" },
+        { value: "purple", label: "Purple" },
+        { value: "purplish", label: "Purplish" },
+        { value: "orange", label: "Orange" },
+        { value: "violet", label: "Violet" },
+        { value: "violetish", label: "Violetish" },
+        { value: "gray", label: "Gray" },
+        { value: "grayish", label: "Grayish" },
+        { value: "black", label: "Black" },
+        { value: "brown", label: "Brown" },
+        { value: "brownish", label: "Brownish" },
+        { value: "champagne", label: "Champagne" },
+        { value: "cognac", label: "Cognac" },
+        { value: "chameleon", label: "Chameleon" },
+        { value: "white", label: "White" },
+        { value: "other", label: "Other" }
+    ];
+
+    const intensityOptions = [
+        { value: "", label: "Select an option" },
+        { value: "fancy_deep", label: "Fancy Deep" },
+        { value: "fancy_dark", label: "Fancy Dark" },
+        { value: "fancy_vivid", label: "Fancy Vivid" },
+        { value: "fancy_intense", label: "Fancy Intense" },
+        { value: "fancy", label: "Fancy" },
+        { value: "very_light", label: "Very Light" },
+        { value: "fancy_light", label: "Fancy Light" },
+        { value: "light", label: "Light" },
+        { value: "faint", label: "Faint" },
+        { value: "other", label: "Other" }
+    ];
 
     const customStyles = {
         control: (base, state) => ({
@@ -148,7 +287,6 @@ export default function Diamond() {
             minHeight: '34px',
             textTransform: 'capitalize',
             borderRadius: '10px',
-
         }),
         option: (base, state) => ({
             ...base,
@@ -185,11 +323,15 @@ export default function Diamond() {
             email: "",
             phone: "",
             countryCode: '',
-            design: "",
             stonetype: "",
             shape: "",
             carat: "",
-            metal: "",
+            clarity: "",
+            cut: "",
+            polish: "",
+            symmetry: "",
+            fluorescence: "",
+            lab: "",
             budget: "",
             ordernote: "",
             images: [],
@@ -197,10 +339,20 @@ export default function Diamond() {
             othercontainStoneType: "",
             othercontainShape: "",
             othercontaincarat: "",
-            othercontainmetal: "",
+            othercontainclarity: "",
+            othercontaincut: "",
+            othercontainpolish: "",
+            othercontainsymmetry: "",
+            othercontainfluorescence: "",
+            othercontainlab: "",
             othercontainbudget: "",
+            color: "",
+            overtone: "",
+            intensity: "",
+            othercontaincolor: "",
+            othercontainovertone: "",
+            othercontainintensity: ""
         },
-
         validationSchema: Yup.object({
             f_name: Yup.string().required("First name is required"),
             l_name: Yup.string().required("Last name is required"),
@@ -226,25 +378,24 @@ export default function Diamond() {
                     }
                 }),
             countryCode: Yup.string().required(),
-            design: Yup.string().required("Please select a design option"),
             stonetype: Yup.string().required("Please select a stone type"),
             shape: Yup.string().required("Please select a stone shape"),
             carat: Yup.string().required("Please select a carat weight"),
-            metal: Yup.string().required("Please select a metal type"),
+            clarity: Yup.string().required("Please select a clarity"),
+            cut: Yup.string().required("Please select a cut grade"),
+            polish: Yup.string().required("Please select a polish grade"),
+            symmetry: Yup.string().required("Please select a symmetry grade"),
+            fluorescence: Yup.string().required("Please select a fluorescence level"),
+            lab: Yup.string().required("Please select a lab certification"),
             budget: Yup.string().required("Please select your budget"),
             ordernote: Yup.string().required("Please enter about"),
-            othercontain: Yup.string().when("design", {
-                is: (val) => val === "Other",
-                then: (schema) => schema.required("Please enter your custom design"),
-                otherwise: (schema) => schema.notRequired(),
-            }),
             othercontainStoneType: Yup.string().when("stonetype", {
                 is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom stone type"),
                 otherwise: (schema) => schema.notRequired(),
             }),
             othercontainShape: Yup.string().when("shape", {
-                is: (val) => val === "Other",
+                is: (val) => val === "other",
                 then: (schema) => schema.required("Please enter your custom shape"),
                 otherwise: (schema) => schema.notRequired(),
             }),
@@ -253,23 +404,64 @@ export default function Diamond() {
                 then: (schema) => schema.required("Please enter your custom carat"),
                 otherwise: (schema) => schema.notRequired(),
             }),
-            othercontainmetal: Yup.string().when("metal", {
+            othercontainclarity: Yup.string().when("clarity", {
                 is: (val) => val === "Other",
-                then: (schema) => schema.required("Please enter your custom metal"),
+                then: (schema) => schema.required("Please enter your custom clarity"),
                 otherwise: (schema) => schema.notRequired(),
             }),
+            othercontaincut: Yup.string().when("cut", {
+                is: (val) => val === "other",
+                then: (schema) => schema.required("Please enter your custom cut"),
+                otherwise: (schema) => schema.notRequired(),
+            }),
+            othercontainpolish: Yup.string().when("polish", {
+                is: (val) => val === "other",
+                then: (schema) => schema.required("Please enter your custom polish"),
+                otherwise: (schema) => schema.notRequired(),
+            }),
+            othercontainsymmetry: Yup.string().when("symmetry", {
+                is: (val) => val === "other",
+                then: (schema) => schema.required("Please enter your custom symmetry"),
+                otherwise: (schema) => schema.notRequired(),
+            }),
+            othercontainfluorescence: Yup.string().when("fluorescence", {
+                is: (val) => val === "other",
+                then: (schema) => schema.required("Please enter your custom fluorescence"),
+                otherwise: (schema) => schema.notRequired(),
+            }),
+            othercontainlab: Yup.string().when("lab", {
+                is: (val) => val === "other",
+                then: (schema) => schema.required("Please enter your custom lab"),
+                otherwise: (schema) => schema.notRequired(),
+            }), 
             othercontainbudget: Yup.string().when("budget", {
                 is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom budget"),
                 otherwise: (schema) => schema.notRequired(),
             }),
+            color: Yup.string().required("Please select a color"),
+            overtone: Yup.string().required("Please select an overtone"),
+            intensity: Yup.string().required("Please select an intensity"),
+            othercontaincolor: Yup.string().when("color", {
+                is: (val) => val === "other",
+                then: (schema) => schema.required("Please enter your custom color"),
+                otherwise: (schema) => schema.notRequired(),
+            }),
+            othercontainovertone: Yup.string().when("overtone", {
+                is: (val) => val === "other",
+                then: (schema) => schema.required("Please enter your custom overtone"),
+                otherwise: (schema) => schema.notRequired(),
+            }),
+            othercontainintensity: Yup.string().when("intensity", {
+                is: (val) => val === "other",
+                then: (schema) => schema.required("Please enter your custom intensity"),
+                otherwise: (schema) => schema.notRequired(),
+            }),
         }),
         onSubmit: async (values) => {
             console.log('Submitted values:', values);
-
         },
     });
-
 
     const handleFiles = (files) => {
         const selectedImages = Array.from(files).map((file) => ({
@@ -308,8 +500,8 @@ export default function Diamond() {
             <section className="feature-product section-padding pb-0">
                 <div className="col-12">
                     <div className="section-title text-center col-lg-7 m-auto">
-                        <h2 className="title">Design Your Diamond</h2>
-                        <p className="sub-title m-auto">Design your unique jewelry with Bliss Platina. Tailor every detail to your taste for a truly personal touch. Create the one-of-a-kind piece you&rsquo;ve always dreamed of.</p>
+                        <h2 className="title">Create Your Perfect Diamond</h2>
+                        <p className="sub-title m-auto"> Choose your ideal shape, size, and setting — and let Bliss Platina craft a diamond piece that’s uniquely yours. From engagement rings to elegant earrings, every design begins with your vision and ends in timeless brilliance.</p>
                     </div>
                 </div>
             </section>
@@ -318,9 +510,6 @@ export default function Diamond() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            {/* <div className="row">
-                                <div className="col-lg-7 m-auto"> */}
-
                             <form onSubmit={formik.handleSubmit}>
                                 <div className="row">
                                     <div className="col-md-6">
@@ -394,88 +583,7 @@ export default function Diamond() {
                                         )}
                                     </div>
                                 </div>
-                                <div className="single-input-item">
-                                    <label htmlFor="design" className="required">What are you looking to design?</label>
-                                    <Select
-                                        options={designOptions}
-                                        name="design"
-                                        classNamePrefix="custom"
-                                        styles={customStyles}
-                                        value={stoneOptions.find(option => option.value === formik.values.design)}
-                                        onChange={(selectedOption) => {
-                                            formik.setFieldValue('design', selectedOption.value);
-                                            if (selectedOption.value !== "Other") {
-                                                formik.setFieldValue("othercontain", "");
-                                            }
-                                        }}
 
-
-
-                                        onBlur={formik.handleBlur}
-                                    />
-
-                                    {formik.touched.design && formik.errors.design && (
-                                        <p className="error-message mt-1">{formik.errors.design}</p>
-                                    )}
-
-                                    {formik.values.design === "Other" && (
-                                        <>
-                                            <input
-                                                type="text"
-                                                id="othercontain"
-                                                name="othercontain"
-                                                placeholder="Custom Design"
-                                                className="mt-3"
-                                                value={formik.values.othercontain}
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                            />
-                                            {formik.touched.othercontain && formik.errors.othercontain && (
-                                                <p className="error-message mt-1">{formik.errors.othercontain}</p>
-                                            )}
-                                        </>
-                                    )}
-                                </div>
-
-
-                                <div className="single-input-item">
-                                    <label htmlFor="stonetype" className="required">Choose your stone type</label>
-                                    <Select
-                                        options={stoneOptions}
-                                        name="stonetype"
-                                        classNamePrefix="custom"
-                                        styles={customStyles} // Optional custom styles
-                                        value={stoneOptions.find(option => option.value === formik.values.stonetype)}
-                                        onChange={(selectedOption) => {
-                                            formik.setFieldValue('stonetype', selectedOption.value);
-                                            if (selectedOption.value !== "Other") {
-                                                formik.setFieldValue("othercontainStoneType", "");
-                                            }
-                                        }}
-
-                                        onBlur={formik.handleBlur}
-                                    />
-                                    {formik.touched.stonetype && formik.errors.stonetype && (
-                                        <p className="error-message mt-1">{formik.errors.stonetype}</p>
-                                    )}
-                                    {formik.values.stonetype === "Other" && (
-                                        <>
-                                            <input
-                                                type="text"
-                                                id="othercontainStoneType"
-                                                name="othercontainStoneType"
-                                                placeholder="Custom Stone Type"
-                                                className="mt-3"
-                                                value={formik.values.othercontainStoneType}
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                            />
-                                            {formik.touched.othercontainStoneType && formik.errors.othercontainStoneType && (
-                                                <p className="error-message mt-1">{formik.errors.othercontainStoneType}</p>
-                                            )}
-                                        </>
-                                    )}
-                                </div>
                                 <div className="single-input-item">
                                     <label htmlFor="shape" className="required">What center stone shape would you like?</label>
                                     <Select
@@ -486,7 +594,7 @@ export default function Diamond() {
                                         value={shapeOptions.find(opt => opt.value === formik.values.shape)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('shape', selectedOption.value);
-                                            if (selectedOption.value !== "Other") {
+                                            if (selectedOption.value !== "other") {
                                                 formik.setFieldValue("othercontainShape", "");
                                             }
                                         }}
@@ -495,8 +603,7 @@ export default function Diamond() {
                                     {formik.touched.shape && formik.errors.shape && (
                                         <p className="error-message mt-1">{formik.errors.shape}</p>
                                     )}
-
-                                    {formik.values.shape === "Other" && (
+                                    {formik.values.shape === "other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -552,42 +659,376 @@ export default function Diamond() {
                                     )}
                                 </div>
                                 <div className="single-input-item">
-                                    <label htmlFor="metal" className="required">What metal type would you like?</label>
+                                    <label htmlFor="color" className="required">What color are you interested in?</label>
                                     <Select
-                                        options={metalOptions}
-                                        name="metal"
+                                        options={colorOptions}
+                                        name="color"
                                         classNamePrefix="custom"
                                         styles={customStyles}
-                                        value={metalOptions.find(opt => opt.value === formik.values.metal)}
+                                        value={colorOptions.find(opt => opt.value === formik.values.color)}
                                         onChange={(selectedOption) => {
-                                            formik.setFieldValue('metal', selectedOption.value);
-                                            if (selectedOption.value !== "Other") {
-                                                formik.setFieldValue("othercontainmetal", "");
+                                            formik.setFieldValue('color', selectedOption.value);
+                                            if (selectedOption.value !== "other") {
+                                                formik.setFieldValue("othercontaincolor", "");
                                             }
                                         }}
                                         onBlur={formik.handleBlur}
                                     />
-                                    {formik.touched.metal && formik.errors.metal && (
-                                        <p className="error-message mt-1">{formik.errors.metal}</p>
+                                    {formik.touched.color && formik.errors.color && (
+                                        <p className="error-message mt-1">{formik.errors.color}</p>
                                     )}
-                                    {formik.values.metal === "Other" && (
+                                    {formik.values.color === "other" && (
                                         <>
                                             <input
                                                 type="text"
-                                                id="othercontainmetal"
-                                                name="othercontainmetal"
-                                                placeholder="Custom Metal"
+                                                id="othercontaincolor"
+                                                name="othercontaincolor"
+                                                placeholder="Custom Color"
                                                 className="mt-3"
-                                                value={formik.values.othercontainmetal}
+                                                value={formik.values.othercontaincolor}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
                                             />
-                                            {formik.touched.othercontainmetal && formik.errors.othercontainmetal && (
-                                                <p className="error-message mt-1">{formik.errors.othercontainmetal}</p>
+                                            {formik.touched.othercontaincolor && formik.errors.othercontaincolor && (
+                                                <p className="error-message mt-1">{formik.errors.othercontaincolor}</p>
                                             )}
                                         </>
                                     )}
                                 </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="overtone" className="required">What overtone are you interested in?</label>
+                                    <Select
+                                        options={overtoneOptions}
+                                        name="overtone"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={overtoneOptions.find(opt => opt.value === formik.values.overtone)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('overtone', selectedOption.value);
+                                            if (selectedOption.value !== "other") {
+                                                formik.setFieldValue("othercontainovertone", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.overtone && formik.errors.overtone && (
+                                        <p className="error-message mt-1">{formik.errors.overtone}</p>
+                                    )}
+                                    {formik.values.overtone === "other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainovertone"
+                                                name="othercontainovertone"
+                                                placeholder="Custom Overtone"
+                                                className="mt-3"
+                                                value={formik.values.othercontainovertone}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainovertone && formik.errors.othercontainovertone && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainovertone}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="intensity" className="required">What intensity are you interested in?</label>
+                                    <Select
+                                        options={intensityOptions}
+                                        name="intensity"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={intensityOptions.find(opt => opt.value === formik.values.intensity)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('intensity', selectedOption.value);
+                                            if (selectedOption.value !== "other") {
+                                                formik.setFieldValue("othercontainintensity", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.intensity && formik.errors.intensity && (
+                                        <p className="error-message mt-1">{formik.errors.intensity}</p>
+                                    )}
+                                    {formik.values.intensity === "other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainintensity"
+                                                name="othercontainintensity"
+                                                placeholder="Custom Intensity"
+                                                className="mt-3"
+                                                value={formik.values.othercontainintensity}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainintensity && formik.errors.othercontainintensity && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainintensity}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="clarity" className="required">What clarity grade are you interested in?</label>
+                                    <Select
+                                        options={clarityOptions}
+                                        name="clarity"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={clarityOptions.find(opt => opt.value === formik.values.clarity)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('clarity', selectedOption.value);
+                                            if (selectedOption.value !== "Other") {
+                                                formik.setFieldValue("othercontainclarity", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.clarity && formik.errors.clarity && (
+                                        <p className="error-message mt-1">{formik.errors.clarity}</p>
+                                    )}
+                                    {formik.values.clarity === "Other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainclarity"
+                                                name="othercontainclarity"
+                                                placeholder="Custom Clarity"
+                                                className="mt-3"
+                                                value={formik.values.othercontainclarity}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainclarity && formik.errors.othercontainclarity && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainclarity}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="cut" className="required">What cut grade are you interested in?</label>
+                                    <Select
+                                        options={cutOptions}
+                                        name="cut"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={cutOptions.find(opt => opt.value === formik.values.cut)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('cut', selectedOption.value);
+                                            if (selectedOption.value !== "other") {
+                                                formik.setFieldValue("othercontaincut", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.cut && formik.errors.cut && (
+                                        <p className="error-message mt-1">{formik.errors.cut}</p>
+                                    )}
+                                    {formik.values.cut === "other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontaincut"
+                                                name="othercontaincut"
+                                                placeholder="Custom Cut"
+                                                className="mt-3"
+                                                value={formik.values.othercontaincut}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontaincut && formik.errors.othercontaincut && (
+                                                <p className="error-message mt-1">{formik.errors.othercontaincut}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="polish" className="required">What polish grade are you interested in?</label>
+                                    <Select
+                                        options={polishOptions}
+                                        name="polish"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={polishOptions.find(opt => opt.value === formik.values.polish)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('polish', selectedOption.value);
+                                            if (selectedOption.value !== "other") {
+                                                formik.setFieldValue("othercontainpolish", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.polish && formik.errors.polish && (
+                                        <p className="error-message mt-1">{formik.errors.polish}</p>
+                                    )}
+                                    {formik.values.polish === "other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainpolish"
+                                                name="othercontainpolish"
+                                                placeholder="Custom Polish"
+                                                className="mt-3"
+                                                value={formik.values.othercontainpolish}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainpolish && formik.errors.othercontainpolish && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainpolish}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="symmetry" className="required">What symmetry grade are you interested in?</label>
+                                    <Select
+                                        options={symmetryOptions}
+                                        name="symmetry"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={symmetryOptions.find(opt => opt.value === formik.values.symmetry)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('symmetry', selectedOption.value);
+                                            if (selectedOption.value !== "other") {
+                                                formik.setFieldValue("othercontainsymmetry", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.symmetry && formik.errors.symmetry && (
+                                        <p className="error-message mt-1">{formik.errors.symmetry}</p>
+                                    )}
+                                    {formik.values.symmetry === "other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainsymmetry"
+                                                name="othercontainsymmetry"
+                                                placeholder="Custom Symmetry"
+                                                className="mt-3"
+                                                value={formik.values.othercontainsymmetry}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainsymmetry && formik.errors.othercontainsymmetry && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainsymmetry}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="fluorescence" className="required">What fluorescence level are you interested in?</label>
+                                    <Select
+                                        options={fluorescenceOptions}
+                                        name="fluorescence"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={fluorescenceOptions.find(opt => opt.value === formik.values.fluorescence)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('fluorescence', selectedOption.value);
+                                            if (selectedOption.value !== "other") {
+                                                formik.setFieldValue("othercontainfluorescence", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.fluorescence && formik.errors.fluorescence && (
+                                        <p className="error-message mt-1">{formik.errors.fluorescence}</p>
+                                    )}
+                                    {formik.values.fluorescence === "other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainfluorescence"
+                                                name="othercontainfluorescence"
+                                                placeholder="Custom Fluorescence"
+                                                className="mt-3"
+                                                value={formik.values.othercontainfluorescence}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainfluorescence && formik.errors.othercontainfluorescence && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainfluorescence}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="lab" className="required">What lab certification are you interested in?</label>
+                                    <Select
+                                        options={labOptions}
+                                        name="lab"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={labOptions.find(opt => opt.value === formik.values.lab)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('lab', selectedOption.value);
+                                            if (selectedOption.value !== "other") {
+                                                formik.setFieldValue("othercontainlab", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.lab && formik.errors.lab && (
+                                        <p className="error-message mt-1">{formik.errors.lab}</p>
+                                    )}
+                                    {formik.values.lab === "other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainlab"
+                                                name="othercontainlab"
+                                                placeholder="Custom Lab"
+                                                className="mt-3"
+                                                value={formik.values.othercontainlab}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainlab && formik.errors.othercontainlab && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainlab}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="stonetype" className="required">Choose your stone type</label>
+                                    <Select
+                                        options={stoneOptions}
+                                        name="stonetype"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={stoneOptions.find(opt => opt.value === formik.values.stonetype)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('stonetype', selectedOption.value);
+                                            if (selectedOption.value !== "Other") {
+                                                formik.setFieldValue("othercontainStoneType", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.stonetype && formik.errors.stonetype && (
+                                        <p className="error-message mt-1">{formik.errors.stonetype}</p>
+                                    )}
+                                    {formik.values.stonetype === "Other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainStoneType"
+                                                name="othercontainStoneType"
+                                                placeholder="Custom Stone Type"
+                                                className="mt-3"
+                                                value={formik.values.othercontainStoneType}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainStoneType && formik.errors.othercontainStoneType && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainStoneType}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div> 
+
                                 <div className="single-input-item">
                                     <label htmlFor="budget" className="required">What’s your approximate budget?</label>
                                     <Select
@@ -625,6 +1066,7 @@ export default function Diamond() {
                                         </>
                                     )}
                                 </div>
+
                                 <div className="single-input-item">
                                     <label htmlFor="ordernote" className="required">Tell us about your vision.</label>
                                     <textarea
@@ -683,44 +1125,35 @@ export default function Diamond() {
                                 )}
 
                                 <div className="action_link d-flex justify-content-center mt-5">
-                                    <button type="submit" className="btn btn-cart2" >Submit</button>
+                                    <button type="submit" className="btn btn-cart2">Submit</button>
                                 </div>
                             </form>
-
-
                         </div>
-                        {/* </div>
-                        </div> */}
                     </div>
                 </div>
             </section>
             <section className="feature-product section-padding pt-0">
                 <div className="hero-single-slide hero-overlay hero-slider-item" style={{ position: 'relative', height: '500px' }}>
-                    {/* Image with next/image */}
-
                     <Image
                         src="/assets/img/custom-design/find-size.png"
                         alt="Find Ring Size"
                         fill
                         style={{ objectFit: 'cover', zIndex: -1 }}
-                        priority // optional: improves loading speed
+                        priority
                     />
-
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="hero-slider-content slide-1">
                                     <h2 className="slide-title">
-                                        <span>Find Your Diamond</span>
+                                        <span>Find Your Ideal Diamond</span>
                                     </h2>
                                     <h4 className="slide-desc">
-                                        Unsure of Your Ring Size? No Problem!
+                                        Download our curated diamond catalog in Excel format — complete with images, specifications, and prices.
                                         <br />
-                                        Click on &rsquo;Find Now&rsquo; and let us assist you in choosing the right ring size for you.
+                                        Discover the perfect match before you buy or customize.
                                     </h4>
-
-                                    <Link href="/shop" className="btn btn-hero">Download Excel</Link>
-
+                                    <Link href="/shop" className="btn btn-hero">Download Diamond Excel Sheet</Link>
                                 </div>
                             </div>
                         </div>
@@ -731,8 +1164,7 @@ export default function Diamond() {
                 <div className="col-12">
                     <div className="section-title text-center">
                         <h2 className="title">Bliss Platina&rsquo;s Promise</h2>
-                        <p className="sub-title">How We&rsquo;re Distinct From Others!
-                        </p>
+                        <p className="sub-title">How We&rsquo;re Distinct From Others!</p>
                     </div>
                 </div>
                 <div className="service-policy section-padding-service pb-0">
@@ -743,6 +1175,7 @@ export default function Diamond() {
                                     <div className="single-choose-item text-center mb-30">
                                         <img src={item.icon} alt={item.title} />
                                         <h6 className="mt-3">{item.title}</h6>
+                                        <p>{item.description}</p>
                                     </div>
                                 </div>
                             ))}
@@ -755,15 +1188,16 @@ export default function Diamond() {
                 <div className="container">
                     <div className="row mtn-30">
                         <div className="section-title text-center">
-                            <h2 className="title mb-3">Why To Buy Custom Engagement Ring?</h2>
-                            <p className="sub-title">The custom engagement rings has more sentiments and attachments then the premade rings, which are specially made only for you, so it&rsquo;s like one of a kind. Diamondrensu allows users to get their dream engagement ring by allowing 100% customization and design your own engagement ring your way. Viewers can submit the details on the form above, including the reference or inspiration images, and we can make the same design for you. We can custom made engagement rings in any shape, size, and color of lab grown diamonds, moissanite, or other gemstones. For custom orders Diamondrensu specializes in lab grown diamond engagement rings, moissanite engagement rings, stud earrings, moissanite wedding bands, bracelets and many more. If you have questions or would like an expert opinion feel free to schedule a virtual appointment with us.
+                            <h2 className="title mb-3">Why Choose Loose Diamonds from Bliss Platina?</h2>
+                            <p className="sub-title">
+                                Buying loose diamonds gives you the freedom to design your jewelry exactly the way you want it. At Bliss Platina, we offer a wide range of certified diamonds—available in different shapes, sizes, cuts, colors, and clarity grades—to perfectly match your taste and budget. Our diamonds are ethically sourced and hand-selected for brilliance and quality.
                             </p>
-                            <p className="sub-title">Customized Diamond Rings are specially made by experienced craftsmen, with perfection and high quality finishing. Design your own rings with Diamondrensu and get one of a kind ring which will be made by you for you and your loved ones. Diamondrensu not only makes custom engagement rings but we also make custom moissanite earrings which are very useful for gifting purposes.
+                            <p className="sub-title">
+                                Whether you're planning to create a custom engagement ring, earrings, pendant, or bracelet, our loose diamonds give you full creative control. We also provide detailed Excel catalogs with images and specifications so you can review and compare with ease. Need help choosing? Schedule a virtual consultation with our diamond experts for personalized guidance.
                             </p>
                         </div>
                     </div>
                 </div>
-
             </section>
         </>
     );

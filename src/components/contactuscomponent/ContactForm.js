@@ -40,15 +40,14 @@ export default function ContactForm() {
                     <div className="col-lg-6">
                         <div className="contact-info">
                             <h4 className="contact-title">Contact Us</h4>
-                            <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum
-                                est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum
-                                formas human.</p>
+                            <p>Have a question about our jewelry, custom orders, or need assistance with your purchase? We’re here to help! Reach out to Bliss Platine Design via WhatsApp, email, or our live chat — our team will be happy to assist you with anything you need.
+                            </p>
                             <ul>
                                 <li><i className="fa fa-fax"></i> Address : No 40 Baria Sreet 133/2 NewYork City</li>
                                 <li><i className="fa fa-phone"></i> E-mail: info@yourdomain.com</li>
                                 <li><i className="fa fa-envelope-o"></i> +88013245657</li>
                             </ul>
-                            
+
                         </div>
                     </div>
                 </div>
