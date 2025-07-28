@@ -187,12 +187,12 @@ export default function Header() {
                                                         Custom Design
                                                     </Link>
                                                 </li>
-                                                <li>
+                                                <li className={pathname === '/diamond' ? 'active' : ''}>
                                                     <Link href="/diamond">
                                                         Diamond
                                                     </Link>
                                                 </li>
-                                                <li>
+                                                <li className={pathname === '/contact-us' ? 'active' : ''}>
                                                     <Link href="/contact-us">Contact Us</Link>
                                                 </li>
                                             </ul>
@@ -371,9 +371,18 @@ export default function Header() {
                                     </li>
 
                                     {/* More menu items can be converted in same pattern... */}
-                                    <li><Link href="/custom-design">Custom Design</Link></li>
-                                    <li><Link href="/diamond">Diamond</Link></li>
-                                    <li><Link href="/contact-us">Contact Us</Link></li>
+
+                                    <li className={pathname === '/custom-design' ? 'active' : ''}>
+                                        <Link href="/custom-design" >
+                                            Custom Design
+                                        </Link>
+                                    </li>
+                                    <li className={pathname === '/diamond' ? 'active' : ''}>
+                                        <Link href="/diamond">
+                                            Diamond
+                                        </Link>
+                                    </li>
+                                    <li className={pathname === '/contact-us' ? 'active' : ''}><Link href="/contact-us">Contact Us</Link></li>
                                 </ul>
                             </nav>
                         </div>
