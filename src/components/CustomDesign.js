@@ -91,18 +91,16 @@ export default function CustomDesign() {
 
     const metalOptions = [
         { value: "", label: "Select an option" },
-        { value: "Platinum", label: "Platinum" },
-        { value: "18k White Gold", label: "18k White Gold" },
-        { value: "18K Yellow Gold", label: "18K Yellow Gold" },
-        { value: "18k Rose Gold", label: "18k Rose Gold" },
-        { value: "14k White Gold", label: "14k White Gold" },
-        { value: "14K Yellow Gold", label: "14K Yellow Gold" },
-        { value: "14k Rose Gold", label: "14k Rose Gold" },
-        { value: "10k White Gold", label: "10k White Gold" },
-        { value: "10K Yellow Gold", label: "10K Yellow Gold" },
-        { value: "10k Rose Gold", label: "10k Rose Gold" },
-        { value: "925 Sterling Silver", label: "925 Sterling Silver" },
-        { value: "Two-Toned", label: "Two-Toned" },
+        { value: "950 Palitum", label: "950 Palitum" },
+        { value: "18KT White Gold", label: "18KT White Gold" },
+        { value: "18KT Yellow Gold", label: "18KT Yellow Gold" },
+        { value: "18KT Rose Gold", label: "18KT Rose Gold" },
+        { value: "14KT White Gold", label: "14KT White Gold" },
+        { value: "14KT Yellow Gold", label: "14KT Yellow Gold" },
+        { value: "14KT Rose Gold", label: "14KT Rose Gold" },
+        { value: "10KT White Gold", label: "10KT White Gold" },
+        { value: "10KT Yellow Gold", label: "10K Yellow Gold" },
+        { value: "10KT Rose Gold", label: "10KT Rose Gold" }, 
         { value: "Other", label: "Other" },
     ];
 

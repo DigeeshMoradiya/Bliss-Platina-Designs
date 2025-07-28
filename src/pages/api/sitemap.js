@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         'custom-design',
         'product-details',
         'find-size',
-        'daimond'
+        'diamond'
     ];
 
     const productSlugs = ['14k-gold-ring', 'diamond-stud', 'silver-pendant'];

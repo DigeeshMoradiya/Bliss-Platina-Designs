@@ -188,7 +188,7 @@ export default function Header() {
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href="/daimond">
+                                                    <Link href="/diamond">
                                                         Diamond
                                                     </Link>
                                                 </li>
@@ -372,7 +372,7 @@ export default function Header() {
 
                                     {/* More menu items can be converted in same pattern... */}
                                     <li><Link href="/custom-design">Custom Design</Link></li>
-                                    <li><Link href="/daimond">Diamond</Link></li>
+                                    <li><Link href="/diamond">Diamond</Link></li>
                                     <li><Link href="/contact-us">Contact Us</Link></li>
                                 </ul>
                             </nav>

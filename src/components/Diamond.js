@@ -10,23 +10,23 @@ import Breadcrumb from "./common/Breadcrumb";
 import SEO from "./common/SEO";
 
 export default function Diamond() {
-   const policies = [
-  {
-    icon: "/assets/img/diamond/Mining Free.png",
-    title: "Ethically Grown, Mining-Free",
-    description: "Our lab-grown diamonds are created responsibly without mining — eliminating environmental harm and unethical practices.",
-  },
-  {
-    icon: "/assets/img/diamond/Beauty Quality.png",
-    title: "Unmatched Beauty & Quality",
-    description: "Engineered to perfection, our diamonds match the physical, chemical, and optical properties of natural mined diamonds.",
-  },
-  {
-    icon: "/assets/img/diamond/Value.png",
-    title: "Smart Luxury, Greater Value",
-    description: "Experience luxurious sparkle without the hefty price tag. Lab-grown diamonds deliver premium brilliance at an affordable cost.",
-  },
-];
+    const policies = [
+        {
+            icon: "/assets/img/diamond/Mining Free.png",
+            title: "Ethically Grown, Mining-Free",
+            description: "Our lab-grown diamonds are created responsibly without mining — eliminating environmental harm and unethical practices.",
+        },
+        {
+            icon: "/assets/img/diamond/Beauty Quality.png",
+            title: "Unmatched Beauty & Quality",
+            description: "Engineered to perfection, our diamonds match the physical, chemical, and optical properties of natural mined diamonds.",
+        },
+        {
+            icon: "/assets/img/diamond/Value.png",
+            title: "Smart Luxury, Greater Value",
+            description: "Experience luxurious sparkle without the hefty price tag. Lab-grown diamonds deliver premium brilliance at an affordable cost.",
+        },
+    ];
 
 
 
@@ -36,7 +36,7 @@ export default function Diamond() {
         { value: "Natural Stone", label: "Natural Stone" },
         { value: "Lab Grown Stone", label: "Lab Grown Stone" },
         { value: "Moissanite", label: "Moissanite" },
-        { value: "Gamestone", label: "Gamestone" },
+        { value: "Gemstone", label: "Gemstone" },
         { value: "Other", label: "Other" }
     ];
 
@@ -78,6 +78,7 @@ export default function Diamond() {
 
     const caratOptions = [
         { value: "", label: "Select an option" },
+        { value: "Below 0.29", label: "Below 0.29" },
         { value: "0.30-0.39", label: "0.30-0.39" },
         { value: "0.40-0.49", label: "0.40-0.49" },
         { value: "0.50-0.69", label: "0.50-0.69" },
@@ -128,7 +129,6 @@ export default function Diamond() {
 
     const cutOptions = [
         { value: "", label: "Select an option" },
-        { value: "8x", label: "8X" },
         { value: "ideal", label: "Ideal" },
         { value: "excellent", label: "Excellent" },
         { value: "very_good", label: "Very Good" },
@@ -140,7 +140,6 @@ export default function Diamond() {
 
     const polishOptions = [
         { value: "", label: "Select an option" },
-        { value: "8x", label: "8X" },
         { value: "ideal", label: "Ideal" },
         { value: "excellent", label: "Excellent" },
         { value: "very_good", label: "Very Good" },
@@ -152,7 +151,6 @@ export default function Diamond() {
 
     const symmetryOptions = [
         { value: "", label: "Select an option" },
-        { value: "8x", label: "8X" },
         { value: "ideal", label: "Ideal" },
         { value: "excellent", label: "Excellent" },
         { value: "very_good", label: "Very Good" },
@@ -177,8 +175,8 @@ export default function Diamond() {
         { value: "igi", label: "IGI" },
         { value: "gia", label: "GIA" },
         { value: "gccal", label: "GCCAL" },
-        { value: "other", label: "Other" },
-        { value: "none", label: "None" }
+        { value: "none", label: "None" },
+        { value: "other", label: "Other" }
     ];
 
     const colorOptions = [
@@ -197,6 +195,15 @@ export default function Diamond() {
         { value: "o", label: "O" },
         { value: "p", label: "P" },
         { value: "q", label: "Q" },
+        { value: "r", label: "R" },
+        { value: "s", label: "S" },
+        { value: "t", label: "T" },
+        { value: "u", label: "U" },
+        { value: "v", label: "V" },
+        { value: "w", label: "W" },
+        { value: "x", label: "X" },
+        { value: "y", label: "Y" },
+        { value: "z", label: "Z" },
         { value: "yellow", label: "Yellow" },
         { value: "orange", label: "Orange" },
         { value: "pink", label: "Pink" },
@@ -204,7 +211,6 @@ export default function Diamond() {
         { value: "green", label: "Green" },
         { value: "brown", label: "Brown" },
         { value: "red", label: "Red" },
-        { value: "white", label: "White" },
         { value: "violet", label: "Violet" },
         { value: "purple", label: "Purple" },
         { value: "gray", label: "Gray" },
@@ -215,6 +221,7 @@ export default function Diamond() {
 
     const overtoneOptions = [
         { value: "", label: "Select an option" },
+        { value: "white", label: "White" },
         { value: "yellow", label: "Yellow" },
         { value: "yellowish", label: "Yellowish" },
         { value: "pink", label: "Pink" },
@@ -238,7 +245,6 @@ export default function Diamond() {
         { value: "champagne", label: "Champagne" },
         { value: "cognac", label: "Cognac" },
         { value: "chameleon", label: "Chameleon" },
-        { value: "white", label: "White" },
         { value: "other", label: "Other" }
     ];
 
@@ -343,10 +349,10 @@ export default function Diamond() {
             othercontainlab: "",
             othercontainbudget: "",
             color: "",
-            overtone: "",
+            // overtone: "",
             intensity: "",
             othercontaincolor: "",
-            othercontainovertone: "",
+            // othercontainovertone: "",
             othercontainintensity: ""
         },
         validationSchema: Yup.object({
@@ -436,18 +442,18 @@ export default function Diamond() {
                 otherwise: (schema) => schema.notRequired(),
             }),
             color: Yup.string().required("Please select a color"),
-            overtone: Yup.string().required("Please select an overtone"),
+            // overtone: Yup.string().required("Please select an overtone"),
             intensity: Yup.string().required("Please select an intensity"),
             othercontaincolor: Yup.string().when("color", {
                 is: (val) => val === "other",
                 then: (schema) => schema.required("Please enter your custom color"),
                 otherwise: (schema) => schema.notRequired(),
             }),
-            othercontainovertone: Yup.string().when("overtone", {
-                is: (val) => val === "other",
-                then: (schema) => schema.required("Please enter your custom overtone"),
-                otherwise: (schema) => schema.notRequired(),
-            }),
+            // othercontainovertone: Yup.string().when("overtone", {
+            //     is: (val) => val === "other",
+            //     then: (schema) => schema.required("Please enter your custom overtone"),
+            //     otherwise: (schema) => schema.notRequired(),
+            // }),
             othercontainintensity: Yup.string().when("intensity", {
                 is: (val) => val === "other",
                 then: (schema) => schema.required("Please enter your custom intensity"),
@@ -495,7 +501,7 @@ export default function Diamond() {
             <section className="feature-product section-padding pb-0">
                 <div className="col-12">
                     <div className="section-title text-center col-lg-7 m-auto">
-                        <h2 className="title">Create Your Perfect Diamond</h2>
+                        <h2 className="title">Create Your Custom Diamond</h2>
                         <p className="sub-title m-auto"> Choose your ideal shape, size, and setting — and let Bliss Platina craft a diamond piece that’s uniquely yours. From engagement rings to elegant earrings, every design begins with your vision and ends in timeless brilliance.</p>
                     </div>
                 </div>
@@ -578,9 +584,45 @@ export default function Diamond() {
                                         )}
                                     </div>
                                 </div>
-
                                 <div className="single-input-item">
-                                    <label htmlFor="shape" className="required">What center stone shape would you like?</label>
+                                    <label htmlFor="stonetype" className="required">Choose your diamond</label>
+                                    <Select
+                                        options={stoneOptions}
+                                        name="stonetype"
+                                        classNamePrefix="custom"
+                                        styles={customStyles}
+                                        value={stoneOptions.find(opt => opt.value === formik.values.stonetype)}
+                                        onChange={(selectedOption) => {
+                                            formik.setFieldValue('stonetype', selectedOption.value);
+                                            if (selectedOption.value !== "Other") {
+                                                formik.setFieldValue("othercontainStoneType", "");
+                                            }
+                                        }}
+                                        onBlur={formik.handleBlur}
+                                    />
+                                    {formik.touched.stonetype && formik.errors.stonetype && (
+                                        <p className="error-message mt-1">{formik.errors.stonetype}</p>
+                                    )}
+                                    {formik.values.stonetype === "Other" && (
+                                        <>
+                                            <input
+                                                type="text"
+                                                id="othercontainStoneType"
+                                                name="othercontainStoneType"
+                                                placeholder="Custom Stone Type"
+                                                className="mt-3"
+                                                value={formik.values.othercontainStoneType}
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {formik.touched.othercontainStoneType && formik.errors.othercontainStoneType && (
+                                                <p className="error-message mt-1">{formik.errors.othercontainStoneType}</p>
+                                            )}
+                                        </>
+                                    )}
+                                </div>
+                                <div className="single-input-item">
+                                    <label htmlFor="shape" className="required">What diamond shape would you like?</label>
                                     <Select
                                         options={shapeOptions}
                                         name="shape"
@@ -617,7 +659,7 @@ export default function Diamond() {
                                     )}
                                 </div>
                                 <div className="single-input-item">
-                                    <label htmlFor="carat" className="required">What centre stone carat weight are you interested in?</label>
+                                    <label htmlFor="carat" className="required">What diamond carat weight are you interested in?</label>
                                     <Select
                                         options={caratOptions}
                                         name="carat"
@@ -654,7 +696,7 @@ export default function Diamond() {
                                     )}
                                 </div>
                                 <div className="single-input-item">
-                                    <label htmlFor="color" className="required">What color are you interested in?</label>
+                                    <label htmlFor="color" className="required">What Diamond color are you interested in?</label>
                                     <Select
                                         options={colorOptions}
                                         name="color"
@@ -690,7 +732,7 @@ export default function Diamond() {
                                         </>
                                     )}
                                 </div>
-                                <div className="single-input-item">
+                                {/* <div className="single-input-item">
                                     <label htmlFor="overtone" className="required">What overtone are you interested in?</label>
                                     <Select
                                         options={overtoneOptions}
@@ -726,7 +768,7 @@ export default function Diamond() {
                                             )}
                                         </>
                                     )}
-                                </div>
+                                </div> */}
                                 <div className="single-input-item">
                                     <label htmlFor="intensity" className="required">What intensity are you interested in?</label>
                                     <Select
@@ -986,43 +1028,7 @@ export default function Diamond() {
                                         </>
                                     )}
                                 </div>
-                                <div className="single-input-item">
-                                    <label htmlFor="stonetype" className="required">Choose your stone type</label>
-                                    <Select
-                                        options={stoneOptions}
-                                        name="stonetype"
-                                        classNamePrefix="custom"
-                                        styles={customStyles}
-                                        value={stoneOptions.find(opt => opt.value === formik.values.stonetype)}
-                                        onChange={(selectedOption) => {
-                                            formik.setFieldValue('stonetype', selectedOption.value);
-                                            if (selectedOption.value !== "Other") {
-                                                formik.setFieldValue("othercontainStoneType", "");
-                                            }
-                                        }}
-                                        onBlur={formik.handleBlur}
-                                    />
-                                    {formik.touched.stonetype && formik.errors.stonetype && (
-                                        <p className="error-message mt-1">{formik.errors.stonetype}</p>
-                                    )}
-                                    {formik.values.stonetype === "Other" && (
-                                        <>
-                                            <input
-                                                type="text"
-                                                id="othercontainStoneType"
-                                                name="othercontainStoneType"
-                                                placeholder="Custom Stone Type"
-                                                className="mt-3"
-                                                value={formik.values.othercontainStoneType}
-                                                onChange={formik.handleChange}
-                                                onBlur={formik.handleBlur}
-                                            />
-                                            {formik.touched.othercontainStoneType && formik.errors.othercontainStoneType && (
-                                                <p className="error-message mt-1">{formik.errors.othercontainStoneType}</p>
-                                            )}
-                                        </>
-                                    )}
-                                </div>
+
 
                                 <div className="single-input-item">
                                     <label htmlFor="budget" className="required">What’s your approximate budget?</label>
@@ -1131,7 +1137,7 @@ export default function Diamond() {
                 <div className="hero-single-slide hero-overlay hero-slider-item" style={{ position: 'relative', height: '500px' }}>
                     <Image
                         src="/assets/img/diamond/daimond-section.jpg"
-                        alt="Daimond"
+                        alt="Diamond"
                         fill
                         style={{ objectFit: 'cover', zIndex: -1 }}
                         priority
@@ -1187,7 +1193,7 @@ export default function Diamond() {
                 <div className="container">
                     <div className="row mtn-30">
                         <div className="section-title text-center">
-                            <h2 className="title mb-3">Why Choose Loose Diamonds from Bliss Platina?</h2>
+                            <h2 className="title mb-3">Why Choose Diamonds from Bliss Platina?</h2>
                             <p className="sub-title">
                                 Buying loose diamonds gives you the freedom to design your jewelry exactly the way you want it. At Bliss Platina, we offer a wide range of certified diamonds—available in different shapes, sizes, cuts, colors, and clarity grades—to perfectly match your taste and budget. Our diamonds are ethically sourced and hand-selected for brilliance and quality.
                             </p>
