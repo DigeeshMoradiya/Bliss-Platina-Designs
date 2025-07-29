@@ -337,7 +337,6 @@ export default function Diamond() {
             budget: "",
             ordernote: "",
             images: [],
-            othercontain: "",
             othercontainStoneType: "",
             othercontainShape: "",
             othercontaincarat: "",
