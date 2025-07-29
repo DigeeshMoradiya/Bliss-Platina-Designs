@@ -33,8 +33,8 @@ export default function Diamond() {
 
     const stoneOptions = [
         { value: "", label: "Select an option" },
-        { value: "Natural Stone", label: "Natural Stone" },
-        { value: "Lab Grown Stone", label: "Lab Grown Stone" },
+        { value: "Natural Diamond", label: "Natural Diamond" },
+        { value: "Lab Grown Diamond", label: "Lab Grown Diamond" },
         { value: "Moissanite", label: "Moissanite" },
         { value: "Gemstone", label: "Gemstone" },
         { value: "Other", label: "Other" }
