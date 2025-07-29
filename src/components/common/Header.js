@@ -47,7 +47,7 @@ export default function Header() {
                             <div className="col-lg-2">
                                 <div className="logo pt-3 pb-3">
                                     <Link href="/">
-                                        <img src="/assets/img/logo/logo.png" alt="Brand Logo" />
+                                        <img src="/assets/img/logo/logonew.png" alt="Brand Logo" />
                                     </Link>
                                 </div>
                             </div>
