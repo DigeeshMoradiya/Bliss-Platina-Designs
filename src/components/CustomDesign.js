@@ -54,7 +54,8 @@ export default function CustomDesign() {
         { value: "Lab Grown Diamond", label: "Lab Grown Diamond" },
         { value: "Moissanite", label: "Moissanite" },
         { value: "Gem ", label: "Gemstone" },
-        { value: "Other", label: "Other" }
+        { value: "Other", label: "Other" },
+        { value: "Digeesh", label: "Digeesh" },
     ];
 
     const shapeOptions = [
