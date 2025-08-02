@@ -40,9 +40,9 @@ export default function Header() {
                 {/* Logo and Navigation */}
                 <div className="sticky top-0 z-[999] bg-white header-main-area">
                     <div className="container">
-                        <div className="row align-items-center position-relative">
+                        <div className="row align-items-center position-relative  pt-3 pb-3">
                             <div className="col-lg-2">
-                                <div className="logo pt-3 pb-3">
+                                <div className="logo">
                                     <Link href="/">
                                         <img src="/assets/img/logo/logonew.png" alt="Brand Logo" />
                                     </Link>
@@ -50,7 +50,7 @@ export default function Header() {
                             </div>
                             <div className="col-lg-8 position-static d-flex justify-content-center">
                                 <div className="header-left d-flex align-items-center  justify-content-lg-end">
-                                    <form className="header-search-box d-lg-none d-xl-block">
+                                    <form className="header-search-box  d-xl-block">
                                         <input type="text" placeholder="Search entire store here" className="header-search-field" />
                                         <button className="header-search-btn"><i className="pe-7s-search"></i></button>
                                     </form>

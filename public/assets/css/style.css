@@ -1264,6 +1264,20 @@ only screen and (max-width: 767.98px) {
   padding-left: 20px;
 }
 
+@media only screen and (min-width: 1024px) and (max-width: 1024px) {
+
+  .header-top-settings ul li {
+    color: #555555;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+    margin-left: 10px;
+    position: relative;
+    margin-left: 10px;
+    padding-left: 12px;
+  }
+}
+
 .header-top-settings ul li:before {
   top: 50%;
   left: 0;
@@ -1542,7 +1556,7 @@ only screen and (max-width: 767.98px) {
   color: #222222;
   font-size: 15px;
   /* padding: 0px 14px; */
-    padding: 0px 14px 6px 14px;
+  padding: 0px 14px 9px 14px;
 
   font-weight: 400;
   display: block;
@@ -1814,8 +1828,8 @@ only screen and (max-width: 767.98px) {
 }
 
 .sticky.is-sticky .main-menu li a {
-   /* padding: 20px 14px; */
-  padding: 0px 14px 6px 14px;
+  /* padding: 20px 14px; */
+  padding: 0px 14px 9px 14px;
 }
 
 .sticky.is-sticky .main-menu li:first-child a {
@@ -5405,7 +5419,8 @@ only screen and (max-width: 767.98px) {
   height: 48px !important;
   color: #555555 !important;
   font-size: 16px;
-  border-radius: 0px !important; /* optional */
+  border-radius: 0px !important;
+  /* optional */
   /* padding-left: 48px !important; space for flag */
   font-family: "Lato", sans-serif !important;
   width: 100% !important;
