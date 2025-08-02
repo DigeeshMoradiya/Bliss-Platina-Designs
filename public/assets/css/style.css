@@ -1541,7 +1541,9 @@ only screen and (max-width: 767.98px) {
 .main-menu ul li a {
   color: #222222;
   font-size: 15px;
-  padding: 37px 14px;
+  /* padding: 0px 14px; */
+    padding: 0px 14px 6px 14px;
+
   font-weight: 400;
   display: block;
   text-transform: uppercase;
@@ -1812,7 +1814,8 @@ only screen and (max-width: 767.98px) {
 }
 
 .sticky.is-sticky .main-menu li a {
-  padding: 20px 14px;
+   /* padding: 20px 14px; */
+  padding: 0px 14px 6px 14px;
 }
 
 .sticky.is-sticky .main-menu li:first-child a {
