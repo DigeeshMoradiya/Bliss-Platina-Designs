@@ -14,25 +14,22 @@ export default function Header() {
                 <div className="header-top bdr-bottom">
                     <div className="container">
                         <div className="row align-items-center">
-                            <div className="col-lg-4">
+                            <div className="col-lg-6">
                                 <div className="welcome-message">
                                     <p>Welcome to Bliss Platina Jewelry online store</p>
                                 </div>
                             </div>
-                            <div className="col-lg-4">
-                                <div className="mobile-number">
+                            {/* <div className="col-lg-4">
+                                 <div className="mobile-number">
                                     <p>Contact Us on : +91 9876543210</p>
-                                </div>
-                            </div>
-                            <div className="col-lg-4">
+                                </div>  
+                            </div> */}
+                            <div className="col-lg-6 text-right">
                                 <div className="header-top-settings">
-                                    <ul className="nav justify-content-end align-items-center">
-                                        <li className="curreny-wrap cursor-auto">
-                                            $ USD</li>
-                                        <li className="language cursor-auto">
-                                            <Image src="/assets/img/icon/en.png" alt="flag" width={20} height={13} /> English
-                                        </li>
-
+                                    <ul className="nav align-items-center justify-content-end">
+                                        <div className="mobile-number">
+                                            <p>Contact Us on : +91 9876543210</p>
+                                        </div>
                                     </ul>
                                 </div>
                             </div>
@@ -52,6 +49,32 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className="col-lg-8 position-static d-flex justify-content-center">
+                                <div className="header-left d-flex align-items-center  justify-content-lg-end">
+                                    <form className="header-search-box d-lg-none d-xl-block">
+                                        <input type="text" placeholder="Search entire store here" className="header-search-field" />
+                                        <button className="header-search-btn"><i className="pe-7s-search"></i></button>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div className="col-lg-2">
+                                <div className="header-top-settings">
+                                    <ul className="nav justify-content-end align-items-center">
+                                        <li className="curreny-wrap cursor-auto">
+                                            $ USD</li>
+                                        <li className="language cursor-auto">
+                                            <Image src="/assets/img/icon/en.png" alt="flag" width={20} height={13} /> English
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container">
+                        <div className="row align-items-center position-relative">
+                            <div className="col-lg-12 position-static d-flex justify-content-center">
                                 <div className="main-menu-area">
                                     <div className="main-menu">
                                         <nav className="desktop-menu">
@@ -198,16 +221,6 @@ export default function Header() {
                                             </ul>
                                         </nav>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div className="col-lg-2">
-                                <div className="header-left d-flex align-items-center  justify-content-lg-end">
-                                    <form className="header-search-box d-lg-none d-xl-block">
-                                        <input type="text" placeholder="Search entire store here" className="header-search-field" />
-                                        <button className="header-search-btn"><i className="pe-7s-search"></i></button>
-                                    </form>
-
                                 </div>
                             </div>
                         </div>
