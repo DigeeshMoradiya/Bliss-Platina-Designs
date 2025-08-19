@@ -7,7 +7,7 @@ import { X } from "lucide-react"; // or use any icon library
 import ProductGrid from "./shop/ProductGrid";
 import ProductItem from "./shop/ProductItem";
 
-export default function FindSize() {
+export default function FindSize({ settingData }) {
     const [images, setImages] = useState([]);
 
     const handleFiles = (files) => {
@@ -82,6 +82,9 @@ export default function FindSize() {
 
     ];
 
+    const handlewatchtutorial = () => {
+        window.open(settingData, "_blank");
+    };
     return (
         <>
             <SEO
@@ -129,7 +132,7 @@ export default function FindSize() {
                         </div>
                     </div>
                     <div className="action_link d-flex justify-content-center mt-5">
-                        <button className="btn btn-cart2" >Watch Tutorial</button>
+                        <button className="btn btn-cart2" onClick={handlewatchtutorial}>Watch Tutorial</button>
                     </div>
                 </div>
             </div>

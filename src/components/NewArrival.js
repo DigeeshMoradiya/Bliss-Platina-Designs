@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Slider from 'react-slick';
+import { useRouter } from 'next/navigation';
 
 const PrevArrow = (props) => {
     const { className, style, onClick } = props;
@@ -148,8 +149,9 @@ const products = [
     // Add more products as needed
 ];
 
-export default function NewArrivalSection() {
+export default function NewArrivalSection({ newArrivalsData }) {
     const [activeTab, setActiveTab] = useState('Entertainment');
+    const router = useRouter();
 
     const categories = ['Entertainment', 'Storage', 'Lying', 'Tables'];
 
@@ -187,6 +189,13 @@ export default function NewArrivalSection() {
         }]
     };
 
+    const handleClick = (e, slug) => {
+        e.preventDefault();
+        router.push(`/shop/${slug}`);
+    };
+
+
+
     return (
         <section className="feature-product section-padding pb-0">
             <div className="container">
@@ -201,13 +210,16 @@ export default function NewArrivalSection() {
                 <div className="row">
                     <div className="col-12">
                         <Slider {...sliderSettings} className="slick-row-10 slick-arrow-style">
-                            {products
-                                .filter((product) => product.category)
-                                .map((product) => (
-                                    <div key={product.id} className="product-item">
-                                        <figure className="product-thumb">
-                                            <Link href="/product-details">
-                                                {/* <Image
+                            {newArrivalsData
+                                .map((product) => {
+
+                                    const imageFiles = product?.images ? JSON.parse(product.images) : [];
+
+                                    return (
+                                        <div key={product.id} className="product-item">
+                                            <figure className="product-thumb">
+                                                <Link href={`/shop/${product.slug}`} onClick={(e) => handleClick(e, product.slug)}>
+                                                    {/* <Image
                             src={product.primaryImage}
                             alt={product.name}
                             width={300}
@@ -221,22 +233,22 @@ export default function NewArrivalSection() {
                             height={300}
                             className="sec-img"
                           /> */}
-                                                <img className="pri-img" src={product.primaryImage} alt="product" />
-                                                <img className="sec-img" src={product.secondaryImage} alt="product" />
-                                            </Link>
-                                            <div className="product-badge">
-                                                {product.isNew && (
-                                                    <div className="product-label new">
-                                                        <span>new</span>
-                                                    </div>
-                                                )}
-                                                {product.discount && (
-                                                    <div className="product-label discount">
-                                                        <span>{product.discount}</span>
-                                                    </div>
-                                                )}
-                                            </div>
-                                            {/* <div className="button-group">
+                                                    <img className="pri-img" src={imageFiles?.[0]} alt="product" />
+                                                    <img className="sec-img" src={imageFiles?.[1]} alt="product" />
+                                                </Link>
+                                                <div className="product-badge">
+                                                    {product.is_new && (
+                                                        <div className="product-label new">
+                                                            <span>new</span>
+                                                        </div>
+                                                    )}
+                                                    {product.discount > 0 && (
+                                                        <div className="product-label discount">
+                                                            <span>{product.discount}%</span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                {/* <div className="button-group">
                                 <a
                                   href="wishlist.html"
                                   data-bs-toggle="tooltip"
@@ -266,33 +278,43 @@ export default function NewArrivalSection() {
                               <div className="cart-hover">
                                 <button className="btn btn-cart">Add to cart</button>
                               </div> */}
-                                        </figure>
-                                        <div className="product-caption text-center">
-                                            <div className="product-identity">
-                                                <p className="manufacturer-name">
-                                                    <Link href="/product-details">{product.manufacturer}</Link>
-                                                </p>
-                                            </div>
-                                            <ul className="color-categories">
+                                            </figure>
+                                            <div className="product-caption text-center">
+                                                <div className="product-identity">
+                                                    <p className="manufacturer-name">
+                                                        <Link href={`/shop/${product.slug}`} onClick={(e) => handleClick(e, product.slug)}>
+                                                            {product.category}
+                                                        </Link>
+                                                    </p>
+                                                </div>
+                                                <ul className="color-categories">
                                                     <li><a className="c-lightblue cursor-pointer-none" title="White Gold"></a></li>
                                                     <li><a className="c-darktan cursor-pointer-none" title="Yellow Gold"></a></li>
                                                     <li><a className="c-grey cursor-pointer-none" title="Rose Gold"></a></li>
                                                     {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
                                                 </ul>
-                                            <h6 className="product-name">
-                                                <Link href="/product-details">{product.name}</Link>
-                                            </h6>
-                                            <div className="price-box">
-                                                <span className="price-regular">${product.price.toFixed(2)}</span>
-                                                {product.oldPrice && (
-                                                    <span className="price-old">
-                                                        <del>${product.oldPrice.toFixed(2)}</del>
+                                                <h6 className="product-name">
+                                                    <Link href={`/shop/${product.slug}`} onClick={(e) => handleClick(e, product.slug)}>
+                                                        {product.name}
+                                                    </Link>
+                                                </h6>
+                                                <div className="price-box">
+                                                    <span className="price-regular">
+                                                        ${Math.round(product?.price * (1 - product?.discount / 100))
+                                                            .toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                                     </span>
-                                                )}
+                                                    {product?.discount > 0 && (
+                                                        <span className="price-old">
+                                                            <del>
+                                                                ${product?.price?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                            </del>
+                                                        </span>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    )
+                                })}
                         </Slider>
                     </div>
                 </div>

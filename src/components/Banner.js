@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Slider from 'react-slick';
 
 const PrevArrow = (props) => {
@@ -29,16 +30,17 @@ const NextArrow = (props) => {
   );
 };
 
-export default function Banner() {
+export default function Banner({ bannerData }) {
 
+  const router = useRouter();
   const sliderSettings = {
     fade: true,
     speed: 1000,
     dots: false,
     autoplay: true,
     prevArrow: <PrevArrow className="slick-prev" />,
-		nextArrow: <NextArrow className="slick-next" />,
-		responsive: [{
+    nextArrow: <NextArrow className="slick-next" />,
+    responsive: [{
       breakpoint: 992,
       settings: {
         arrows: false,
@@ -47,26 +49,50 @@ export default function Banner() {
     }]
   };
 
+  const handleproduct = (name) => {
+    router.push(`/shop?q=${name}`)
+  }
+
   return (
     <div className="slider-area">
-      <Slider className="slick-arrow-style slick-arrow-style_hero slick-dot-style" {...sliderSettings}>
-        <div className="hero-single-slide hero-overlay">
-          <div className="hero-slider-item bg-img" style={{ backgroundImage: 'url(/assets/img/slider/home1-slide2.jpg)' }}>
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="hero-slider-content slide-1">
-                    <h2 className="slide-title">Timeless Family <span>Jewelry Collection</span></h2>
-                    <h4 className="slide-desc">Gold necklaces, bangles & earrings for all generations.</h4>
-                    <Link href="/shop" className="btn btn-hero">Read More</Link>
+      <Slider
+        className="slick-arrow-style slick-arrow-style_hero slick-dot-style"
+        {...sliderSettings}
+      >
+        {bannerData?.map((banner, index) => (
+          <div
+            key={index}
+            className="hero-single-slide hero-overlay"
+          >
+            <div
+              className="hero-slider-item bg-img"
+              style={{ backgroundImage: `url(${banner.image || '/assets/img/slider/home1-slide2.jpg'})` }}
+            >
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-12">
+                    <div className="hero-slider-content slide-1">
+                      <h2 className="slide-title">
+                        {banner.title.split(',')[0]}
+                        <span>{banner.title.split(',')[1]?.trim()}</span>
+                      </h2>
+                      <h4 className="slide-desc">
+                        {banner.short_description}
+                      </h4>
+                      <Link href={`/shop?q=${banner?.category_name}`} onClick={() => handleproduct(banner?.category_name)} className="btn btn-hero">
+                        Read More
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        ))}
 
-        <div className="hero-single-slide hero-overlay">
+
+
+        {/* <div className="hero-single-slide hero-overlay">
           <div className="hero-slider-item bg-img" style={{ backgroundImage: 'url(/assets/img/slider/home1-slide3.jpg)' }}>
             <div className="container">
               <div className="row">
@@ -96,7 +122,7 @@ export default function Banner() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </Slider>
     </div>
   );

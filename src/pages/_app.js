@@ -1,6 +1,7 @@
-import Script from 'next/script';
-import '../../public/assets/css/style.css'; // Optional fallback
 import Layout from '@/components/Layout';
+import Script from 'next/script';
+import { ClientToastProvider } from 'vyrn';
+import '../../public/assets/css/style.css'; // Optional fallback
 
 export default function App({ Component, pageProps }) {
   return (
@@ -19,8 +20,9 @@ export default function App({ Component, pageProps }) {
       <Script src="/assets/js/plugins/imagesloaded.pkgd.min.js" strategy="afterInteractive" />
       <Script src="/assets/js/plugins/ajaxchimp.js" strategy="afterInteractive" />
       <Script src="/assets/js/plugins/ajax-mail.js" strategy="afterInteractive" />
+      <Script src="/assets/js/main.js" strategy="afterInteractive" />
 
-      
+
 
       {/* Load map if needed */}
       {/* 
@@ -32,10 +34,19 @@ export default function App({ Component, pageProps }) {
       */}
 
       {/* Main JS should be LAST and after DOM is ready */}
-      <Script src="/assets/js/main.js" strategy="afterInteractive" />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+
+      <ClientToastProvider
+        position="top-right"
+        swipeDirection="left"
+        maxToasts={1}
+        layout="stack"
+        showCloseButton={true}
+        showProgressBar={true}
+        color={true}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ClientToastProvider>
     </>
   );
 }

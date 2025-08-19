@@ -3,7 +3,6 @@ const Loader = () => {
 
     <div className="blis-platina-design-spinner">
       <div className="ring"></div>
-
     </div>
   );
 };

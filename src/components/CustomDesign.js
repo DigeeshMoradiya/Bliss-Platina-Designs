@@ -1,18 +1,59 @@
 import { useFormik } from "formik";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import Select from 'react-select';
 import * as Yup from 'yup';
 import Breadcrumb from "./common/Breadcrumb";
 import SEO from "./common/SEO";
+import { storeMedia, storeSubscribe } from "@/lib/api/setting/setting";
+import { useToast } from "vyrn";
+import Cookies from "js-cookie";
 
+export default function CustomDesign({ skuNo, setSkuNo }) {
+    const [loaderPdf, setLoader] = useState(false);
+    const [loader, setLoaderPdf] = useState(false);
+    const toast = useToast();
 
+    const downloadPDF = async () => {
+        setLoaderPdf(true);
 
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}user/pdf`, {
+                method: "GET",
+            });
 
-export default function CustomDesign() {
+            if (!response.ok) {
+                throw new Error("Failed to fetch file");
+            }
+
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const companyName = "Bliss_Platina_Design_Ring_Size_Guide";
+            const today = new Date();
+            const dateStr = today.toISOString().split("T")[0];
+
+            const fileName = `${companyName}_${dateStr}.pdf`;
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", fileName);
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            window.URL.revokeObjectURL(url);
+
+            toast.success("PDF Download Success");
+        } catch (error) {
+            toast.error("Download failed");
+            console.error("Download error:", error);
+        } finally {
+            setLoaderPdf(false);
+        }
+    };
+
 
     const policies = [
         {
@@ -54,7 +95,7 @@ export default function CustomDesign() {
         { value: "Lab Grown Diamond", label: "Lab Grown Diamond" },
         { value: "Moissanite", label: "Moissanite" },
         { value: "Gem ", label: "Gemstone" },
-        { value: "Other", label: "Other" }, 
+        { value: "Other", label: "Other" },
     ];
 
     const shapeOptions = [
@@ -100,7 +141,7 @@ export default function CustomDesign() {
         { value: "14KT Rose Gold", label: "14KT Rose Gold" },
         { value: "10KT White Gold", label: "10KT White Gold" },
         { value: "10KT Yellow Gold", label: "10K Yellow Gold" },
-        { value: "10KT Rose Gold", label: "10KT Rose Gold" }, 
+        { value: "10KT Rose Gold", label: "10KT Rose Gold" },
         { value: "Other", label: "Other" },
     ];
 
@@ -262,33 +303,114 @@ export default function CustomDesign() {
                 otherwise: (schema) => schema.notRequired(),
             }),
         }),
-        onSubmit: async (values) => {
+        onSubmit: async (values, { resetForm }) => {
+            const payload = {
+                f_name: values.f_name,
+                l_name: values.l_name,
+                email: values.email,
+                phone: values.phone.slice(values.countryCode.length),
+                country_code: `+${values.countryCode}`,
+                design: values.design,
+                stonetype: values.stonetype,
+                shape: values.shape,
+                carat: values.carat,
+                metal: values.metal,
+                budget: values.budget,
+                order_note: values.ordernote,
+                images: values.images || [],
+                sku_no: skuNo || null,
+                other_contain: values.design === 'Other' ? values.othercontain : null,
+                other_contain_budget: values.budget === 'Other' ? values.othercontainbudget : null,
+                other_contain_carat: values.carat === 'Other' ? values.othercontaincarat : null,
+                other_contain_metal: values.metal === 'Other' ? values.othercontainmetal : null,
+                other_contain_shape: values.shape === 'Other' ? values.othercontainShape : null,
+                other_contain_stone_type: values.stonetype === 'Other' ? values.othercontainStoneType : null,
+            };
 
+            setLoader(true);
+            try {
+                const result = await storeSubscribe("custom-jewelry", payload);
+                if (result?.success === true) {
+                    toast.success(result?.message);
+                    setLoader(false);
+                    resetForm();
+                    Cookies.remove("sku_no");
+                    setSkuNo(null);
+                } else {
+                    toast.error(result?.message);
+                }
+            } catch (error) {
+                setLoader(true);
+                console.error("Error fetching settings:", error);
+            }
         },
     });
+    const handleFileUpload = async (e) => {
+        const files = e.target?.files
+            ? Array.from(e.target.files)
+            : Array.from(e.dataTransfer?.files || []);
 
+        if (!files || files.length === 0) {
+            toast.error("No files selected");
+            return;
+        }
 
-    const handleFiles = (files) => {
-        const selectedImages = Array.from(files).map((file) => ({
-            file,
-            url: URL.createObjectURL(file),
-        }));
-        formik.setFieldValue("images", [...formik.values.images, ...selectedImages]);
+        const allowedExtensions = ['.jpg', '.jpeg', '.png'];
+        const MAX_SIZE = 10 * 1024 * 1024; // 10MB
+        const validFiles = [];
+
+        for (const file of files) {
+            const fileName = file.name.toLowerCase();
+
+            const isValidExtension = allowedExtensions.some((ext) => fileName.endsWith(ext));
+            if (!isValidExtension) {
+                toast.error(`Invalid file type: ${file.name}`);
+                continue;
+            }
+
+            if (file.size > MAX_SIZE) {
+                toast.error(`File too large: ${file.name}`);
+                continue;
+            }
+
+            validFiles.push(file);
+        }
+
+        if (validFiles.length === 0) {
+            toast.error("No valid files to upload");
+            return;
+        }
+
+        const formData = new FormData();
+        validFiles.forEach((file) => {
+            formData.append('files', file);
+        });
+
+        try {
+            const result = await storeMedia(formData);
+            if (result?.success === true && result?.files?.length > 0) {
+                const imageUrls = result?.files?.map(file => file.url) || [];
+                formik.setFieldValue("images", [...formik.values.images, ...imageUrls]);
+            } else {
+                toast.error("Failed to upload files: No files returned");
+            }
+        } catch (error) {
+            toast.error("Error uploading files");
+            console.error("Error:", error);
+        }
     };
-
     const handleInputChange = (e) => {
-        handleFiles(e.target.files);
+        handleFileUpload(e); // Pass the event directly
     };
 
     const handleDrop = (e) => {
         e.preventDefault();
-        handleFiles(e.dataTransfer.files);
+        handleFileUpload(e); // Pass the event directly
     };
 
     const handleDragOver = (e) => {
         e.preventDefault();
     };
-
     const removeImage = (indexToRemove) => {
         const updatedImages = formik.values.images.filter((_, index) => index !== indexToRemove);
         formik.setFieldValue("images", updatedImages);
@@ -391,6 +513,18 @@ export default function CustomDesign() {
                                         )}
                                     </div>
                                 </div>
+                                {skuNo &&
+                                    <div className="single-input-item">
+                                        <label className="required">SKU Number</label>
+                                        <input
+                                            type="text"
+                                            placeholder="Enter SKU number"
+                                            value={skuNo}
+                                            disabled
+                                        />
+                                    </div>}
+
+
                                 <div className="single-input-item">
                                     <label htmlFor="design" className="required">What are you looking to design?</label>
                                     <Select
@@ -654,6 +788,7 @@ export default function CustomDesign() {
                                     />
                                     <label className="file-upload-label cursor-pointer mt-2">Upload Reference Images</label>
                                 </div>
+
                                 {formik.values.images.length !== 0 && (
                                     <div className="mt-4 d-flex flex-wrap gap-3">
                                         {formik.values.images.map((img, index) => (
@@ -663,7 +798,7 @@ export default function CustomDesign() {
                                                 style={{ width: "100px", height: "100px" }}
                                             >
                                                 <img
-                                                    src={img.url}
+                                                    src={img}
                                                     alt={`upload-${index}`}
                                                     className="img-thumbnail"
                                                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -680,7 +815,9 @@ export default function CustomDesign() {
                                 )}
 
                                 <div className="action_link d-flex justify-content-center mt-5">
-                                    <button type="submit" className="btn btn-cart2" >Submit</button>
+                                    <button type="submit" className="btn btn-cart2" disabled={loader}>
+                                        {loader ? "Submitting..." : "Submit"}
+                                    </button>
                                 </div>
                             </form>
 
@@ -716,7 +853,11 @@ export default function CustomDesign() {
                                         Use our easy ring sizing tool to ensure your personalized jewelry fits perfectly.
                                     </h4>
                                     <div className="d-flex gap-3">
-                                        <Link href="/shop" className="btn btn-hero">Print Now</Link>
+                                        {/* <Link href="/shop" className="btn btn-hero">Print Now</Link> */}
+
+                                        <button onClick={downloadPDF} className="btn btn-hero" disabled={loaderPdf}>
+                                            {loaderPdf ? "Downloading PDF..." : "Print Now"}
+                                        </button>
                                         <Link href="/find-size" className="btn btn-find-now">Find Now</Link>
                                     </div>
                                 </div>
@@ -751,7 +892,7 @@ export default function CustomDesign() {
             <img
                 src="/assets/img/custom-design/Section.png"
                 alt="Custom Design Sketch"
-                style={{ width: '100%'}}
+                style={{ width: '100%' }}
             />
             <section className="feature-product section-padding pb-0">
                 <div className="container">
@@ -769,6 +910,7 @@ export default function CustomDesign() {
                 </div>
 
             </section>
+
         </>
     );
 }

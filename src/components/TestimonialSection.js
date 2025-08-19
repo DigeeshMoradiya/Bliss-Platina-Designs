@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import Slider from 'react-slick'; 
+import Slider from 'react-slick';
 
 const testimonials = [
   {
@@ -27,7 +27,7 @@ const testimonials = [
   },
 ];
 
-export default function TestimonialSection() {
+export default function TestimonialSection({ customerReviewsData }) {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
   const slider1 = useRef(null);
@@ -38,13 +38,15 @@ export default function TestimonialSection() {
     setNav2(slider2.current);
   }, []);
 
+
+
   return (
     <section className="testimonial-area section-padding bg-img" style={{ backgroundImage: 'url(/assets/img/testimonial/testimonials-bg.jpg)' }}>
       <div className="container">
         <div className="row">
           <div className="col-12">
             {/* Section title */}
-            <div className="section-title text-center">
+            <div className="section-title text-center mb-0">
               <h2 className="title">testimonials</h2>
               <p className="sub-title">What they say</p>
             </div>
@@ -55,7 +57,7 @@ export default function TestimonialSection() {
           <div className="col-12">
 
             {/* Thumbnail Carousel */}
-            <div className="testimonial-thumb-wrapper">
+            {/* <div className="testimonial-thumb-wrapper">
               <Slider
                 asNavFor={nav2}
                 ref={slider1}
@@ -73,7 +75,7 @@ export default function TestimonialSection() {
                   </div>
                 ))}
               </Slider>
-            </div>
+            </div> */}
 
             {/* Content Carousel */}
             <div className="testimonial-content-wrapper mt-4">
@@ -82,21 +84,36 @@ export default function TestimonialSection() {
                 ref={slider2}
                 slidesToShow={1}
                 arrows={false}
-                fade
-                dots={false}
-                className="testimonial-content-carousel"
+
+                fade={true}
+                dots={true}
+                className="testimonial-content-carousel slick-dot-style-testimonial"
               >
-                {testimonials.map((item, index) => (
-                  <div className="testimonial-content text-center" key={index}>
-                    <p>{item.text}</p>
-                    <div className="ratings my-2">
-                      {[...Array(5)].map((_, i) => (
-                        <span key={i}><i className="fa fa-star-o"></i></span>
-                      ))}
+                {customerReviewsData.map((item, index) => {
+                  const rating = Number(item?.review_count) || 0;
+
+                  return (
+                    <div className="testimonial-content text-center" key={index}>
+                      <p>{item.description}</p>
+                      <div className="ratings my-2">
+                        {[...Array(5)].map((_, i) => {
+                          if (i + 1 <= Math.floor(rating)) {
+                            // Full star
+                            return <span key={i}><i className="fa fa-star"></i></span>;
+                          } else if (i < rating) {
+                            // Half star
+                            return <span key={i}><i className="fa fa-star-half-o"></i></span>;
+                          } else {
+                            // Empty star
+                            return <span key={i}><i className="fa fa-star-o"></i></span>;
+                          }
+                        })}
+                      </div>
+                      <h5 className="testimonial-author">{item.name}</h5>
                     </div>
-                    <h5 className="testimonial-author">{item.name}</h5>
-                  </div>
-                ))}
+                  );
+                })}
+
               </Slider>
             </div>
 

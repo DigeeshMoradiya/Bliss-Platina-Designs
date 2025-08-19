@@ -3,6 +3,8 @@ import Slider from 'react-slick';
 import Link from 'next/link';
 import Breadcrumb from './common/Breadcrumb';
 import SEO from './common/SEO';
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 
 // Custom Arrow Components
@@ -34,7 +36,7 @@ const NextArrow = (props) => {
     );
 };
 
-const ProductDetails = () => {
+const ProductDetails = ({ productData, settingData, relatedProductData }) => {
     const [quantity, setQuantity] = useState(1);
     const [activeTab, setActiveTab] = useState('description');
     const [navMain, setNavMain] = useState(null);
@@ -42,6 +44,10 @@ const ProductDetails = () => {
     const mainSliderRef = useRef(null);
     const navSliderRef = useRef(null);
     const thumbSliderRef = useRef(null);
+    const router = useRouter()
+
+
+
 
     useEffect(() => {
         if (mainSliderRef.current && thumbSliderRef.current) {
@@ -101,13 +107,8 @@ const ProductDetails = () => {
     const handleQuantityChange = (e) => {
         setQuantity(parseInt(e.target.value) || 1);
     };
-    const imageFiles = [
-        'product-details-img1.jpg',
-        'product-details-img2.jpg',
-        'product-details-img3.jpg',
-        'product-details-img4.jpg',
-        'product-details-img5.jpg',
-    ];
+    const imageFiles = productData?.images ? JSON.parse(productData.images) : [];
+
 
     const relatedProducts = [
         { id: 1, name: 'Perfect Diamond Jewelry', price: 60, oldPrice: 70, img1: '/assets/img/product/product-11.jpg', img2: '/assets/img/product/product-8.jpg', badge: ['new', '10%'], brand: 'Gold' },
@@ -169,20 +170,43 @@ const ProductDetails = () => {
     };
 
     const handleWhatsapp = () => {
-        window.open("https://api.whatsapp.com/send?phone=919898206379", "_blank");
+        window.open(`https://api.whatsapp.com/send?phone=${settingData}`, "_blank");
     };
+
+    const handleCustomizeorder = (skuNo) => {
+        router.push("/custom-design")
+        Cookies.set("sku_no", skuNo)
+    };
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        router.push(`/shop/${productData.slug}`);
+    };
+
+    const handleClickRelated = (slug) => {
+        e.preventDefault();
+        router.push(`/shop/${slug}`);
+    };
+
+    const handleClickBuynow = (slug) => {
+        router.push(`/shop/${slug}`);
+    };
+
     return (
         <>
             <SEO
-                title={"14K Gold Diamond Engagement Ring"}
-                description={"This handcrafted 14K gold engagement ring features a brilliant round-cut diamond. Perfect for special occasions."}
+                title={productData?.name}
+                description={productData?.short_description}
             />
             < main >
                 {/* Breadcrumb Area */}
                 < Breadcrumb pageTitle="Product Details" secondTitle="Shop" />
 
                 {/* Product Details */}
-                <div className="shop-main-wrapper section-padding pb-0">
+                <div
+                    className={`shop-main-wrapper section-padding ${relatedProductData?.length !== 0 ? "pb-0" : ""
+                        }`}
+                >
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12 order-1 order-lg-2">
@@ -193,7 +217,7 @@ const ProductDetails = () => {
                                             >
                                                 {imageFiles.map((img, index) => (
                                                     <div key={index} className="pro-large-img img-zoom">
-                                                        <img src={`/assets/img/product/${img}`} alt="product-details"
+                                                        <img src={img} alt="product-details"
                                                             onMouseMove={handleZoom}
                                                             onMouseLeave={resetZoom}
                                                         // className="transition-transform duration-300 ease-in-out"
@@ -207,7 +231,7 @@ const ProductDetails = () => {
                                             >
                                                 {imageFiles.map((img, index) => (
                                                     <div key={index} className="pro-nav-thumb p-1">
-                                                        <img src={`/assets/img/product/${img}`} alt="product-details"
+                                                        <img src={img} alt="product-details"
                                                             onClick={() => {
                                                                 mainSliderRef.current.slickGoTo(index);
                                                             }} />
@@ -218,9 +242,12 @@ const ProductDetails = () => {
                                         <div className="col-lg-6">
                                             <div className="product-details-des">
                                                 <div className="manufacturer-name">
-                                                    <Link href="/product-details">HasTech</Link>
+                                                    {/* <Link href="/product-details">{productData?.category}</Link> */}
+                                                    <Link href={`/shop/${productData?.slug}`} onClick={handleClick}>
+                                                        {productData?.category}
+                                                    </Link>
                                                 </div>
-                                                <h3 className="product-name">Handmade Golden Necklace Full Family Package</h3>
+                                                <h3 className="product-name">{productData?.name}</h3>
                                                 {/* <div className="ratings d-flex">
                                                 {[...Array(5)].map((_, i) => (
                                                     <span key={i}><i className="fa fa-star-o"></i></span>
@@ -231,13 +258,26 @@ const ProductDetails = () => {
                                             </div> */}
                                                 <div className="d-flex align-items-center justify-content-between">
                                                     <div className="price-box">
-                                                        <span className="price-regular">$70.00</span>
-                                                        <span className="price-old"><del>$90.00</del></span>
+                                                        {/* <span className="price-regular">
+                                                            ${(productData?.price * (1 - productData?.discount / 100))
+                                                                .toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                        </span> */}
+                                                        <span className="price-regular">
+                                                            ${Math.round(productData?.price * (1 - productData?.discount / 100))
+                                                                .toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                        </span>
+                                                        {productData?.discount > 0 && (
+                                                            <span className="price-old">
+                                                                <del>
+                                                                    ${productData?.price?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                                </del>
+                                                            </span>
+                                                        )}
                                                     </div>
                                                     <div className="pro-size mb-0">
                                                         <h6 className="option-title ">SKU:</h6>
                                                         <p>
-                                                            LGER0015
+                                                            {productData?.skuno}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -248,9 +288,7 @@ const ProductDetails = () => {
                                                 <span>200 in stock</span>
                                             </div> */}
                                                 <p className="pro-desc">
-                                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                                                    eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                                                    voluptua. Phasellus id nisi quis justo tempus mollis sed et dui.
+                                                    {productData?.short_description}
                                                 </p>
                                                 <div className="quantity-cart-box d-flex align-items-center ">
                                                     <h6 className="option-title">Matel:</h6>
@@ -266,10 +304,14 @@ const ProductDetails = () => {
                                                 </div> */}
                                                 </div>
                                                 <div className="pro-size">
-                                                    <h6 className="option-title">size:</h6>
+                                                    <h6 className="option-title">size (US):</h6>
                                                     <p>
-                                                        Custom Size Available
+                                                        {productData?.size
+                                                            ? `${productData.size.replace(/"/g, '')}, Custom Size Available`
+                                                            : 'Custom Size Available'}
                                                     </p>
+
+
                                                     {/* <select className="nice-select">
                                                     <option>S</option>
                                                     <option>M</option>
@@ -286,8 +328,14 @@ const ProductDetails = () => {
                                                         {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
                                                     </ul>
                                                 </div>
-                                                <div className="action_link">
+                                                {/* <div className="action_link">
                                                     <button className="btn btn-cart2" onClick={handleWhatsapp}>Buy Now</button>
+                                                    <button className="btn btn-cart2" onClick={handleWhatsapp}>Customize order</button>
+                                                </div> */}
+
+                                                <div className="action_link d-flex gap-3">
+                                                    <button className="btn btn-cart2" onClick={handleWhatsapp}>Buy Now</button>
+                                                    <button className="btn btn-custome-order" onClick={() => handleCustomizeorder(productData?.skuno)}>Customize order</button>
                                                 </div>
                                                 {/* <div className="useful-links">
                                                 <a href="#" title="Compare"><i className="pe-7s-refresh-2"></i> compare</a>
@@ -322,11 +370,17 @@ const ProductDetails = () => {
                                                 <div className="tab-content reviews-tab">
                                                     {activeTab === 'description' && (
                                                         <div className="tab-pane fade show active">
-                                                            <div className='tab-one'>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus
-                                                                </p>
+                                                            <div className="tab-one">
+                                                                {productData?.description
+                                                                    ?.split("\n")
+                                                                    .filter(line => line.trim() !== "")
+                                                                    .map((line, index) => (
+                                                                        <p key={index} className="">
+                                                                            {line.trim()}
+                                                                        </p>
+                                                                    ))}
                                                             </div>
+
                                                         </div>
                                                     )}
                                                     {activeTab === 'information' && (
@@ -338,8 +392,12 @@ const ProductDetails = () => {
                                                                         <td>White Gold, Yellow Gold, Rose Gold</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>size</td>
-                                                                        <td>Custom Size Available</td>
+                                                                        <td>size (US)</td>
+                                                                        <td>
+                                                                            {productData?.size
+                                                                                ? `${productData.size.replace(/"/g, '')}, Custom Size Available`
+                                                                                : 'Custom Size Available'}
+                                                                        </td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -428,69 +486,110 @@ const ProductDetails = () => {
                     </div>
                 </div>
                 {/* Related Products */}
-                <section className="related-products section-padding">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="section-title text-center">
-                                    <h2 className="title">Related Products</h2>
-                                    <p className="sub-title">Add related products to weekly lineup</p>
+                {relatedProductData?.length !== 0 &&
+                    <section className="related-products section-padding">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="section-title text-center">
+                                        <h2 className="title">Related Products</h2>
+                                        <p className="sub-title">Add related products to weekly lineup</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-12">
-                                <Slider
-                                    {...settings}
-                                    className='slick-row-10 slick-arrow-style'
-                                >
+                            <div className="row">
+                                <div className="col-12">
+                                    <Slider
+                                        {...settings}
+                                        className='slick-row-10 slick-arrow-style'
+                                    >
 
-                                    {relatedProducts.map((product) => (
-                                        <div key={product.id} className="product-item">
-                                            <figure className="product-thumb">
-                                                <Link href="/product-details">
-                                                    <img src={product.img1} alt="product" className="pri-img" />
-                                                    <img src={product.img2} alt="product" className="sec-img" />
-                                                </Link>
-                                                <div className="product-badge">
-                                                    {product.badge.map((label, index) => (
-                                                        <div key={index} className={`product-label ${label.includes('%') ? 'discount' : 'new'}`}>
-                                                            <span>{label}</span>
+                                        {relatedProductData.map((product, index) => {
+                                            const images = product?.images ? JSON.parse(product?.images) : [];
+
+                                            return (
+                                                <div key={index} className="product-item">
+                                                    <figure className="product-thumb">
+                                                        {/* <Link href="/product-details">
+                                                            <img src={images?.[0]} alt="product" className="pri-img" />
+                                                            <img src={images?.[1]} alt="product" className="sec-img" />
+                                                        </Link> */}
+                                                        <Link href={`/shop/${product.slug}`} onClick={() => handleClickRelated(product.slug)}>
+                                                            <img src={images?.[0]} alt="product" className="pri-img" />
+                                                            <img src={images?.[1]} alt="product" className="sec-img" />
+                                                        </Link>
+                                                        <div className="product-badge">
+                                                            {product.is_new &&
+                                                                <div key={index} className="product-label discount"  >
+                                                                    <span>{product.discount}</span>
+                                                                </div>
+                                                            }
+                                                            {product.is_new &&
+                                                                <div key={index} className="product-label new">
+                                                                    <span>new</span>
+                                                                </div>}
                                                         </div>
-                                                    ))}
-                                                </div>
-                                                {/* <div className="button-group">
+                                                        {/* <div className="button-group">
                                                 <a href="#" title="Add to wishlist"><i className="pe-7s-like"></i></a>
                                                 <a href="#" title="Add to Compare"><i className="pe-7s-refresh-2"></i></a>
                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#quick_view"><i className="pe-7s-search"></i></a>
                                             </div> */}
-                                                <div className="cart-hover">
-                                                    <button className="btn btn-cart">buy now</button>
+                                                        <div className="cart-hover">
+                                                            <button className="btn btn-cart" onClick={() => handleClickBuynow(product.slug)}>Buy Now</button>
+                                                        </div>
+                                                    </figure>
+                                                    <div className="product-caption text-center">
+                                                        <div className="product-identity">
+                                                            <p className="manufacturer-name">
+                                                                {/* <Link href="/product-details">{product.category}</Link> */}
+                                                                <Link href={`/shop/${product.slug}`} onClick={() => handleClickRelated(product.slug)}>
+                                                                    {product.category}
+                                                                </Link>
+                                                            </p>
+                                                        </div>
+                                                        <ul className="color-categories">
+                                                            <li><a className="c-lightblue cursor-pointer-none" title="White Gold"></a></li>
+                                                            <li><a className="c-darktan cursor-pointer-none" title="Yellow Gold"></a></li>
+                                                            <li><a className="c-grey cursor-pointer-none" title="Rose Gold"></a></li>
+                                                            {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
+                                                        </ul>
+                                                        <h6 className="product-name">
+                                                            {/* <Link href="/product-details">{product.name}</Link> */}
+                                                            <Link href={`/shop/${product.slug}`} onClick={handleClick}>
+                                                                {product.name}
+                                                            </Link>
+                                                        </h6>
+                                                        {/* <div className="price-box">
+                                                            <span className="price-regular">${product.price}.00</span>
+                                                            {product.oldPrice && <span className="price-old"><del>${product.oldPrice}.00</del></span>}
+                                                        </div> */}
+
+                                                        <div className="price-box">
+                                                            {/* <span className="price-regular">
+                                                                ${(product?.price * (1 - product?.discount / 100))
+                                                                    .toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                            </span> */}
+                                                            <span className="price-regular">
+                                                                ${Math.round(product?.price * (1 - product?.discount / 100))
+                                                                    .toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                            </span>
+                                                            {product?.discount > 0 && (
+                                                                <span className="price-old">
+                                                                    <del>
+                                                                        ${product?.price?.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                                                    </del>
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </figure>
-                                            <div className="product-caption text-center">
-                                                <div className="product-identity">
-                                                    <p className="manufacturer-name"><Link href="/product-details">{product.brand}</Link></p>
-                                                </div>
-                                                <ul className="color-categories">
-                                                    <li><a className="c-lightblue cursor-pointer-none" title="White Gold"></a></li>
-                                                    <li><a className="c-darktan cursor-pointer-none" title="Yellow Gold"></a></li>
-                                                    <li><a className="c-grey cursor-pointer-none" title="Rose Gold"></a></li>
-                                                    {/* <li><a className="c-brown" href="#" title="Brown"></a></li> */}
-                                                </ul>
-                                                <h6 className="product-name"><Link href="/product-details">{product.name}</Link></h6>
-                                                <div className="price-box">
-                                                    <span className="price-regular">${product.price}.00</span>
-                                                    {product.oldPrice && <span className="price-old"><del>${product.oldPrice}.00</del></span>}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </Slider>
+                                            )
+                                        })}
+                                    </Slider>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>}
             </main >
         </>
     );

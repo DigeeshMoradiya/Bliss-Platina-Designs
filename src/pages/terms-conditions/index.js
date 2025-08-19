@@ -1,7 +1,10 @@
 "use client";
 import Breadcrumb from "@/components/common/Breadcrumb";
+import Loader from "@/components/common/Loader";
 import SEO from "@/components/common/SEO";
+import { getSetting } from "@/lib/api/setting/setting";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function TermsConditions() {
     const termsConditions = [
@@ -97,6 +100,29 @@ export default function TermsConditions() {
             ),
         },
     ];
+    const [settingData, setSettingData] = useState(null);
+    const [loader, setLoader] = useState(false);
+
+
+    const onloadSetting = async () => {
+        setLoader(true);
+        try {
+            const result = await getSetting(
+                "terms_condition"
+            );
+            if (result?.success) {
+                setSettingData(result.data);
+                setLoader(false);
+            }
+        } catch (error) {
+            setLoader(true);
+            console.error("Error fetching settings:", error);
+        }
+    };
+
+    useEffect(() => {
+        onloadSetting();
+    }, []);
     return (
         <>
             <SEO
@@ -107,7 +133,7 @@ export default function TermsConditions() {
             <Breadcrumb pageTitle="Terms and Conditions" />
             <section className="policy-section section-padding">
                 <div className="container">
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col-lg-12">
                             {termsConditions.map((section, index) => (
                                 <div key={index} className="policy-list">
@@ -115,6 +141,17 @@ export default function TermsConditions() {
                                     {section.content}
                                 </div>
                             ))}
+                        </div>
+                    </div> */}
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <div className="policy-list">
+                                {loader ? <div className="d-flex justify-content-center align-items-center">
+                                    <Loader />
+                                </div> :
+                                    <div dangerouslySetInnerHTML={{ __html: settingData }} />
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

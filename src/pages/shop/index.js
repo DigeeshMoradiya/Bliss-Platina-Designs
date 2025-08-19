@@ -2,224 +2,227 @@ import Breadcrumb from '@/components/common/Breadcrumb';
 import SEO from '@/components/common/SEO';
 import ProductGrid from '@/components/shop/ProductGrid';
 import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 
 const ShopPage = () => {
-    const router = usePathname()
+    const router = usePathname();
+    const getrouter = useRouter();
 
-        const [loading, setLoading] = useState(false);
-    
+    const { q } = getrouter.query;
+    const [loading, setLoading] = useState(false);
+
 
     // Sample product data
-    const products = [
-        {
-            id: 1,
-            name: 'Perfect Diamond Jewelry',
-            manufacturer: 'Platinum',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-1.jpg',
-            secondaryImage: '/assets/img/product/product-18.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        // Add more products as needed
-        {
-            id: 2,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 3,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        {
-            id: 4,
-            name: 'Handmade Golden Necklace',
-            manufacturer: 'Quickiin',
-            price: 60.00,
-            oldPrice: 70.00,
-            primaryImage: '/assets/img/product/product-2.jpg',
-            secondaryImage: '/assets/img/product/product-17.jpg',
-            isNew: true,
-            discount: 10,
-            colors: ['lightblue', 'darktan', 'grey', 'brown']
-        },
-        // Add all other products from the original HTML
-    ];
+    // const products = [
+    //     {
+    //         id: 1,
+    //         name: 'Perfect Diamond Jewelry',
+    //         manufacturer: 'Platinum',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-1.jpg',
+    //         secondaryImage: '/assets/img/product/product-18.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     // Add more products as needed
+    //     {
+    //         id: 2,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 3,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     {
+    //         id: 4,
+    //         name: 'Handmade Golden Necklace',
+    //         manufacturer: 'Quickiin',
+    //         price: 60.00,
+    //         oldPrice: 70.00,
+    //         primaryImage: '/assets/img/product/product-2.jpg',
+    //         secondaryImage: '/assets/img/product/product-17.jpg',
+    //         isNew: true,
+    //         discount: 10,
+    //         colors: ['lightblue', 'darktan', 'grey', 'brown']
+    //     },
+    //     // Add all other products from the original HTML
+    // ];
 
 
 
@@ -232,7 +235,7 @@ const ShopPage = () => {
             <main>
                 <Breadcrumb pageTitle="Shop" />
 
-                <div className={`shop-main-wrapper section-padding ${loading ? "pb-0" :" "}`}>
+                <div className={`shop-main-wrapper section-padding ${loading ? "pb-0" : " "}`}>
                     <div className="container">
                         <div className="row">
                             {/* Sidebar Area */}
@@ -252,7 +255,7 @@ const ShopPage = () => {
                                 <div className="shop-product-wrapper">
                                     {/* <ShopTopBar viewMode={viewMode} onViewChange={setViewMode} /> */}
 
-                                    <ProductGrid products={products} viewMode={"grid"} setLoading={setLoading} loading={loading}/>
+                                    <ProductGrid viewMode={"grid"} setLoading={setLoading} loading={loading} search={q} />
 
                                     {/* <Pagination /> */}
                                 </div>

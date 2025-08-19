@@ -1,36 +1,58 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-export default function Category() {
+export default function Category({ categoryData }) {
+  const router = useRouter();
 
+  const handleproduct = (name) => {
+    router.push(`/shop?q=${name}`)
+  }
 
   return (
     <div className="banner-statistics-area  section-padding pb-0">
       <div className="container">
         <div className="row row-20 mtn-20">
-          {/* Item 1 */}
-          <div className="col-sm-6">
-            <figure className="banner-statistics mt-20">
-              <Link href="#">
-                <Image
-                  src="/assets/img/banner/img1-top.jpg"
-                  alt="product banner"
-                  width={600}
-                  height={400}
-                  layout="responsive"
-                />
-              </Link>
-              <div className="banner-content text-right">
-                <h5 className="banner-text1">BEAUTIFUL</h5>
-                <h2 className="banner-text2">Wedding<span>Rings</span></h2>
-                <Link href="/shop" className="btn btn-text">
-                  Shop Now
+          {categoryData?.map((category, index) => (
+            <div className="col-sm-6" key={index}>
+              <figure className="banner-statistics mt-20">
+                <Link href={`/shop?q=${category?.slug}`} onClick={() => handleproduct(category?.slug)}>
+                  <Image
+                    src={category.image || "/assets/img/banner/img1-top.jpg"} // fallback if no image
+                    alt={category.alt || "product banner"}
+                    width={600}
+                    height={400}
+                    layout="responsive"
+                  />
                 </Link>
-              </div>
-            </figure>
-          </div>
+                <div className="banner-content text-right">
+                  {/* <h5 className="banner-text1">{category.text1 || "BEAUTIFUL"}</h5> */}
+                  <h2 className="banner-text2">
+                    {(() => {
+                      const name = category.name || "Wedding";
+                      const [first, ...rest] = name.split(" ");
+                      return (
+                        <>
+                          {first} <span>{rest.join(" ") || "Rings"}</span>
+                        </>
+                      );
+                    })()}
+                  </h2>
 
-          {/* Item 2 */}
+                  {/* <Link href="/shop" className="btn btn-text">
+                    Shop Now
+                  </Link> */}
+                  <Link href={`/shop?q=${category?.slug}`} onClick={() => handleproduct(category?.slug)} className="btn btn-text">
+                    Shop Now
+                  </Link>
+                </div>
+              </figure>
+            </div>
+          ))}
+
+
+
+          {/*  
           <div className="col-sm-6">
             <figure className="banner-statistics mt-20">
               <Link href="#">
@@ -52,7 +74,7 @@ export default function Category() {
             </figure>
           </div>
 
-          {/* Item 3 */}
+  
           <div className="col-sm-6">
             <figure className="banner-statistics mt-20">
               <Link href="#">
@@ -74,7 +96,7 @@ export default function Category() {
             </figure>
           </div>
 
-          {/* Item 4 */}
+ 
           <div className="col-sm-6">
             <figure className="banner-statistics mt-20">
               <Link href="#">
@@ -94,7 +116,7 @@ export default function Category() {
                 </Link>
               </div>
             </figure>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

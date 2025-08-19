@@ -1,15 +1,23 @@
 import { useFormik } from "formik";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import Select from 'react-select';
 import * as Yup from 'yup';
 import Breadcrumb from "./common/Breadcrumb";
 import SEO from "./common/SEO";
+import { downloadSheet, getSetting, storeMedia, storeSubscribe } from "@/lib/api/setting/setting";
+import { useToast } from "vyrn";
+import axios from "axios";
 
 export default function Diamond() {
+    const toast = useToast();
+    const [loader, setLoader] = useState(false);
+    const [loaderstore, setLoaderstore] = useState(false);
+
+
     const policies = [
         {
             icon: "/assets/img/diamond/Mining Free.png",
@@ -58,7 +66,6 @@ export default function Diamond() {
         { value: "euro_cut", label: "Euro Cut" },
         { value: "old_miner", label: "Old Miner" },
         { value: "bri", label: "Bri" },
-        { value: "other", label: "Other" },
         { value: "baguette", label: "Baguette" },
         { value: "tap_bag", label: "Tap Bag" },
         { value: "half_moon", label: "Half Moon" },
@@ -135,7 +142,7 @@ export default function Diamond() {
         { value: "good", label: "Good" },
         { value: "fair", label: "Fair" },
         { value: "poor", label: "Poor" },
-        { value: "other", label: "Other" }
+        { value: "Other", label: "Other" }
     ];
 
     const polishOptions = [
@@ -146,7 +153,7 @@ export default function Diamond() {
         { value: "good", label: "Good" },
         { value: "fair", label: "Fair" },
         { value: "poor", label: "Poor" },
-        { value: "other", label: "Other" }
+        { value: "Other", label: "Other" }
     ];
 
     const symmetryOptions = [
@@ -157,7 +164,7 @@ export default function Diamond() {
         { value: "good", label: "Good" },
         { value: "fair", label: "Fair" },
         { value: "poor", label: "Poor" },
-        { value: "other", label: "Other" },
+        { value: "Other", label: "Other" },
     ];
 
     const fluorescenceOptions = [
@@ -167,7 +174,7 @@ export default function Diamond() {
         { value: "medium", label: "Medium" },
         { value: "strong", label: "Strong" },
         { value: "v_strong", label: "V Strong" },
-        { value: "other", label: "Other" },
+        { value: "Other", label: "Other" },
     ];
 
     const labOptions = [
@@ -176,7 +183,7 @@ export default function Diamond() {
         { value: "gia", label: "GIA" },
         { value: "gccal", label: "GCCAL" },
         { value: "none", label: "None" },
-        { value: "other", label: "Other" }
+        { value: "Other", label: "Other" }
     ];
 
     const colorOptions = [
@@ -216,7 +223,7 @@ export default function Diamond() {
         { value: "gray", label: "Gray" },
         { value: "olive", label: "Olive" },
         { value: "black", label: "Black" },
-        { value: "other", label: "Other" }
+        { value: "Other", label: "Other" }
     ];
 
     const overtoneOptions = [
@@ -245,7 +252,7 @@ export default function Diamond() {
         { value: "champagne", label: "Champagne" },
         { value: "cognac", label: "Cognac" },
         { value: "chameleon", label: "Chameleon" },
-        { value: "other", label: "Other" }
+        { value: "Other", label: "Other" }
     ];
 
     const intensityOptions = [
@@ -259,7 +266,7 @@ export default function Diamond() {
         { value: "fancy_light", label: "Fancy Light" },
         { value: "light", label: "Light" },
         { value: "faint", label: "Faint" },
-        { value: "other", label: "Other" }
+        { value: "Other", label: "Other" }
     ];
 
     const customStyles = {
@@ -396,7 +403,7 @@ export default function Diamond() {
                 otherwise: (schema) => schema.notRequired(),
             }),
             othercontainShape: Yup.string().when("shape", {
-                is: (val) => val === "other",
+                is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom shape"),
                 otherwise: (schema) => schema.notRequired(),
             }),
@@ -411,27 +418,27 @@ export default function Diamond() {
                 otherwise: (schema) => schema.notRequired(),
             }),
             othercontaincut: Yup.string().when("cut", {
-                is: (val) => val === "other",
+                is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom cut"),
                 otherwise: (schema) => schema.notRequired(),
             }),
             othercontainpolish: Yup.string().when("polish", {
-                is: (val) => val === "other",
+                is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom polish"),
                 otherwise: (schema) => schema.notRequired(),
             }),
             othercontainsymmetry: Yup.string().when("symmetry", {
-                is: (val) => val === "other",
+                is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom symmetry"),
                 otherwise: (schema) => schema.notRequired(),
             }),
             othercontainfluorescence: Yup.string().when("fluorescence", {
-                is: (val) => val === "other",
+                is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom fluorescence"),
                 otherwise: (schema) => schema.notRequired(),
             }),
             othercontainlab: Yup.string().when("lab", {
-                is: (val) => val === "other",
+                is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom lab"),
                 otherwise: (schema) => schema.notRequired(),
             }),
@@ -441,43 +448,133 @@ export default function Diamond() {
                 otherwise: (schema) => schema.notRequired(),
             }),
             color: Yup.string().required("Please select a color"),
-            // overtone: Yup.string().required("Please select an overtone"),
             intensity: Yup.string().required("Please select an intensity"),
             othercontaincolor: Yup.string().when("color", {
-                is: (val) => val === "other",
+                is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom color"),
                 otherwise: (schema) => schema.notRequired(),
             }),
-            // othercontainovertone: Yup.string().when("overtone", {
-            //     is: (val) => val === "other",
-            //     then: (schema) => schema.required("Please enter your custom overtone"),
-            //     otherwise: (schema) => schema.notRequired(),
-            // }),
             othercontainintensity: Yup.string().when("intensity", {
-                is: (val) => val === "other",
+                is: (val) => val === "Other",
                 then: (schema) => schema.required("Please enter your custom intensity"),
                 otherwise: (schema) => schema.notRequired(),
             }),
         }),
-        onSubmit: async (values) => {
+        onSubmit: async (values, { resetForm }) => {
+            const payload = {
+                f_name: values.f_name,
+                l_name: values.l_name,
+                email: values.email,
+                phone: values.phone.slice(values.countryCode.length),
+                country_code: `+${values.countryCode}`,
+                stonetype: values.stonetype,
+                shape: values.shape,
+                carat: values.carat,
+                clarity: values.clarity,
+                cut: values.cut,
+                polish: values.polish,
+                symmetry: values.symmetry,
+                fluorescence: values.fluorescence,
+                lab: values.lab,
+                budget: values.budget,
+                color: values.color,
+                intensity: values.intensity,
+                order_note: values.ordernote,
+                images: values.images || [],
+                other_contain_budget: values.budget === 'Other' ? values.othercontainbudget : null,
+                other_contain_carat: values.carat === 'Other' ? values.othercontaincarat : null,
+                other_contain_clarity: values.clarity === 'Other' ? values.othercontainclarity : null,
+                other_contain_color: values.color === 'Other' ? values.othercontaincolor : null,
+                other_contain_cut: values.cut === 'Other' ? values.othercontaincut : null,
+                other_contain_fluorescence: values.fluorescence === 'Other' ? values.othercontainfluorescence : null,
+                other_contain_intensity: values.intensity === 'Other' ? values.othercontainintensity : null,
+                other_contain_lab: values.lab === 'Other' ? values.othercontainlab : null,
+                other_contain_polish: values.polish === 'Other' ? values.othercontainpolish : null,
+                other_contain_shape: values.shape === 'Other' ? values.othercontainShape : null,
+                other_contain_stone_type: values.stonetype === 'Other' ? values.othercontainStoneType : null,
+                other_contain_symmetry: values.symmetry === 'Other' ? values.othercontainsymmetry : null,
+                other_contain_lab: values.lab === 'Other' ? values.othercontainlab : null,
+            };
+
+            setLoaderstore(true);
+            try {
+                const result = await storeSubscribe("diamond", payload);
+                if (result?.success === true) {
+                    toast.success(result?.message);
+                    setLoaderstore(false);
+                    resetForm();
+                } else {
+                    toast.error(result?.message);
+                }
+            } catch (error) {
+                setLoaderstore(true);
+                console.error("Error fetching settings:", error);
+            }
         },
     });
 
-    const handleFiles = (files) => {
-        const selectedImages = Array.from(files).map((file) => ({
-            file,
-            url: URL.createObjectURL(file),
-        }));
-        formik.setFieldValue("images", [...formik.values.images, ...selectedImages]);
+    const handleFileUpload = async (e) => {
+        const files = e.target?.files
+            ? Array.from(e.target.files)
+            : Array.from(e.dataTransfer?.files || []);
+
+        if (!files || files.length === 0) {
+            toast.error("No files selected");
+            return;
+        }
+
+        const allowedExtensions = ['.jpg', '.jpeg', '.png'];
+        const MAX_SIZE = 10 * 1024 * 1024; // 10MB
+        const validFiles = [];
+
+        for (const file of files) {
+            const fileName = file.name.toLowerCase();
+
+            const isValidExtension = allowedExtensions.some((ext) => fileName.endsWith(ext));
+            if (!isValidExtension) {
+                toast.error(`Invalid file type: ${file.name}`);
+                continue;
+            }
+
+            if (file.size > MAX_SIZE) {
+                toast.error(`File too large: ${file.name}`);
+                continue;
+            }
+
+            validFiles.push(file);
+        }
+
+        if (validFiles.length === 0) {
+            toast.error("No valid files to upload");
+            return;
+        }
+
+        const formData = new FormData();
+        validFiles.forEach((file) => {
+            formData.append('files', file);
+        });
+
+        try {
+            const result = await storeMedia(formData);
+            if (result?.success === true && result?.files?.length > 0) {
+                const imageUrls = result?.files?.map(file => file.url) || [];
+                formik.setFieldValue("images", [...formik.values.images, ...imageUrls]);
+            } else {
+                toast.error("Failed to upload files: No files returned");
+            }
+        } catch (error) {
+            toast.error("Error uploading files");
+            console.error("Error:", error);
+        }
     };
 
     const handleInputChange = (e) => {
-        handleFiles(e.target.files);
+        handleFileUpload(e); // Pass the event directly
     };
 
     const handleDrop = (e) => {
         e.preventDefault();
-        handleFiles(e.dataTransfer.files);
+        handleFileUpload(e); // Pass the event directly
     };
 
     const handleDragOver = (e) => {
@@ -488,6 +585,49 @@ export default function Diamond() {
         const updatedImages = formik.values.images.filter((_, index) => index !== indexToRemove);
         formik.setFieldValue("images", updatedImages);
     };
+
+
+    const downloadExcelSheet = async () => {
+        setLoader(true);
+
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}user/xlsx`, {
+                method: "GET",
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch file");
+            }
+
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const companyName = "Bliss-Platinum-Design";
+            const sheetType = "Diamond-Sheet";
+            const today = new Date();
+            const dateStr = today.toISOString().split("T")[0];
+
+            const fileName = `${companyName}_${sheetType}_${dateStr}.xlsx`;
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", fileName);
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            window.URL.revokeObjectURL(url);
+
+            toast.success("Download Success");
+        } catch (error) {
+            toast.error("Download failed");
+            console.error("Download error:", error);
+        } finally {
+            setLoader(false);
+        }
+    };
+
+
+
+
 
     return (
         <>
@@ -630,7 +770,7 @@ export default function Diamond() {
                                         value={shapeOptions.find(opt => opt.value === formik.values.shape)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('shape', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontainShape", "");
                                             }
                                         }}
@@ -639,7 +779,7 @@ export default function Diamond() {
                                     {formik.touched.shape && formik.errors.shape && (
                                         <p className="error-message mt-1">{formik.errors.shape}</p>
                                     )}
-                                    {formik.values.shape === "other" && (
+                                    {formik.values.shape === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -704,7 +844,7 @@ export default function Diamond() {
                                         value={colorOptions.find(opt => opt.value === formik.values.color)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('color', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontaincolor", "");
                                             }
                                         }}
@@ -713,7 +853,7 @@ export default function Diamond() {
                                     {formik.touched.color && formik.errors.color && (
                                         <p className="error-message mt-1">{formik.errors.color}</p>
                                     )}
-                                    {formik.values.color === "other" && (
+                                    {formik.values.color === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -741,7 +881,7 @@ export default function Diamond() {
                                         value={overtoneOptions.find(opt => opt.value === formik.values.overtone)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('overtone', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontainovertone", "");
                                             }
                                         }}
@@ -750,7 +890,7 @@ export default function Diamond() {
                                     {formik.touched.overtone && formik.errors.overtone && (
                                         <p className="error-message mt-1">{formik.errors.overtone}</p>
                                     )}
-                                    {formik.values.overtone === "other" && (
+                                    {formik.values.overtone === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -778,7 +918,7 @@ export default function Diamond() {
                                         value={intensityOptions.find(opt => opt.value === formik.values.intensity)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('intensity', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontainintensity", "");
                                             }
                                         }}
@@ -787,7 +927,7 @@ export default function Diamond() {
                                     {formik.touched.intensity && formik.errors.intensity && (
                                         <p className="error-message mt-1">{formik.errors.intensity}</p>
                                     )}
-                                    {formik.values.intensity === "other" && (
+                                    {formik.values.intensity === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -852,7 +992,7 @@ export default function Diamond() {
                                         value={cutOptions.find(opt => opt.value === formik.values.cut)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('cut', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontaincut", "");
                                             }
                                         }}
@@ -861,7 +1001,7 @@ export default function Diamond() {
                                     {formik.touched.cut && formik.errors.cut && (
                                         <p className="error-message mt-1">{formik.errors.cut}</p>
                                     )}
-                                    {formik.values.cut === "other" && (
+                                    {formik.values.cut === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -889,7 +1029,7 @@ export default function Diamond() {
                                         value={polishOptions.find(opt => opt.value === formik.values.polish)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('polish', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontainpolish", "");
                                             }
                                         }}
@@ -898,7 +1038,7 @@ export default function Diamond() {
                                     {formik.touched.polish && formik.errors.polish && (
                                         <p className="error-message mt-1">{formik.errors.polish}</p>
                                     )}
-                                    {formik.values.polish === "other" && (
+                                    {formik.values.polish === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -926,7 +1066,7 @@ export default function Diamond() {
                                         value={symmetryOptions.find(opt => opt.value === formik.values.symmetry)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('symmetry', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontainsymmetry", "");
                                             }
                                         }}
@@ -935,7 +1075,7 @@ export default function Diamond() {
                                     {formik.touched.symmetry && formik.errors.symmetry && (
                                         <p className="error-message mt-1">{formik.errors.symmetry}</p>
                                     )}
-                                    {formik.values.symmetry === "other" && (
+                                    {formik.values.symmetry === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -963,7 +1103,7 @@ export default function Diamond() {
                                         value={fluorescenceOptions.find(opt => opt.value === formik.values.fluorescence)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('fluorescence', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontainfluorescence", "");
                                             }
                                         }}
@@ -972,7 +1112,7 @@ export default function Diamond() {
                                     {formik.touched.fluorescence && formik.errors.fluorescence && (
                                         <p className="error-message mt-1">{formik.errors.fluorescence}</p>
                                     )}
-                                    {formik.values.fluorescence === "other" && (
+                                    {formik.values.fluorescence === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -1000,7 +1140,7 @@ export default function Diamond() {
                                         value={labOptions.find(opt => opt.value === formik.values.lab)}
                                         onChange={(selectedOption) => {
                                             formik.setFieldValue('lab', selectedOption.value);
-                                            if (selectedOption.value !== "other") {
+                                            if (selectedOption.value !== "Other") {
                                                 formik.setFieldValue("othercontainlab", "");
                                             }
                                         }}
@@ -1009,7 +1149,7 @@ export default function Diamond() {
                                     {formik.touched.lab && formik.errors.lab && (
                                         <p className="error-message mt-1">{formik.errors.lab}</p>
                                     )}
-                                    {formik.values.lab === "other" && (
+                                    {formik.values.lab === "Other" && (
                                         <>
                                             <input
                                                 type="text"
@@ -1108,7 +1248,7 @@ export default function Diamond() {
                                                 style={{ width: "100px", height: "100px" }}
                                             >
                                                 <img
-                                                    src={img.url}
+                                                    src={img}
                                                     alt={`upload-${index}`}
                                                     className="img-thumbnail"
                                                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -1125,7 +1265,9 @@ export default function Diamond() {
                                 )}
 
                                 <div className="action_link d-flex justify-content-center mt-5">
-                                    <button type="submit" className="btn btn-cart2">Submit</button>
+                                    <button type="submit" className="btn btn-cart2" disabled={loaderstore}>
+                                        {loaderstore ? "Submitting..." : "Submit"}
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -1153,7 +1295,10 @@ export default function Diamond() {
                                         <br />
                                         Discover the perfect match before you buy or customize.
                                     </h4>
-                                    <Link href="/shop" className="btn btn-hero">Download Diamond Excel Sheet</Link>
+
+                                    <button onClick={downloadExcelSheet} className="btn btn-hero" disabled={loader}>
+                                        {loader ? "Downloading Diamond Excel Sheet..." : "Download Diamond Excel Sheet"}
+                                    </button>
                                 </div>
                             </div>
                         </div>

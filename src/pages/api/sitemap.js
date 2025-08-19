@@ -16,11 +16,10 @@ export default async function handler(req, res) {
         'diamond'
     ];
 
-    const productSlugs = ['14k-gold-ring', 'diamond-stud', 'silver-pendant'];
+    
 
     const urls = [
-        ...staticPaths.map((path) => path === '' ? `${baseUrl}` : `${baseUrl}/${path}`),
-        ...productSlugs.map((slug) => `${baseUrl}/product-detail/${slug}`)
+        ...staticPaths.map((path) => path === '' ? `${baseUrl}` : `${baseUrl}/${path}`), 
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
