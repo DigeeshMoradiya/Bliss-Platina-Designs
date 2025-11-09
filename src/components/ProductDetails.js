@@ -109,7 +109,22 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
     const handleQuantityChange = (e) => {
         setQuantity(parseInt(e.target.value) || 1);
     };
-    const imageFiles = productData?.images ? JSON.parse(productData.images) : [];
+    // const imageFiles = productData?.images ? JSON.parse(productData.images) : [];
+    let imageFiles = [];
+
+    if (Array.isArray(productData?.images)) {
+        // If images is already an array
+        imageFiles = productData.images;
+    } else if (typeof productData?.images === "string" && productData.images.trim() !== "") {
+        // If images is JSON string
+        try {
+            imageFiles = JSON.parse(productData.images);
+        } catch (e) {
+            imageFiles = [];
+        }
+    } else {
+        imageFiles = [];
+    }
 
 
     const relatedProducts = [
