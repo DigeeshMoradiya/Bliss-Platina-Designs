@@ -212,8 +212,21 @@ export default function ProductSection({ featuredProductsData }) {
             <Slider {...sliderSettings} className="slick-row-10 slick-arrow-style">
               {featuredProductsData
                 .map((product) => {
-                  const imageFiles = product?.images ? JSON.parse(product.images) : [];
+                  let imageFiles = [];
 
+                  if (Array.isArray(product?.images)) {
+                    // If images is already an array
+                    imageFiles = product.images;
+                  } else if (typeof product?.images === "string" && product.images.trim() !== "") {
+                    // If images is JSON string
+                    try {
+                      imageFiles = JSON.parse(product.images);
+                    } catch (e) {
+                      imageFiles = [];
+                    }
+                  } else {
+                    imageFiles = [];
+                  }
                   return (
                     <div key={product.id} className="product-item">
                       <figure className="product-thumb">

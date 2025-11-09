@@ -14,8 +14,21 @@ const ProductItem = ({ product, viewMode }) => {
     const handleClickBuynow = (slug) => {
         router.push(`/shop/${slug}`);
     };
-    const imageFiles = product?.images ? JSON.parse(product.images) : [];
+    let imageFiles = [];
 
+    if (Array.isArray(product?.images)) {
+        // If images is already an array
+        imageFiles = product.images;
+    } else if (typeof product?.images === "string" && product.images.trim() !== "") {
+        // If images is JSON string
+        try {
+            imageFiles = JSON.parse(product.images);
+        } catch (e) {
+            imageFiles = [];
+        }
+    } else {
+        imageFiles = [];
+    }
     return (
         <div className="product-item">
             <figure className="product-thumb">

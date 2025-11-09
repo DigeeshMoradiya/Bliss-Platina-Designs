@@ -46,6 +46,8 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
     const thumbSliderRef = useRef(null);
     const router = useRouter()
 
+    const whatsappPhoneNo = settingData?.replace(/\D/g, ""); // removes non-digits
+
 
 
 
@@ -170,7 +172,7 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
     };
 
     const handleWhatsapp = () => {
-        window.open(`https://api.whatsapp.com/send?phone=${settingData}`, "_blank");
+        window.open(`https://api.whatsapp.com/send?phone=${whatsappPhoneNo}`, "_blank");
     };
 
     const handleCustomizeorder = (skuNo) => {
@@ -505,8 +507,21 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                     >
 
                                         {relatedProductData.map((product, index) => {
-                                            const images = product?.images ? JSON.parse(product?.images) : [];
+                                            let imageFiles = [];
 
+                                            if (Array.isArray(product?.images)) {
+                                                // If images is already an array
+                                                imageFiles = product.images;
+                                            } else if (typeof product?.images === "string" && product.images.trim() !== "") {
+                                                // If images is JSON string
+                                                try {
+                                                    imageFiles = JSON.parse(product.images);
+                                                } catch (e) {
+                                                    imageFiles = [];
+                                                }
+                                            } else {
+                                                imageFiles = [];
+                                            }
                                             return (
                                                 <div key={index} className="product-item">
                                                     <figure className="product-thumb">
