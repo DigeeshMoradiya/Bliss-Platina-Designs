@@ -105,7 +105,7 @@ export default function Header({ settingData }) {
                                 <div className="header-top-settings">
                                     <ul className="nav align-items-center justify-content-end">
                                         <div className="mobile-number">
-                                            <p>Contact Us on : {settingData?.phone_no}</p>
+                                            <p>Contact Us on : +{settingData?.phone_no}</p>
                                         </div>
                                     </ul>
                                 </div>

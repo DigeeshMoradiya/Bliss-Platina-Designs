@@ -2833,7 +2833,7 @@ only screen and (max-width: 767.98px) {
   margin-top: 38px;
 }
 
- 
+
 .btn-custome-order {
   height: 40px;
   color: #c29958;
@@ -3780,6 +3780,13 @@ only screen and (max-width: 479.98px) {
 
 .policy-title {
   margin-bottom: 10px;
+}
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+.whatsapp-icon {
+  color: "#7a7a7aff"
 }
 
 /*------- common style css end -------*/
@@ -6216,41 +6223,43 @@ only screen and (max-width: 767.98px) {
     margin-bottom: 0;
   }
 }
+
 /* Ensure smooth transitions for the accordion collapse */
 .accordion-collapse {
-    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    overflow: hidden;
+  transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 /* Smooth fade-in effect when opening */
 .accordion-collapse.show {
-    opacity: 1;
-    height: auto;
+  opacity: 1;
+  height: auto;
 }
 
 /* Smooth fade-out effect when closing */
 .accordion-collapse {
-    opacity: 0;
-    height: 0;
+  opacity: 0;
+  height: 0;
 }
 
 /* Optional: Style for the FAQ container */
- 
+
 
 /* Smooth hover effect for FAQ questions */
- 
+
 /* Style for the FAQ question text */
- 
+
 
 /* Smooth icon rotation for Chevron */
-.accordion-collapse.show + .cursor-pointer svg {
-    transform: rotate(180deg);
-    transition: transform 0.3s ease-in-out;
+.accordion-collapse.show+.cursor-pointer svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
 }
 
 .cursor-pointer svg {
-    transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
+
 .checkoutaccordion {
   margin-bottom: 46px;
 }

@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   const onloadSetting = async () => {
     try {
       setLoader(true);
-      const result = await getSetting("email,phone_no,address,facebook_link,instagram_link,printrest_link,youtube_link");
+      const result = await getSetting("email,phone_no,address,facebook_link,instagram_link,printrest_link,youtube_link,whatsapp_phone_no");
       if (result?.success) {
         setSettingData(result?.data);
         setLoader(false);
@@ -23,6 +23,7 @@ const Layout = ({ children }) => {
       setLoader(true);
     }
   };
+  
   useEffect(() => {
     onloadSetting();
   }, []);

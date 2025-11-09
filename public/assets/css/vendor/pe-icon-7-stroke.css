@@ -183,6 +183,9 @@
 .pe-7s-angle-down:before {
 	content: "\e688";
 }
+.fa-whatsapp {
+  color: #777; /* same as Pe 7 Stroke icons */
+}
 .pe-7s-switch:before {
 	content: "\e696";
 }

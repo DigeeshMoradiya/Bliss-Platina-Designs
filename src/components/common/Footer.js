@@ -43,6 +43,7 @@ export default function Footer({ settingData }) {
             }
         },
     });
+    const whatsappphoneno = settingData?.whatsapp_phone_no?.replace(/\D/g, ""); // removes non-digits
 
     return (
         <footer className="footer-widget-area">
@@ -76,9 +77,19 @@ export default function Footer({ settingData }) {
                                 <div className="widget-body">
                                     <address className="contact-block">
                                         <ul>
-                                            <li><i className="pe-7s-home"></i>{settingData?.address}</li>
+                                            <li className="d-flex align-items-start">
+                                                <i className="pe-7s-home mr-2"></i>
+                                                <span className='whitespace-pre-line'>
+                                                    {settingData?.address}
+                                                </span>
+                                            </li>
+
                                             <li><i className="pe-7s-mail"></i> <a href={`mailto:${settingData?.email}`}>{settingData?.email}</a></li>
-                                            <li><i className="pe-7s-call"></i> <a href={`tel:${settingData?.phone_no}`}>{settingData?.phone_no}</a></li>
+                                            <li><i className="fa fa-whatsapp whatsapp-icon" ></i> <a
+                                                href={`https://api.whatsapp.com/send?phone=${whatsappphoneno}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >{settingData?.whatsapp_phone_no}</a></li>
                                         </ul>
                                     </address>
                                 </div>

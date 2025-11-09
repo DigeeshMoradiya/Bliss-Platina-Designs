@@ -12,7 +12,8 @@ export default function AboutUsSection() {
             <div className="col-lg-5">
               <div className="about-thumb">
                 <Image
-                  src="/assets/img/about/about.jpg"
+                  src="/assets/img/about/our-mission.png"
+                  //about.jpg
                   alt="about"
                   width={500}
                   height={500}
@@ -22,14 +23,18 @@ export default function AboutUsSection() {
             <div className="col-lg-7 d-flex align-items-center">
               <div className="about-content">
                 <h2 className="about-title">About Us</h2>
+                {/* <h2 className="about-title">Our Mission</h2> */}
                 <h5 className="about-sub-title">
-                  Established in 1986, I.D. Jewelry, LLC is a family-owned and operated business that has earned a reputation for excellence in fine jewelry. With a legacy rooted in trust, craftsmanship, and personalized service, we have proudly served customers across the United States and around the globe for nearly four decades.
+                  Welcome to Bliss Platina Designs, where elegance meets craftsmanship.
                 </h5>
                 <p>
-                  Located in the heart of New York City&rsquo;s renowned 47th Street Diamond District, we are part of one of the world&rsquo;s largest and most prestigious jewelry communities. Our showroom offers an immersive, one-on-one experience for those who value the tradition of in-store shopping, allowing clients to explore our carefully curated collection in person.
+                  We are a USA based jewelry brand devoted to creating timeless diamond pieces that reflect beauty, grace, and sophistication. Each design is thoughtfully curated, blending modern trends with classic touches to celebrate life&rsquo;s most cherished moments.
                 </p>
                 <p>
-                  Over the years, our passion for quality and commitment to our customers has made us a household name. From engagement rings and wedding bands to custom designs and timeless classics, we are honored to be a part of your most meaningful moments.
+                  Our collections are more than accessories, they are heirlooms, crafted for those who value style, quality, and meaning. At Bliss Platina Designs, we focus on using ethically sourced diamonds and premium materials, ensuring every piece is a true treasure.
+                </p>
+                <p>
+                  Whether you&rsquo;re shopping for a special occasion or simply to treat yourself, we&rsquo;re honored to be part of your story.
                 </p>
               </div>
             </div>
@@ -44,24 +49,21 @@ export default function AboutUsSection() {
             <div className="col-lg-7">
               <div className="about-content-2">
                 <h2 className="about-title">Our Mission</h2>
-
                 <h5 className="about-sub-title">
-                  At I.D. Jewelry, our mission is to create a personalized and memorable jewelry experience for every client. We believe that fine jewelry should not only be beautiful but also meaningful, which is why we focus on craftsmanship, quality materials, and attention to detail in every piece we offer.
+                  At Bliss Platina Design Jewelry, our mission is to craft jewelry that tells your story. We believe every piece should not only shine with beauty but also carry meaning, love, and memories.
                 </h5>
                 <p>
-                  Since our founding in 1986, we&rsquo;ve remained committed to providing exceptional value and service. By operating from the heart of New York&rsquo;s Diamond District, we&rsquo;re able to offer some of the most competitive prices in the market while maintaining the highest standards in design and quality.
+                  Since 2004, we have been dedicated to exceptional craftsmanship, ethical sourcing, and unmatched value. From the heart of New York&rsquo;s Diamond District, we combine artistry with integrity to bring you timeless designs at fair prices.
                 </p>
                 <p>
-                  Whether you&rsquo;re searching for the perfect engagement ring, a custom design, or a timeless gift, our goal is to help you celebrate life&rsquo;s most important moments. We take pride in building lasting relationships with our clients and being a trusted part of their jewelry journey.
-
-
+                 Whether it&rsquo;s an engagement ring, a custom creation, or a gift to cherish, our goal is to make life&rsquo;s special moments unforgettable. We&rsquo;re more than jewelers—we&rsquo;re your trusted partner in celebrating love and milestones for generations to come.
                 </p>
               </div>
             </div>
             <div className="col-lg-5">
               <div className="about-thumb">
                 <Image
-                  src="/assets/img/about/our-mission.png"
+                  src="/assets/img/about/about.jpg"
                   alt="about"
                   width={500}
                   height={500}

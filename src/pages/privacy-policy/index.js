@@ -154,7 +154,7 @@ export default function PrivacyPolicy() {
                 description="Learn how we collect, use, and protect your personal data when you browse or purchase from our jewelry website."
             />
             <Breadcrumb pageTitle="Privacy Policy" />
-            <section className="policy-section section-padding">
+            <section className="policy-section py-5">
                 <div className="container">
                     {/* <div className="row">
                         <div className="col-lg-12">
@@ -172,13 +172,49 @@ export default function PrivacyPolicy() {
                                 {loader ? <div className="d-flex justify-content-center align-items-center">
                                     <Loader />
                                 </div> :
-                                    <div dangerouslySetInnerHTML={{ __html: settingData }} />
+
+                                    <div
+                                        className="policy-title"
+                                        dangerouslySetInnerHTML={{ __html: settingData }} />
                                 }
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <style jsx global>{`
+        .policy-title h3 {
+          font-size: 24px;
+          font-weight: 700;
+          margin-top: 1.5rem;
+          margin-bottom: 0.75rem;
+          color: #222222; /* Bootstrap text-dark */
+          line-height: 1.2;
+        } 
+          .policy-title ul {
+           padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.policy-title li {
+  margin-bottom: 0.5rem;
+    list-style-type: disc;
+}
+        .policy-title p {
+          font-size: 14px;
+          color: #555555; /* Bootstrap text-secondary */
+          margin-bottom: 8px;
+          line-height: 1.7;
+        }
+        .policy-title a {
+          color: #c29958; /* Bootstrap primary */
+          text-decoration: none;
+        }
+        .policy-title a:hover {
+          text-decoration: underline;
+        }
+ 
+      `}</style>
         </>
     );
 }

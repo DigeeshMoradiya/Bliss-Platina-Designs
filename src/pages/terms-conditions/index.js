@@ -3,7 +3,6 @@ import Breadcrumb from "@/components/common/Breadcrumb";
 import Loader from "@/components/common/Loader";
 import SEO from "@/components/common/SEO";
 import { getSetting } from "@/lib/api/setting/setting";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function TermsConditions() {
@@ -103,26 +102,25 @@ export default function TermsConditions() {
     const [settingData, setSettingData] = useState(null);
     const [loader, setLoader] = useState(false);
 
-
     const onloadSetting = async () => {
         setLoader(true);
         try {
-            const result = await getSetting(
-                "terms_condition"
-            );
+            const result = await getSetting("terms_condition");
             if (result?.success) {
                 setSettingData(result.data);
-                setLoader(false);
             }
         } catch (error) {
-            setLoader(true);
             console.error("Error fetching settings:", error);
+        } finally {
+            setLoader(false);
         }
     };
 
     useEffect(() => {
         onloadSetting();
     }, []);
+
+
     return (
         <>
             <SEO
@@ -131,7 +129,8 @@ export default function TermsConditions() {
             />
 
             <Breadcrumb pageTitle="Terms and Conditions" />
-            <section className="policy-section section-padding">
+
+            <section className="policy-section py-5">
                 <div className="container">
                     {/* <div className="row">
                         <div className="col-lg-12">
@@ -145,17 +144,46 @@ export default function TermsConditions() {
                     </div> */}
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="policy-list">
-                                {loader ? <div className="d-flex justify-content-center align-items-center">
+                            {loader ? (
+                                <div className="d-flex justify-content-center align-items-center py-5">
                                     <Loader />
-                                </div> :
-                                    <div dangerouslySetInnerHTML={{ __html: settingData }} />
-                                }
-                            </div>
+                                </div>
+                            ) : settingData ? (
+                                <div
+                                    className="policy-title"
+                                    dangerouslySetInnerHTML={{ __html: settingData }}
+                                />
+                            ) : (
+                                <p className="policy-list d-flex justify-content-center align-items-center">No terms available.</p>
+                            )}
                         </div>
                     </div>
                 </div>
             </section>
+
+            <style jsx global>{`
+        .policy-title h3 {
+          font-size: 24px;
+          font-weight: 700;
+          margin-top: 1.5rem;
+          margin-bottom: 0.75rem;
+          color: #222222; /* Bootstrap text-dark */
+              line-height: 1.2;
+        } 
+        .policy-title p {
+          font-size: 14px;
+          color: #555555; /* Bootstrap text-secondary */
+          margin-bottom: 8px;
+          line-height: 1.7;
+        }
+        .policy-title a {
+          color: #c29958; /* Bootstrap primary */
+          text-decoration: none;
+        }
+        .policy-title a:hover {
+          text-decoration: underline;
+        }
+      `}</style>
         </>
     );
 }

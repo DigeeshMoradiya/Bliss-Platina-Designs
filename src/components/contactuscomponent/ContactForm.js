@@ -144,9 +144,23 @@ export default function ContactForm({ settingData }) {
                             <p>Have a question about our jewelry, custom orders, or need assistance with your purchase? We’re here to help! Reach out to Bliss Platine Design via WhatsApp, email, or our live chat — our team will be happy to assist you with anything you need.
                             </p>
                             <ul>
-                                <li><i className="fa fa-fax"></i> Address : {settingData?.address}</li>
+                                {/* <li><i className="fa fa-fax"></i> Address : {settingData?.address}</li> */}
+
+                                <li className="d-flex align-items-start">
+                                    <i className="fa fa-fax mr-2 mt-1"></i>
+                                    <div>
+                                        <div>
+                                            Address :
+                                        </div>
+                                        <div className="whitespace-pre-line">
+                                            {settingData?.address}
+                                        </div>
+                                    </div>
+                                </li>
+
+
                                 <li><i className="fa fa-envelope-o"></i> E-mail: {settingData?.email}</li>
-                                <li><i className="fa fa-phone"></i> {settingData?.phone_no}</li>
+                                <li><i className="fa fa-phone"></i> +{settingData?.phone_no}</li>
                             </ul>
 
                         </div>
