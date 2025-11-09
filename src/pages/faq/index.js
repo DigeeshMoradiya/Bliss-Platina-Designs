@@ -16,7 +16,7 @@ export default function FAQPage() {
     //     {
     //         question: "Are your diamonds certified?",
     //         answer:
-    //             "Yes. At Bliss Platine Design, every diamond we use is certified by renowned gemological labs such as IGI or GIA, ensuring quality, authenticity, and transparency."
+    //             "Yes. At Bliss Platina Design, every diamond we use is certified by renowned gemological labs such as IGI or GIA, ensuring quality, authenticity, and transparency."
     //     },
     //     {
     //         question: "Can I customize my jewelry?",
@@ -36,7 +36,7 @@ export default function FAQPage() {
     //     {
     //         question: "Is your jewelry hallmarked?",
     //         answer:
-    //             "Yes. All gold jewelry from Bliss Platine Design is BIS hallmarked, guaranteeing purity. Diamond and gemstone pieces are also certified to ensure quality and authenticity."
+    //             "Yes. All gold jewelry from Bliss Platina Design is BIS hallmarked, guaranteeing purity. Diamond and gemstone pieces are also certified to ensure quality and authenticity."
     //     },
     //     {
     //         question: "How do I know my ring size?",
