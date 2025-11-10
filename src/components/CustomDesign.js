@@ -495,7 +495,7 @@ export default function CustomDesign({ skuNo, setSkuNo }) {
                                         <div className="single-input-item">
                                             <label htmlFor="phone" className="required">Phone Number</label>
                                             <PhoneInput
-                                                country={'in'}
+                                                country={'us'}
                                                 value={formik.values.phone}
                                                 onChange={(value, data) => {
                                                     formik.setFieldValue('phone', value);
@@ -757,7 +757,7 @@ export default function CustomDesign({ skuNo, setSkuNo }) {
                                     )}
                                 </div>
                                 <div className="single-input-item">
-                                    <label htmlFor="ordernote" className="required">Tell us about your vision.</label>
+                                    <label htmlFor="ordernote" className="required">Tell us about your custom design.</label>
                                     <textarea
                                         name="ordernote"
                                         id="ordernote"
