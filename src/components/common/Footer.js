@@ -182,8 +182,8 @@ export default function Footer({ settingData }) {
                         <div className="col-12">
                             <div className="copyright-text text-center">
                                 <p>
-                                    &copy; {new Date().getFullYear()} <b>Bliss Platina</b> Made with <i className="fa fa-heart text-danger"></i> by{' '}
-                                    <a href="https://blissplatina.com" target="_blank" rel="noopener noreferrer"><b>Bliss Platina</b></a>
+                                    &copy; {new Date().getFullYear()} <b>Bliss Platina Designs</b> Made with <i className="fa fa-heart text-danger"></i> by{' '}
+                                    <a href="https://blissplatinadesigns.com" target="_blank" rel="noopener noreferrer"><b>Bliss Platina Designs</b></a>
                                 </p>
                             </div>
                         </div>

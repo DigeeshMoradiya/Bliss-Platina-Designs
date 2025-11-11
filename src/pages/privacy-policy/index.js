@@ -12,9 +12,9 @@ export default function PrivacyPolicy() {
             title: "Who We Are",
             content: (
                 <p>
-                    Bliss Platina Design is a trusted jewelry brand specializing in handcrafted gold and diamond jewelry. Our website address is{" "}
-                    <a href="https://blissplatina.com" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-                        https://blissplatina.com
+                    Bliss Platina Designs is a trusted jewelry brand specializing in handcrafted gold and diamond jewelry. Our website address is{" "}
+                    <a href="https://blissplatinadesigns.com" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                        https://blissplatinadesigns.com
                     </a>. We serve our customers primarily through personalized WhatsApp communication and online browsing experiences.
                 </p>
             ),

@@ -93,7 +93,7 @@ export default function Header({ settingData }) {
                         <div className="row align-items-center">
                             <div className="col-lg-6">
                                 <div className="welcome-message">
-                                    <p>Welcome to Bliss Platina Jewelry online store</p>
+                                    <p>Welcome to Bliss Platina Designs Jewelry online store</p>
                                 </div>
                             </div>
                             {/* <div className="col-lg-4">

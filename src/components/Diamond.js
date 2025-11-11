@@ -641,7 +641,7 @@ export default function Diamond() {
                 <div className="col-12">
                     <div className="section-title text-center col-lg-7 m-auto">
                         <h2 className="title">Create Your Custom Diamond</h2>
-                        <p className="sub-title m-auto"> Choose your ideal shape, size, and setting — and let Bliss Platina craft a diamond piece that’s uniquely yours. From engagement rings to elegant earrings, every design begins with your vision and ends in timeless brilliance.</p>
+                        <p className="sub-title m-auto"> Choose your ideal shape, size, and setting — and let Bliss Platina Designs craft a diamond piece that’s uniquely yours. From engagement rings to elegant earrings, every design begins with your vision and ends in timeless brilliance.</p>
                     </div>
                 </div>
             </section>
@@ -1337,9 +1337,9 @@ export default function Diamond() {
                 <div className="container">
                     <div className="row mtn-30">
                         <div className="section-title text-center">
-                            <h2 className="title mb-3">Why Choose Diamonds from Bliss Platina?</h2>
+                            <h2 className="title mb-3">Why Choose Diamonds from Bliss Platina Designs?</h2>
                             <p className="sub-title">
-                                Buying loose diamonds gives you the freedom to design your jewelry exactly the way you want it. At Bliss Platina, we offer a wide range of certified diamonds—available in different shapes, sizes, cuts, colors, and clarity grades—to perfectly match your taste and budget. Our diamonds are ethically sourced and hand-selected for brilliance and quality.
+                                Buying loose diamonds gives you the freedom to design your jewelry exactly the way you want it. At Bliss Platina Designs, we offer a wide range of certified diamonds—available in different shapes, sizes, cuts, colors, and clarity grades—to perfectly match your taste and budget. Our diamonds are ethically sourced and hand-selected for brilliance and quality.
                             </p>
                             <p className="sub-title">
                                 Whether you&rsquo;re planning to create a custom engagement ring, earrings, pendant, or bracelet, our loose diamonds give you full creative control. We also provide detailed Excel catalogs with images and specifications so you can review and compare with ease. Need help choosing? Schedule a virtual consultation with our diamond experts for personalized guidance.

@@ -15,7 +15,7 @@ export default function TermsConditions() {
                     <a href="https://blissplatina.com" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
                         https://blissplatina.com
                     </a>
-                    ) and placing orders via WhatsApp, you agree to the following Terms and Conditions. Bliss Platina Design may update these terms without prior notice.
+                    ) and placing orders via WhatsApp, you agree to the following Terms and Conditions. Bliss Platina Designs may update these terms without prior notice.
                 </p>
             ),
         },
@@ -78,7 +78,7 @@ export default function TermsConditions() {
             title: "Intellectual Property",
             content: (
                 <p>
-                    All content, designs, and images on our website are the property of Bliss Platina Design and cannot be copied or reproduced without permission.
+                    All content, designs, and images on our website are the property of Bliss Platina Designs and cannot be copied or reproduced without permission.
                 </p>
             ),
         },
@@ -86,7 +86,7 @@ export default function TermsConditions() {
             title: "Limitation of Liability",
             content: (
                 <p>
-                    Bliss Platina Design is not liable for any indirect or consequential damages related to the use of our website or services.
+                    Bliss Platina Designs is not liable for any indirect or consequential damages related to the use of our website or services.
                 </p>
             ),
         },

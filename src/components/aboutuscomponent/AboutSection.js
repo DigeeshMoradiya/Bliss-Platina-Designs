@@ -50,7 +50,7 @@ export default function AboutUsSection() {
               <div className="about-content-2">
                 <h2 className="about-title">Our Mission</h2>
                 <h5 className="about-sub-title">
-                  At Bliss Platina Design Jewelry, our mission is to craft jewelry that tells your story. We believe every piece should not only shine with beauty but also carry meaning, love, and memories.
+                  At Bliss Platina Designs Jewelry, our mission is to craft jewelry that tells your story. We believe every piece should not only shine with beauty but also carry meaning, love, and memories.
                 </h5>
                 <p>
                   Since 2004, we have been dedicated to exceptional craftsmanship, ethical sourcing, and unmatched value. From the heart of New York&rsquo;s Diamond District, we combine artistry with integrity to bring you timeless designs at fair prices.

@@ -4,29 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Slider from 'react-slick';
 
-const testimonials = [
-  {
-    name: 'Lindsy Niloms — USA',
-    img: '/assets/img/testimonial/testimonial-1.png',
-    text: 'Absolutely in love with the necklace I received! The craftsmanship is stunning and it arrived beautifully packaged. Will definitely order again.',
-  },
-  {
-    name: 'Daisy Millan — UK',
-    img: '/assets/img/testimonial/testimonial-2.png',
-    text: 'The earrings were elegant and even more beautiful in person. Excellent service and fast shipping made the experience even better!',
-  },
-  {
-    name: 'Anamika Lusy — UAE',
-    img: '/assets/img/testimonial/testimonial-3.png',
-    text: 'I ordered a bracelet for my sister and she loved it! Smooth WhatsApp support and premium quality—highly recommended.',
-  },
-  {
-    name: 'Maria Mora — Australia',
-    img: '/assets/img/testimonial/testimonial-2.png',
-    text: 'Unique designs and exceptional detail. This is now my go-to jewelry store for gifting and personal purchases!',
-  },
-];
-
 export default function TestimonialSection({ customerReviewsData }) {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
@@ -38,14 +15,27 @@ export default function TestimonialSection({ customerReviewsData }) {
     setNav2(slider2.current);
   }, []);
 
+  const PrevArrow = ({ className, onClick }) => (
+    <button type="button" className={className} onClick={onClick}>
+      <i className="pe-7s-angle-left"></i>
+    </button>
+  );
 
+  const NextArrow = ({ className, onClick }) => (
+    <button type="button" className={className} onClick={onClick}>
+      <i className="pe-7s-angle-right"></i>
+    </button>
+  );
 
   return (
-    <section className="testimonial-area section-padding bg-img" style={{ backgroundImage: 'url(/assets/img/testimonial/testimonials-bg.jpg)' }}>
+    <section
+      className="testimonial-area section-padding bg-img"
+      style={{ backgroundImage: 'url(/assets/img/testimonial/testimonials-bg.jpg)' }}
+    >
       <div className="container">
+        {/* Title */}
         <div className="row">
           <div className="col-12">
-            {/* Section title */}
             <div className="section-title text-center mb-0">
               <h2 className="title">testimonials</h2>
               <p className="sub-title">What they say</p>
@@ -53,70 +43,58 @@ export default function TestimonialSection({ customerReviewsData }) {
           </div>
         </div>
 
-        <div className="row">
+        {/* Content Slider */}
+        <div className="row mt-4">
           <div className="col-12">
+            <Slider
+              className="slick-arrow-style-review slick-dot-style testimonial-content-carousel slick-dot-style-testimonial"
 
-            {/* Thumbnail Carousel */}
-            {/* <div className="testimonial-thumb-wrapper">
-              <Slider
-                asNavFor={nav2}
-                ref={slider1}
-                slidesToShow={3}
-                centerMode
-                swipeToSlide
-                focusOnSelect
-                arrows={false}
-                centerPadding="0px"
-                className="testimonial-thumb-carousel"
-              >
-                {testimonials.map((item, index) => (
-                  <div key={index} className="testimonial-thumb text-center">
-                    <img src={item.img} alt="testimonial-thumb" className="rounded-circle mx-auto" width="80" height="80" />
-                  </div>
-                ))}
-              </Slider>
-            </div> */}
+              asNavFor={nav1}
+              ref={slider2}
+              slidesToShow={1}
+              arrows={true}
+              prevArrow={<PrevArrow />}
+              nextArrow={<NextArrow />}
+              fade={true}
+              dots={true}
+            >
+              {customerReviewsData.map((item, index) => {
+                const rating = Number(item?.review_count) || 0;
 
-            {/* Content Carousel */}
-            <div className="testimonial-content-wrapper mt-4">
-              <Slider
-                asNavFor={nav1}
-                ref={slider2}
-                slidesToShow={1}
-                arrows={false}
+                return (
+                  <div className="testimonial-content text-center" key={index}>
+                    <p>{item.description}</p>
 
-                fade={true}
-                dots={true}
-                className="testimonial-content-carousel slick-dot-style-testimonial"
-              >
-                {customerReviewsData.map((item, index) => {
-                  const rating = Number(item?.review_count) || 0;
-
-                  return (
-                    <div className="testimonial-content text-center" key={index}>
-                      <p>{item.description}</p>
-                      <div className="ratings my-2">
-                        {[...Array(5)].map((_, i) => {
-                          if (i + 1 <= Math.floor(rating)) {
-                            // Full star
-                            return <span key={i}><i className="fa fa-star"></i></span>;
-                          } else if (i < rating) {
-                            // Half star
-                            return <span key={i}><i className="fa fa-star-half-o"></i></span>;
-                          } else {
-                            // Empty star
-                            return <span key={i}><i className="fa fa-star-o"></i></span>;
-                          }
-                        })}
-                      </div>
-                      <h5 className="testimonial-author">{item.name}</h5>
+                    {/* Rating */}
+                    <div className="ratings my-2">
+                      {[...Array(5)].map((_, i) => {
+                        if (i + 1 <= Math.floor(rating)) {
+                          return (
+                            <span key={i}>
+                              <i className="fa fa-star"></i>
+                            </span>
+                          );
+                        } else if (i < rating) {
+                          return (
+                            <span key={i}>
+                              <i className="fa fa-star-half-o"></i>
+                            </span>
+                          );
+                        } else {
+                          return (
+                            <span key={i}>
+                              <i className="fa fa-star-o"></i>
+                            </span>
+                          );
+                        }
+                      })}
                     </div>
-                  );
-                })}
 
-              </Slider>
-            </div>
-
+                    <h5 className="testimonial-author">{item.name}</h5>
+                  </div>
+                );
+              })}
+            </Slider>
           </div>
         </div>
       </div>

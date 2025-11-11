@@ -9,7 +9,7 @@ const policies = [
   },
   {
     icon:<img src="/assets/img/Service/Bliss Platina’s Trust.png" alt="policy icon" />,
-    title: 'Bliss Platina’s Trust',
+    title: 'Bliss Platina Designs Trust',
     description: 'Support 24 hours a day',
   },
   {

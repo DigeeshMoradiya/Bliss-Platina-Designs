@@ -405,6 +405,72 @@ only screen and (max-width: 767.98px) {
   }
 }
 
+
+.slick-arrow-style-review button.slick-arrow {
+  top: 16%;
+  left: 0;
+  font-size: 70px;
+  color: #777777;
+  cursor: pointer;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  line-height: 1;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+
+.slick-arrow-style-review button.slick-arrow.slick-next {
+  left: auto;
+  right: 0;
+}
+
+.slick-arrow-style-review button.slick-arrow:hover {
+  color: #c29958;
+}
+
+.slick-arrow-style-review:hover button.slick-arrow {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.slick-arrow-style-review:hover button.slick-arrow.slick-prev {
+  left: -60px;
+  right: auto;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1499px),
+only screen and (min-width: 992px) and (max-width: 1199px),
+only screen and (min-width: 768px) and (max-width: 991px),
+only screen and (max-width: 767.98px) {
+  .slick-arrow-style-review:hover button.slick-arrow.slick-prev {
+    left: -20px;
+  }
+}
+
+.slick-arrow-style-review:hover button.slick-arrow.slick-next {
+  left: auto;
+  right: -60px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1499px),
+only screen and (min-width: 992px) and (max-width: 1199px),
+only screen and (min-width: 768px) and (max-width: 991px),
+only screen and (max-width: 767.98px) {
+  .slick-arrow-style-review:hover button.slick-arrow.slick-next {
+    right: -20px;
+  }
+}
+
 .load-more-trigger {
   display: flex;
   justify-content: center;
@@ -3781,6 +3847,7 @@ only screen and (max-width: 479.98px) {
 .policy-title {
   margin-bottom: 10px;
 }
+
 .whitespace-pre-line {
   white-space: pre-line;
 }

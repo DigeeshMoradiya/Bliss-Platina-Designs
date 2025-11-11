@@ -38,6 +38,17 @@ export default function Testimonials({ customerReviewsData }) {
     setNav1(slider1.current);
     setNav2(slider2.current);
   }, []);
+  const PrevArrow = ({ className, onClick }) => (
+    <button type="button" className={className} onClick={onClick}>
+      <i className="pe-7s-angle-left"></i>
+    </button>
+  );
+
+  const NextArrow = ({ className, onClick }) => (
+    <button type="button" className={className} onClick={onClick}>
+      <i className="pe-7s-angle-right"></i>
+    </button>
+  );
 
   return (
     <section className="testimonial-area section-padding bg-img " style={{ backgroundImage: 'url(/assets/img/testimonial/testimonials-bg.jpg)' }}>
@@ -82,11 +93,12 @@ export default function Testimonials({ customerReviewsData }) {
                 asNavFor={nav1}
                 ref={slider2}
                 slidesToShow={1}
-                arrows={false}
-
+                arrows={true}
+                prevArrow={<PrevArrow />}
+                nextArrow={<NextArrow />}
                 fade={true}
                 dots={true}
-                className="testimonial-content-carousel slick-dot-style-testimonial"
+                className="slick-arrow-style-review slick-dot-style testimonial-content-carousel slick-dot-style-testimonial"
               >
                 {customerReviewsData.map((item, index) => {
                   const rating = Number(item?.review_count) || 0;

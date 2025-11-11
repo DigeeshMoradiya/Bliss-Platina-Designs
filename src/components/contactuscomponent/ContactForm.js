@@ -141,7 +141,7 @@ export default function ContactForm({ settingData }) {
                     <div className="col-lg-6">
                         <div className="contact-info">
                             <h4 className="contact-title">Contact Us</h4>
-                            <p>Have a question about our jewelry, custom orders, or need assistance with your purchase? We’re here to help! Reach out to Bliss Platina Design via WhatsApp, email, or our live chat — our team will be happy to assist you with anything you need.
+                            <p>Have a question about our jewelry, custom orders, or need assistance with your purchase? We’re here to help! Reach out to Bliss Platina Designs via WhatsApp, email, or our live chat — our team will be happy to assist you with anything you need.
                             </p>
                             <ul>
                                 {/* <li><i className="fa fa-fax"></i> Address : {settingData?.address}</li> */}

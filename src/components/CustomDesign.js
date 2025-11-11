@@ -428,7 +428,7 @@ export default function CustomDesign({ skuNo, setSkuNo }) {
                 <div className="col-12">
                     <div className="section-title text-center col-lg-7 m-auto">
                         <h2 className="title">Create Your Custom Jewelry</h2>
-                        <p className="sub-title m-auto">Bring your jewelry vision to life with custom designs crafted uniquely for you at Bliss Platina.</p>
+                        <p className="sub-title m-auto">Bring your jewelry vision to life with custom designs crafted uniquely for you at Bliss Platina Designs.</p>
                     </div>
                 </div>
             </section>
@@ -869,7 +869,7 @@ export default function CustomDesign({ skuNo, setSkuNo }) {
             <section className="feature-product section-padding pt-0">
                 <div className="col-12">
                     <div className="section-title text-center">
-                        <h2 className="title">Bliss Platina&rsquo;s Promise</h2>
+                        <h2 className="title">Bliss Platina Designs Promise</h2>
                         <p className="sub-title">What Makes Us Truly Unique
                         </p>
                     </div>
@@ -899,7 +899,7 @@ export default function CustomDesign({ skuNo, setSkuNo }) {
                     <div className="row mtn-30">
                         <div className="section-title text-center">
                             <h2 className="title mb-3">Why Choose a Custom Engagement Ring?</h2>
-                            <p className="sub-title">A custom engagement ring holds deeper meaning and emotional value—it&rsquo;s designed exclusively for you, making it truly one of a kind. At Bliss Platina, we offer complete customization, allowing you to bring your dream ring to life. Whether it&rsquo;s based on inspiration images or a design you&rsquo;ve envisioned, we tailor every detail to match your style.
+                            <p className="sub-title">A custom engagement ring holds deeper meaning and emotional value—it&rsquo;s designed exclusively for you, making it truly one of a kind. At Bliss Platina Designs, we offer complete customization, allowing you to bring your dream ring to life. Whether it&rsquo;s based on inspiration images or a design you&rsquo;ve envisioned, we tailor every detail to match your style.
                             </p>
                             <p className="sub-title">Our artisans specialize in crafting rings using lab-grown diamonds, moissanite, and other premium gemstones in any shape, size, or color. From engagement rings and stud earrings to wedding bands and bracelets, our bespoke pieces are made to celebrate your unique love story.
                             </p>
