@@ -1277,7 +1277,7 @@ export default function Diamond() {
             <section className="feature-product section-padding pt-0">
                 <div className="hero-single-slide hero-overlay hero-slider-item" style={{ position: 'relative', height: '500px' }}>
                     <Image
-                        src="/assets/img/diamond/daimond-section.jpg"
+                        src="/assets/img/diamond/daimond-section.jpeg"
                         alt="Diamond"
                         fill
                         style={{ objectFit: 'cover', zIndex: -1 }}
