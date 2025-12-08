@@ -72,11 +72,14 @@ export default function Banner({ bannerData }) {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="hero-slider-content slide-1">
-                      <h2 className="slide-title">
+                      <h2
+                        className="slide-title"
+                        style={{ color: banner?.text_color }}
+                      >
                         {banner.title.split(',')[0]}
                         <span>{banner.title.split(',')[1]?.trim()}</span>
                       </h2>
-                      <h4 className="slide-desc">
+                      <h4 className="slide-desc" style={{ color: banner?.text_color }}>
                         {banner.short_description}
                       </h4>
                       <Link href={`/shop?q=${banner?.category_name}`} onClick={() => handleproduct(banner?.category_name)} className="btn btn-hero">

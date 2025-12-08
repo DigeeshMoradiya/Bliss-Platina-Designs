@@ -312,7 +312,7 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                                     <div className="quantity d-flex align-items-center gap-3">
                                                         {/* <div className="pro-qty"><input type="text" value="1" /></div> */}
                                                         <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">10KT</div>
-                                                        <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">12KT</div>
+                                                        <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">14KT</div>
                                                         <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">18KT</div>
                                                         <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">950 Platinum</div>
                                                     </div>
