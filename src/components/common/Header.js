@@ -121,7 +121,7 @@ export default function Header({ settingData }) {
                             <div className="col-lg-2">
                                 <div className="logo">
                                     <Link href="/">
-                                        <img src="/assets/img/logo/logonew.png" alt="Brand Logo" />
+                                        <img src="/assets/img/logo/finallogo.png" alt="Brand Logo" />
                                     </Link>
                                 </div>
                             </div>
@@ -219,7 +219,7 @@ export default function Header({ settingData }) {
                                 <div className="mobile-logo">
                                     <Link href="/">
                                         {/* <Image src="/assets/img/logo/logo.png" alt="Brand Logo" width={120} height={40} /> */}
-                                        <img src="/assets/img/logo/logonew.png" alt="Brand Logo" />
+                                        <img src="/assets/img/logo/finallogo.png" alt="Brand Logo" />
                                     </Link>
                                 </div>
                                 <div className="mobile-menu-toggler">

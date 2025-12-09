@@ -57,7 +57,7 @@ export default function Footer({ settingData }) {
                                     <div className="widget-logo">
                                         <Link href="/">
                                             {/* <Image src="/assets/img/logo/logo.png" alt="brand logo" width={150} height={50} />   */}
-                                            <img src="/assets/img/logo/logonew.png" alt="Brand Logo" />
+                                            <img src="/assets/img/logo/finallogo.png" alt="Brand Logo" />
                                         </Link>
                                     </div>
                                 </div>
