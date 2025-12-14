@@ -168,6 +168,11 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
         ],
     };
 
+    const isVideo = (url) => {
+        const videoExtensions = ['.mp4', '.mov', '.avi', '.webm', '.mkv'];
+        return typeof url === "string" && videoExtensions.some(ext => url.toLowerCase().endsWith(ext));
+    };
+
     const handleZoom = (e) => {
         const zoomer = e.currentTarget;
         const offsetX = e.nativeEvent.offsetX;
@@ -232,13 +237,21 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                         <div className="col-lg-6">
                                             <Slider {...mainSettings} className='product-large-slider'
                                             >
-                                                {imageFiles.map((img, index) => (
+                                                {imageFiles.map((item, index) => (
                                                     <div key={index} className="pro-large-img img-zoom">
-                                                        <img src={img} alt="product-details"
-                                                            onMouseMove={handleZoom}
-                                                            onMouseLeave={resetZoom}
-                                                        // className="transition-transform duration-300 ease-in-out"
-                                                        />
+                                                        {isVideo(item) ? (
+                                                            <video
+                                                                src={item}
+                                                                controls
+                                                                style={{ width: '100%', height: 'auto' }}
+                                                            />
+                                                        ) : (
+                                                            <img src={item} alt="product-details"
+                                                                onMouseMove={handleZoom}
+                                                                onMouseLeave={resetZoom}
+                                                            // className="transition-transform duration-300 ease-in-out"
+                                                            />
+                                                        )}
                                                     </div>
                                                 ))}
                                             </Slider>
@@ -246,12 +259,20 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                                 {...thumbSettings}
                                                 className='pro-nav'
                                             >
-                                                {imageFiles.map((img, index) => (
-                                                    <div key={index} className="pro-nav-thumb p-1">
-                                                        <img src={img} alt="product-details"
-                                                            onClick={() => {
-                                                                mainSliderRef.current.slickGoTo(index);
-                                                            }} />
+                                                {imageFiles.map((item, index) => (
+                                                    <div key={index} className="pro-nav-thumb p-1"
+                                                        onClick={() => {
+                                                            mainSliderRef.current.slickGoTo(index);
+                                                        }}
+                                                    >
+                                                        {isVideo(item) ? (
+                                                            <video
+                                                                src={item}
+                                                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                                            />
+                                                        ) : (
+                                                            <img src={item} alt="product-details" />
+                                                        )}
                                                     </div>
                                                 ))}
                                             </Slider>
