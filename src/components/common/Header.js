@@ -174,9 +174,17 @@ export default function Header({ settingData }) {
                                                         </Link>
 
                                                         {cat.children?.length > 0 && (
-                                                            <ul className="megamenu dropdown">
+                                                            <ul className="megamenu dropdown d-flex flex-wrap" style={{ gap: '20px', padding: '20px' }}>
                                                                 {cat.children.map((sub) => (
-                                                                    <li key={sub.id} className="mega-title">
+                                                                    <li
+                                                                        key={sub.id}
+                                                                        className="mega-title"
+                                                                        style={
+                                                                            cat?.is_header && cat?.image
+                                                                                ? { flex: '1', minWidth: '150px' }
+                                                                                : undefined
+                                                                        }
+                                                                    >
                                                                         <span>{sub.name}</span>
                                                                         {sub.children?.length > 0 && (
                                                                             <ul>
@@ -192,9 +200,22 @@ export default function Header({ settingData }) {
 
                                                                 {/* Optional: if image exists for category */}
                                                                 {cat?.is_header && cat.image && (
-                                                                    <li className="megamenu-banners d-none d-lg-block">
-                                                                        <Link href={`/shop?q=${cat.slug}`} onClick={(e) => handleClickdetail(e, cat.slug)}>
-                                                                            <img src={cat.image} alt={cat.name} />
+                                                                    <li className="megamenu-banners d-none d-lg-block align-items-center justify-content-center mt-0" style={{ flex: '0 0 250px', maxWidth: '300px' }}>
+                                                                        <Link href={`/shop?q=${cat.slug}`} onClick={(e) => handleClickdetail(e, cat.slug)} className="w-100">
+                                                                            <img
+                                                                                src={cat.image}
+                                                                                alt={cat.name}
+                                                                                style={{
+                                                                                    width: '100%',
+                                                                                    height: 'auto',
+                                                                                    borderRadius: '12px',
+                                                                                    boxShadow: '0 8px 20px rgba(0,0,0,0.1)',
+                                                                                    objectFit: 'cover',
+                                                                                    transition: 'transform 0.3s ease'
+                                                                                }}
+                                                                                onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                                                                                onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                                                            />
                                                                         </Link>
                                                                     </li>
                                                                 )}
