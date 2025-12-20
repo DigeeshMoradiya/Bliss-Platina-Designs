@@ -8,40 +8,72 @@ const ProductGrid = ({ viewMode, setLoading, loading, search }) => {
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
     const [isFetching, setIsFetching] = useState(false); // Prevent multi-call for same page
+    const [debouncedSearch, setDebouncedSearch] = useState(search);
+    const [isSearching, setIsSearching] = useState(false); // Track debounce period
     const loaderRef = useRef(null);
+
+    // Debounce search input
+    useEffect(() => {
+        // If search value changed, show searching state
+        if (search !== debouncedSearch) {
+            setIsSearching(true);
+        }
+
+        const timer = setTimeout(() => {
+            setDebouncedSearch(search);
+            setIsSearching(false);
+        }, 500); // 500ms delay
+
+        return () => clearTimeout(timer);
+    }, [search]);
 
     const loadProducts = async (pageNumber) => {
         if (isFetching) return; // Block if already fetching
         setIsFetching(true);
-        setLoading(true);
+
+        // Only show full loading for page 1 (initial load or new search)
+        if (pageNumber === 1) {
+            setLoading(true);
+        }
 
 
-        const result = await getProduct(pageNumber, 9, search ? search : ""); // API call
+        const result = await getProduct(pageNumber, 9, debouncedSearch ? debouncedSearch : ""); // API call
         if (result?.success && result.data?.data?.length > 0) {
             setProducts(prev => {
+                // If it's page 1, replace all products (for new search)
+                if (pageNumber === 1) {
+                    return result.data.data;
+                }
+                // Otherwise, append new products (for pagination)
                 const newProducts = result.data.data.filter(
                     newProd => !prev.some(existingProd => existingProd.id === newProd.id)
                 );
                 return [...prev, ...newProducts];
             });
 
-            // If fewer than 6 items, no more data
-            if (result.data.data.length < 6) {
+            // If fewer than 9 items, no more data
+            if (result.data.data.length < 9) {
                 setHasMore(false);
             }
         } else {
             setHasMore(false);
-            setProducts([]);
+            if (pageNumber === 1) {
+                setProducts([]);
+            }
         }
 
         setLoading(false);
         setIsFetching(false);
     };
 
-    // Initial load (page 1)
+    // Initial load (page 1) - Reset state when debounced search changes
     useEffect(() => {
+        setProducts([]);
+        setPage(1);
+        setHasMore(true);
         loadProducts(1);
-    }, [search]);
+    }, [debouncedSearch]);
+
 
     // Intersection Observer for infinite scroll
     useEffect(() => {
@@ -66,7 +98,16 @@ const ProductGrid = ({ viewMode, setLoading, loading, search }) => {
 
     return (
         <>
-            {products?.length === 0 ? <div className='text-center'> <p>No results found for {search}</p> </div> :
+            {/* Show loader when initially loading or searching */}
+            {loading || isSearching ? (
+                <div className='load-more-trigger'>
+                    <Loader />
+                </div>
+            ) : products?.length === 0 ? (
+                <div className='text-center'>
+                    <p>No results found for {search}</p>
+                </div>
+            ) : (
                 <>
                     <div className="product-grid-container">
                         <div className={`shop-product-wrap ${viewMode}-view row mbn-30`}>
@@ -77,13 +118,13 @@ const ProductGrid = ({ viewMode, setLoading, loading, search }) => {
                             ))}
                         </div>
 
-                        {/* Loader & Scroll Trigger */}
+                        {/* Loader & Scroll Trigger for pagination */}
                         <div ref={loaderRef} className="load-more-trigger">
-                            {loading && <Loader />}
+                            {isFetching && <Loader />}
                         </div>
                     </div>
                 </>
-            }
+            )}
         </>
     );
 };
