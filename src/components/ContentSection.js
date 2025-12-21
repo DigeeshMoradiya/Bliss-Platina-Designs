@@ -3,7 +3,13 @@ import Slider from 'react-slick';
 import styles from './ContentSection.module.css';
 
 const CustomPrevArrow = ({ className, onClick }) => (
-  <div className={`${styles.arrow} ${styles.prevArrow} ${className}`} onClick={onClick}>
+  <div
+    className={`${styles.arrow} ${styles.prevArrow} ${className}`}
+    onClick={(e) => {
+      e.stopPropagation();
+      onClick?.();
+    }}
+  >
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="15 18 9 12 15 6"></polyline>
     </svg>
@@ -11,7 +17,13 @@ const CustomPrevArrow = ({ className, onClick }) => (
 );
 
 const CustomNextArrow = ({ className, onClick }) => (
-  <div className={`${styles.arrow} ${styles.nextArrow} ${className}`} onClick={onClick}>
+  <div
+    className={`${styles.arrow} ${styles.nextArrow} ${className}`}
+    onClick={(e) => {
+      e.stopPropagation();
+      onClick?.();
+    }}
+  >
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="9 18 15 12 9 6"></polyline>
     </svg>
@@ -85,10 +97,16 @@ export default function ContentSection({ featuredProductsData }) {
                   <div style={{ padding: '0 4px' }}>
                     <div
                       className={styles.imageWrapper}
-                      onClick={() => handleImageClick(slide.slug)}
                       style={{ cursor: 'pointer' }}
                     >
-                      <img src={slide.image} alt={`Slide ${index + 1}`} />
+                      <img
+                        src={slide.image}
+                        alt={`Slide ${index + 1}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleImageClick(slide.slug);
+                        }}
+                      />
                     </div>
                   </div>
                 </div>
