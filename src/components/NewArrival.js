@@ -197,7 +197,7 @@ export default function NewArrivalSection({ newArrivalsData }) {
 
 
     return (
-        <section className="feature-product section-padding pb-0">
+        <section className="feature-product section-padding">
             <div className="container">
                 <div className="row">
                     <div className="col-12">

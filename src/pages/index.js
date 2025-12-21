@@ -8,7 +8,7 @@ import TestimonialSection from '@/components/TestimonialSection';
 import WhyChooseUs from '@/components/aboutuscomponent/WhyChooseUs';
 import Loader from '@/components/common/Loader';
 import SEO from '@/components/common/SEO';
-import { getBanner, getCatregory, getCustomerReviews, getFeaturedProducts, getNewArrivals } from '@/lib/api/home/home';
+import { getBanner, getCatregory, getCustomJewelry, getCustomerReviews, getFeaturedProducts, getNewArrivals } from '@/lib/api/home/home';
 import { getSetting } from '@/lib/api/setting/setting';
 import { useEffect, useState } from 'react';
 
@@ -18,6 +18,7 @@ export default function Home() {
   const [newArrivalsData, setNewArrivalsData] = useState([]);
   const [featuredProductsData, setFeaturedProductsData] = useState([]);
   const [customerReviewsData, setCustomerReviewsData] = useState([]);
+  const [customJewelryData, setCustomJewelryData] = useState([]);
   const [loader, setLoader] = useState(false);
   const onloadBanner = async () => {
     setLoader(true);
@@ -79,12 +80,26 @@ export default function Home() {
       console.error("Error fetching cart items:", error);
     }
   };
+
+  const onloadCustomejewelry = async () => {
+    setLoader(true);
+    try {
+      const result = await getCustomJewelry();
+      if (result?.success) {
+        setCustomJewelryData(result?.data);
+        setLoader(false);
+      }
+    } catch (error) {
+      console.error("Error fetching custom jewelry items:", error);
+    }
+  };
   useEffect(() => {
     onloadBanner();
     onloadCategory();
     onloadNewArrivals();
     onloadFeaturedProducts();
     onloadCustomerReviews();
+    onloadCustomejewelry();
   }, []);
 
 
@@ -102,7 +117,7 @@ export default function Home() {
             <Banner bannerData={bannerData} />
             <Category categoryData={categoryData} />
             <NewArrivalSection newArrivalsData={newArrivalsData} />
-            <ContentSection />
+            <ContentSection featuredProductsData={customJewelryData} />
             <ProductSection featuredProductsData={featuredProductsData} />
             <WhyChooseUs />
 

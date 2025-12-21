@@ -1,0 +1,175 @@
+.contentSection {
+    background-color: #f7f7f7;
+    /* Matches site's footer-top background */
+    padding: 80px 0;
+    color: #222222;
+    overflow: hidden;
+}
+
+.flexContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.textContent {
+    flex: 1;
+    max-width: 480px;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    color: #222222;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    opacity: 0.95;
+    color: #555555;
+}
+
+.sliderContainer {
+    flex: 1.5;
+    position: relative;
+    min-width: 0;
+}
+
+.slidePair {
+    display: flex !important;
+    gap: 8px;
+}
+
+.imageWrapper {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.imageWrapper img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+.labelReference {
+    background-color: #b9e2f5;
+    color: #003366;
+}
+
+.labelReality {
+    background-color: #ffffff;
+    color: #003366;
+}
+
+.arrow {
+    position: absolute;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.arrow:global(.slick-disabled) {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: default;
+}
+
+.arrow svg {
+    width: 20px;
+    height: 20px;
+    stroke: #c29958;
+}
+
+.prevArrow {
+    right: 70px;
+}
+
+.nextArrow {
+    right: 20px;
+}
+
+@media (max-width: 1199px) {
+    .title {
+        font-size: 36px;
+    }
+
+    .imageWrapper img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 991px) {
+    .flexContainer {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .textContent {
+        max-width: 100%;
+    }
+
+    .sliderContainer {
+        width: 100%;
+    }
+
+    .imageWrapper img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 767px) {
+    .imageWrapper img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 575px) {
+    .slidePair {
+        flex-direction: column;
+    }
+
+    .imageWrapper img {
+        height: 250px;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .arrow {
+        bottom: 15px;
+    }
+}
