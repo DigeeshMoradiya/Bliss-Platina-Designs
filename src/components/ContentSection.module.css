@@ -102,7 +102,6 @@
 
 .arrow:global(.slick-disabled) {
     opacity: 0.3;
-    pointer-events: none;
     cursor: default;
 }
 

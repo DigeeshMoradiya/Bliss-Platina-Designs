@@ -2,33 +2,39 @@ import { useRouter } from 'next/navigation';
 import Slider from 'react-slick';
 import styles from './ContentSection.module.css';
 
-const CustomPrevArrow = ({ className, onClick }) => (
-  <div
-    className={`${styles.arrow} ${styles.prevArrow} ${className}`}
-    onClick={(e) => {
-      e.stopPropagation();
-      onClick?.();
-    }}
-  >
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="15 18 9 12 15 6"></polyline>
-    </svg>
-  </div>
-);
+const CustomPrevArrow = ({ className, onClick }) => {
+  const isDisabled = className?.includes('slick-disabled');
+  return (
+    <div
+      className={`${styles.arrow} ${styles.prevArrow} ${className}`}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (!isDisabled) onClick?.();
+      }}
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </div>
+  );
+};
 
-const CustomNextArrow = ({ className, onClick }) => (
-  <div
-    className={`${styles.arrow} ${styles.nextArrow} ${className}`}
-    onClick={(e) => {
-      e.stopPropagation();
-      onClick?.();
-    }}
-  >
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </div>
-);
+const CustomNextArrow = ({ className, onClick }) => {
+  const isDisabled = className?.includes('slick-disabled');
+  return (
+    <div
+      className={`${styles.arrow} ${styles.nextArrow} ${className}`}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (!isDisabled) onClick?.();
+      }}
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </div>
+  );
+};
 
 export default function ContentSection({ featuredProductsData }) {
   const router = useRouter();
