@@ -1,3 +1,4 @@
+import Loader from "@/components/common/Loader";
 import ProductDetails from "@/components/ProductDetails";
 import { getProductDetail, getRelatedProducts } from "@/lib/api/product/product";
 import { getSetting } from "@/lib/api/setting/setting";
@@ -22,24 +23,21 @@ export default function ProductDetailsPage() {
             const result = await getProductDetail(slug);
             if (result?.success) {
                 setProductData(result.data);
-                setLoader(false);
             }
         } catch (error) {
-            setLoader(true);
-            console.error("Error fetching settings:", error);
+            console.error("Error fetching product data:", error);
+        } finally {
+            setLoader(false);
         }
     };
     const onloadRelatedProduct = async () => {
-        setLoader(true);
         try {
             const result = await getRelatedProducts(slug);
             if (result?.success) {
                 setRelatedProductData(result.data);
-                setLoader(false);
             }
         } catch (error) {
-            setLoader(true);
-            console.error("Error fetching settings:", error);
+            console.error("Error fetching related products:", error);
         }
     };
 
@@ -51,7 +49,7 @@ export default function ProductDetailsPage() {
                 setSettingData(result?.data);
             }
         } catch (error) {
-            console.error("Error fetching cart items:", error);
+            console.error("Error fetching settings:", error);
         }
     };
 
@@ -62,5 +60,12 @@ export default function ProductDetailsPage() {
             onloadRelatedProduct();
         }
     }, [slug]);
+
+    if (loader) {
+        return (
+            <Loader />
+        );
+    }
+
     return <ProductDetails productData={productData} settingData={settingData} relatedProductData={relatedProductData} />;
 }

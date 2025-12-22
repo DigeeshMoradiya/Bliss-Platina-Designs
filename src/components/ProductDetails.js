@@ -109,6 +109,33 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
     const handleQuantityChange = (e) => {
         setQuantity(parseInt(e.target.value) || 1);
     };
+
+    if (!productData) {
+        return (
+            <main>
+                <div className="section-padding text-center">
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            <div className="col-lg-8">
+                                <div className="not-found-content">
+                                    <img
+                                        src="/assets/img/404/404-image.svg"
+                                        alt="Not Found"
+                                        className="mb-4 mx-auto"
+                                        style={{ maxWidth: '300px', display: 'block' }}
+                                    />
+                                    <h2 className="mb-3">Oops! Product Not Found</h2>
+                                    <p className="mb-4">The product you are looking for might have been removed or is temporarily unavailable.</p>
+                                    <Link href="/shop" className="btn btn-hero">Back to Shop</Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        );
+    }
+
     // const imageFiles = productData?.images ? JSON.parse(productData.images) : [];
     let imageFiles = [];
 
