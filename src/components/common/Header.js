@@ -168,7 +168,7 @@ export default function Header({ settingData }) {
                                                             : ""
                                                             } position-static`}
                                                     >
-                                                        <Link href={cat.slug === "custom-design" ? `/custom-design` : cat.slug === "diamond" ? `/diamond` : cat.slug === "contact-us" ? `/contact-us` : `/shop?q=${cat.slug}`} onClick={(e) => handleClickdetail(e, cat.slug)}>
+                                                        <Link href={cat.slug === "custom-design" ? `/custom-design` : cat.slug === "diamond" ? `/diamond` : cat.slug === "contact-us" ? `/contact-us` : `/shop?q=${cat.id}`} onClick={(e) => handleClickdetail(e, cat.id)}>
                                                             {cat.name}{" "}
                                                             {cat.children?.length > 0 && <i className="fa fa-angle-down"></i>}
                                                         </Link>
@@ -190,7 +190,7 @@ export default function Header({ settingData }) {
                                                                             <ul>
                                                                                 {sub.children.map((subsub) => (
                                                                                     <li key={subsub.id}>
-                                                                                        <Link href={`/shop?q=${subsub.slug}`} onClick={(e) => handleClickdetail(e, subsub.slug)}>{subsub.name}</Link>
+                                                                                        <Link href={`/shop?q=${subsub.id}`} onClick={(e) => handleClickdetail(e, subsub.id)}>{subsub.name}</Link>
                                                                                     </li>
                                                                                 ))}
                                                                             </ul>
@@ -201,7 +201,7 @@ export default function Header({ settingData }) {
                                                                 {/* Optional: if image exists for category */}
                                                                 {cat?.is_header && cat.image && (
                                                                     <li className="megamenu-banners d-none d-lg-block align-items-center justify-content-center mt-0" style={{ flex: '0 0 250px', maxWidth: '300px' }}>
-                                                                        <Link href={`/shop?q=${cat.slug}`} onClick={(e) => handleClickdetail(e, cat.slug)} className="w-100">
+                                                                        <Link href={`/shop?q=${cat.id}`} onClick={(e) => handleClickdetail(e, cat.id)} className="w-100">
                                                                             <img
                                                                                 src={cat.image}
                                                                                 alt={cat.name}
@@ -318,7 +318,7 @@ export default function Header({ settingData }) {
                                                                 ? `/diamond`
                                                                 : cat.slug === "contact-us"
                                                                     ? `/contact-us`
-                                                                    : `/shop?q=${cat.slug}`
+                                                                    : `/shop?q=${cat.id}`
                                                     }
                                                     onClick={() => toggleMenu(cat.id)}                                                >
                                                     {cat.name}
@@ -344,7 +344,7 @@ export default function Header({ settingData }) {
                                                                             <i></i>
                                                                         </span>
                                                                     )}
-                                                                    <Link href={`/shop?q=${sub.slug}`} onClick={() => toggleMenuSub(sub.id)}>
+                                                                    <Link href={`/shop?q=${sub.id}`} onClick={() => toggleMenuSub(sub.id)}>
                                                                         {sub.name}
                                                                     </Link>
 
@@ -353,8 +353,8 @@ export default function Header({ settingData }) {
                                                                             {sub.children.map((subsub) => (
                                                                                 <li key={subsub.id}>
                                                                                     <Link
-                                                                                        href={`/shop?q=${subsub.slug}`}
-                                                                                        onClick={(e) => handleClickdetail(e, subsub.slug)}
+                                                                                        href={`/shop?q=${subsub.id}`}
+                                                                                        onClick={(e) => handleClickdetail(e, subsub.id)}
                                                                                     >
                                                                                         {subsub.name}
                                                                                     </Link>
