@@ -201,7 +201,7 @@ export default function Header({ settingData }) {
                                                                 {/* Optional: if image exists for category */}
                                                                 {cat?.is_header && cat.image && (
                                                                     <li className="megamenu-banners d-none d-lg-block align-items-center justify-content-center mt-0" style={{ flex: '0 0 250px', maxWidth: '300px' }}>
-                                                                        <Link href={`/shop?q=${cat.id}`} onClick={(e) => handleClickdetail(e, cat.id)} className="w-100">
+                                                                        <Link href={`/shop?q=${cat.slug}`} onClick={(e) => handleClickdetail(e, cat.slug)} className="w-100">
                                                                             <img
                                                                                 src={cat.image}
                                                                                 alt={cat.name}
