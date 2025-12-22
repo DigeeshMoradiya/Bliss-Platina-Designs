@@ -168,7 +168,7 @@ export default function Header({ settingData }) {
                                                             : ""
                                                             } position-static`}
                                                     >
-                                                        <Link href={cat.slug === "custom-design" ? `/custom-design` : cat.slug === "diamond" ? `/diamond` : cat.slug === "contact-us" ? `/contact-us` : `/shop?q=${cat.id}`} onClick={(e) => handleClickdetail(e, cat.id)}>
+                                                        <Link href={cat.slug === "custom-design" ? `/custom-design` : cat.slug === "diamond" ? `/diamond` : cat.slug === "contact-us" ? `/contact-us` : `/shop?q=${cat.slug}`} onClick={(e) => handleClickdetail(e, cat.slug)}>
                                                             {cat.name}{" "}
                                                             {cat.children?.length > 0 && <i className="fa fa-angle-down"></i>}
                                                         </Link>

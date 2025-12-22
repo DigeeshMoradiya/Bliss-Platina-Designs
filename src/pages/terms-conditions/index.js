@@ -165,16 +165,16 @@ export default function TermsConditions() {
         .policy-title h3 {
           font-size: 24px;
           font-weight: 700;
-          margin-top: 1.5rem;
-          margin-bottom: 0.75rem;
-          color: #222222; /* Bootstrap text-dark */
-              line-height: 1.2;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          color: #222222;
+          line-height: 1.2;
         } 
         .policy-title p {
           font-size: 14px;
-          color: #555555; /* Bootstrap text-secondary */
-          margin-bottom: 8px;
-          line-height: 1.7;
+          color: #555555;
+          margin-bottom: 15px;
+          line-height: 1.8;
         }
         .policy-title a {
           color: #c29958; /* Bootstrap primary */

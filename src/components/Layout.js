@@ -30,11 +30,18 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {loader ? <div className="d-flex justify-content-center align-items-center mb-5"><Loader /> </div> : <>
-        <Header settingData={settingData} />
-        <main>{children}</main>
-        <Footer settingData={settingData} />
-        <ScrollTop /></>}
+      {loader ? (
+        <div className="d-flex justify-content-center align-items-center mb-5">
+          <Loader />
+        </div>
+      ) : (
+        <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
+          <Header settingData={settingData} />
+          <main className="flex-grow-1">{children}</main>
+          <Footer settingData={settingData} />
+          <ScrollTop />
+        </div>
+      )}
     </>
   );
 };

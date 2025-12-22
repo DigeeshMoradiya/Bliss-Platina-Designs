@@ -205,7 +205,7 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
         router.push(`/shop/${productData.slug}`);
     };
 
-    const handleClickRelated = (slug) => {
+    const handleClickRelated = (e, slug) => {
         e.preventDefault();
         router.push(`/shop/${slug}`);
     };
@@ -242,8 +242,15 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                                         {isVideo(item) ? (
                                                             <video
                                                                 src={item}
-                                                                controls
-                                                                style={{ width: '100%', height: 'auto' }}
+                                                                //  controls
+                                                                // style={{ width: '100%', height: 'auto' }}
+                                                                autoPlay
+                                                                muted
+                                                                loop
+                                                                playsInline
+                                                                onMouseOver={(e) => e.target.pause()}
+                                                                onMouseOut={(e) => e.target.play()}
+                                                                style={{ width: '100%', height: 'auto', cursor: 'pointer' }}
                                                             />
                                                         ) : (
                                                             <img src={item} alt="product-details"
@@ -268,6 +275,10 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                                         {isVideo(item) ? (
                                                             <video
                                                                 src={item}
+                                                                autoPlay
+                                                                muted
+                                                                loop
+                                                                playsInline
                                                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                                             />
                                                         ) : (
@@ -565,21 +576,23 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                                             <img src={images?.[0]} alt="product" className="pri-img" />
                                                             <img src={images?.[1]} alt="product" className="sec-img" />
                                                         </Link> */}
-                                                        <Link href={`/shop/${product.slug}`} onClick={() => handleClickRelated(product.slug)}>
-                                                            <img src={images?.[0]} alt="product" className="pri-img" />
-                                                            <img src={images?.[1]} alt="product" className="sec-img" />
+                                                        <Link href={`/shop/${product.slug}`} onClick={(e) => handleClickRelated(e, product.slug)}>
+                                                            <img src={product.images?.[0]} alt="product" className="pri-img" />
+                                                            <img src={product.images?.[1]} alt="product" className="sec-img" />
                                                         </Link>
                                                         <div className="product-badge">
-                                                            {product.is_new &&
-                                                                <div key={index} className="product-label discount"  >
-                                                                    <span>{product.discount}</span>
-                                                                </div>
-                                                            }
-                                                            {product.is_new &&
-                                                                <div key={index} className="product-label new">
+                                                            {product.is_new && (
+                                                                <div className="product-label new">
                                                                     <span>new</span>
-                                                                </div>}
+                                                                </div>
+                                                            )}
+                                                            {product.discount > 0 && (
+                                                                <div className="product-label discount">
+                                                                    <span>{product.discount}%</span>
+                                                                </div>
+                                                            )}
                                                         </div>
+
                                                         {/* <div className="button-group">
                                                 <a href="#" title="Add to wishlist"><i className="pe-7s-like"></i></a>
                                                 <a href="#" title="Add to Compare"><i className="pe-7s-refresh-2"></i></a>
@@ -593,7 +606,7 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                                         <div className="product-identity">
                                                             <p className="manufacturer-name">
                                                                 {/* <Link href="/product-details">{product.category}</Link> */}
-                                                                <Link href={`/shop/${product.slug}`} onClick={() => handleClickRelated(product.slug)}>
+                                                                <Link href={`/shop/${product.slug}`} onClick={(e) => handleClickRelated(e, product.slug)}>
                                                                     {product.category}
                                                                 </Link>
                                                             </p>

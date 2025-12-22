@@ -20,17 +20,35 @@ export default function Category({ categoryData }) {
                   <Image
                     src={category.image || "/assets/img/banner/img1-top.jpg"} // fallback if no image
                     alt={category.alt || "product banner"}
-                    width={600}
+                    width={800}
                     height={400}
-                    layout="responsive"
+                    // layout="responsive"
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      aspectRatio: '2/1',
+                      objectFit: 'cover',
+                    }}
                   />
                 </Link>
                 <div className="banner-content text-right">
                   {/* <h5 className="banner-text1">{category.text1 || "BEAUTIFUL"}</h5> */}
                   <h2 className="banner-text2">
                     {(() => {
-                      const name = category.name || "Wedding";
-                      const [first, ...rest] = name.split(" ");
+                      const name = category.name || "wedding rings";
+
+                      const toTitleCase = (str) =>
+                        str
+                          .split(" ")
+                          .map(
+                            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+                          )
+                          .join(" ");
+
+                      const titleName = toTitleCase(name);
+                      const [first, ...rest] = titleName.split(" ");
+
                       return (
                         <>
                           {first} <span>{rest.join(" ") || "Rings"}</span>
@@ -38,6 +56,7 @@ export default function Category({ categoryData }) {
                       );
                     })()}
                   </h2>
+
 
                   {/* <Link href="/shop" className="btn btn-text">
                     Shop Now
