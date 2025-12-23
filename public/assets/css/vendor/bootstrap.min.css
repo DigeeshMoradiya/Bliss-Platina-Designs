@@ -7570,6 +7570,16 @@ fieldset:disabled .btn {
     gap: 1rem !important
 }
 
+.product-detail-gap-3 {
+    gap: 1rem !important
+}
+
+@media (max-width: 767px) {
+    .product-detail-gap-3 {
+        gap: 0.3rem !important
+    }
+}
+
 .gap-4 {
     gap: 1.5rem !important
 }
@@ -7957,6 +7967,19 @@ fieldset:disabled .btn {
 .px-3 {
     padding-right: 1rem !important;
     padding-left: 1rem !important
+}
+
+.product-detail-px-3 {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important
+}
+
+
+@media (max-width: 767px) {
+    .product-detail-px-3 {
+        padding-right: 0.5rem !important;
+        padding-left: 0.5rem !important
+    }
 }
 
 .px-4 {

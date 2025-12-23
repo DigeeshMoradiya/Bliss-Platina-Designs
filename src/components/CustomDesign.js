@@ -836,7 +836,8 @@ export default function CustomDesign({ skuNo, setSkuNo }) {
                         src="/assets/img/custom-design/find-size.png"
                         alt="Find Ring Size"
                         fill
-                        style={{ objectFit: 'cover', zIndex: -1 }}
+                        // style={{ objectFit: 'cover', zIndex: -1 }}
+                        style={{  zIndex: -1 }}
                         priority // optional: improves loading speed
                     />
 

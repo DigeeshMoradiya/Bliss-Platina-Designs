@@ -1280,7 +1280,8 @@ export default function Diamond() {
                         src="/assets/img/diamond/daimond-section.jpeg"
                         alt="Diamond"
                         fill
-                        style={{ objectFit: 'cover', zIndex: -1 }}
+                        style={{  zIndex: -1 }}
+                        // style={{ objectFit: 'cover', zIndex: -1 }}
                         priority
                     />
                     <div className="container">

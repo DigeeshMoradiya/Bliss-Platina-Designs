@@ -368,12 +368,12 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                                 </p>
                                                 <div className="quantity-cart-box d-flex align-items-center ">
                                                     <h6 className="option-title">Matel:</h6>
-                                                    <div className="quantity d-flex align-items-center gap-3">
+                                                    <div className="quantity d-flex align-items-center product-detail-gap-3">
                                                         {/* <div className="pro-qty"><input type="text" value="1" /></div> */}
-                                                        <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">10KT</div>
-                                                        <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">14KT</div>
-                                                        <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">18KT</div>
-                                                        <div className="px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">950 Platinum</div>
+                                                        <div className="product-detail-px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">10KT</div>
+                                                        <div className="product-detail-px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">14KT</div>
+                                                        <div className="product-detail-px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">18KT</div>
+                                                        <div className="product-detail-px-3 py-1  border-color-metal rounded-md text-sm text-gray-700">950 Platinum</div>
                                                     </div>
                                                     {/* <div className="action_link">
                                                     <button className="btn btn-cart2">Add to cart</button>
