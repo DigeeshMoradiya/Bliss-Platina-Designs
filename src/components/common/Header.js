@@ -52,6 +52,7 @@ export default function Header({ settingData }) {
     const handleClickdetail = (e, slug) => {
         e.preventDefault();
         router.push(slug === "custom-design" ? `/custom-design` : slug === "diamond" ? `/diamond` : slug === "contact-us" ? `/contact-us` : `/shop?q=${slug}`);
+        setOffCanvasOpen(false);
     };
 
     const handleSubmit = (e) => {
@@ -318,9 +319,9 @@ export default function Header({ settingData }) {
                                                                 ? `/diamond`
                                                                 : cat.slug === "contact-us"
                                                                     ? `/contact-us`
-                                                                    : `/shop?q=${cat.id}`
+                                                                    : `/shop?q=${cat.slug}`
                                                     }
-                                                    onClick={() => toggleMenu(cat.id)}                                                >
+                                                    onClick={(e) => handleClickdetail(e, cat.slug)}                                                >
                                                     {cat.name}
                                                 </Link>
 
@@ -344,7 +345,7 @@ export default function Header({ settingData }) {
                                                                             <i></i>
                                                                         </span>
                                                                     )}
-                                                                    <Link href={`/shop?q=${sub.id}`} onClick={() => toggleMenuSub(sub.id)}>
+                                                                    <Link href={`/shop?q=${sub.id}`} onClick={(e) => handleClickdetail(e, sub.id)}>
                                                                         {sub.name}
                                                                     </Link>
 
