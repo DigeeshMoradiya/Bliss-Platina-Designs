@@ -5,10 +5,10 @@ import { useRouter } from 'next/navigation';
 export default function Category({ categoryData }) {
   const router = useRouter();
 
-  const handleproduct = (name,is_diamond_jewelry) => {
-    if(is_diamond_jewelry){
+  const handleproduct = (name, is_diamond_jewelry) => {
+    if (is_diamond_jewelry) {
       router.push(`/diamond`)
-    }else{
+    } else {
       router.push(`/shop?q=${name}`)
     }
   }
@@ -67,8 +67,19 @@ export default function Category({ categoryData }) {
                     </Link>
                   </figure>
                   <div className="section-category-title d-flex align-items-center justify-content-between">
-                    <h3 className="category-title" onClick={() => handleproduct(category?.slug,category?.is_diamond_jewelry)}>
+                    {/* <h3 className="category-title" onClick={() => handleproduct(category?.slug, category?.is_diamond_jewelry)}>
                       {first} {rest.length > 0 && <span>{rest.join(" ")}</span>}
+                    </h3> */}
+                    <h3 className="category-title split-text" onClick={() => handleproduct(category?.slug, category?.is_diamond_jewelry)}>
+                      {titleName.split(' ').map((word, i) => (
+                        <span
+                          key={i}
+                          className={`text-part ${i % 2 === 0 ? 'left' : 'right'}`}
+                          style={{ animationDelay: `${i * 0.2}s` }}
+                        >
+                          {word}{i < titleName.split(' ').length - 1 ? '\u00A0' : ''}
+                        </span>
+                      ))}
                     </h3>
 
                     <Link
@@ -76,7 +87,7 @@ export default function Category({ categoryData }) {
                         category?.is_diamond_jewelry
                           ? "/diamond"
                           : `/shop?q=${category?.slug}`
-                      } onClick={() => handleproduct(category?.slug,category?.is_diamond_jewelry)}
+                      } onClick={() => handleproduct(category?.slug, category?.is_diamond_jewelry)}
                       className="btn btn-text mt-2"
                     >
                       Shop Now
