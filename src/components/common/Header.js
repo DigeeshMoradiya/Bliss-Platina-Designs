@@ -63,6 +63,7 @@ export default function Header({ settingData }) {
         } else {
             router.push(`/shop?q=${searchTerm}`)
         }
+        setOffCanvasOpen(false);
     };
     const [openMenuId, setOpenMenuId] = useState(null);
     const [openMenuIdSub, setOpenMenuIdSub] = useState(null);
