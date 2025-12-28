@@ -475,6 +475,13 @@ const ProductDetails = ({ productData, settingData, relatedProductData }) => {
                                                                                 : 'Custom Size Available'}
                                                                         </td>
                                                                     </tr>
+                                                                    <tr>
+                                                                        <td>Pricing Information</td>
+                                                                        <td>
+                                                                            The price shown on the website is the base price, calculated using 10K gold
+                                                                            and minimum carat weight. Final pricing may vary for customization.
+                                                                        </td>
+                                                                    </tr>
                                                                 </tbody>
                                                             </table>
                                                         </div>

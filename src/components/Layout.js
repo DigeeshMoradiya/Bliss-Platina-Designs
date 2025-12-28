@@ -1,6 +1,7 @@
 import Header from './common/Header';
 import Footer from './common/Footer';
 import ScrollTop from './common/ScrollTop';
+import WhatsAppButton from './common/WhatsAppButton';
 import { getSetting } from '@/lib/api/setting/setting';
 import { useEffect, useState } from 'react';
 import Loader from './common/Loader';
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
       setLoader(true);
     }
   };
-  
+
   useEffect(() => {
     onloadSetting();
   }, []);
@@ -40,6 +41,7 @@ const Layout = ({ children }) => {
           <main className="flex-grow-1">{children}</main>
           <Footer settingData={settingData} />
           <ScrollTop />
+          <WhatsAppButton phone={settingData?.whatsapp_phone_no} />
         </div>
       )}
     </>

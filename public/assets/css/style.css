@@ -954,6 +954,38 @@ only screen and (max-width: 767.98px) {
 }
 
 /* ----scroll to top css end ----*/
+.whatsapp-button {
+  bottom: 50px;
+  cursor: pointer;
+  height: 50px;
+  position: fixed;
+  left: 20px;
+  text-align: center;
+  width: 50px;
+  z-index: 9999;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+  background-color: #25d366;
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-button i {
+  color: #fff;
+  font-size: 30px;
+  line-height: normal;
+}
+
+.whatsapp-button:hover {
+  background-color: #20b355;
+  transform: scale(1.1);
+}
+
 .container {
   padding-right: var(--bs-gutter-x, 15px);
   padding-left: var(--bs-gutter-x, 15px);
@@ -6271,7 +6303,8 @@ only screen and (max-width: 767.98px) {
 /* Mobile screen */
 @media (max-width: 767px) {
   .product-review-info .tab-content.reviews-tab {
-    padding: 12px; /* bottom padding increased */
+    padding: 12px;
+    /* bottom padding increased */
   }
 }
 

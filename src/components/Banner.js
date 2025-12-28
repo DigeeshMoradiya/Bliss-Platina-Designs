@@ -82,7 +82,8 @@ export default function Banner({ bannerData }) {
                       <h4 className="slide-desc" style={{ color: banner?.text_color }}>
                         {banner.short_description}
                       </h4>
-                      <Link href={`/shop?q=${banner?.category_name}`} onClick={() => handleproduct(banner?.category_name)} className="btn btn-hero">
+                      {/* <Link href={`/shop?q=${banner?.category_name}`} onClick={() => handleproduct(banner?.category_name)} className="btn btn-hero"> */}
+                      <Link href={`/shop?q=${banner?.category_id}`} onClick={() => handleproduct(banner?.category_id)} className="btn btn-hero">
                         Read More
                       </Link>
                     </div>
