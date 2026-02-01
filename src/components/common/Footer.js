@@ -118,17 +118,23 @@ export default function Footer({ settingData }) {
                             <div className="widget-item">
                                 <h6 className="widget-title">Follow Us</h6>
                                 <div className="widget-body social-link">
-                                    <a href={settingData?.facebook_link} target="_blank" rel="noopener noreferrer">
+                                    <a href={settingData?.facebook_link} className="facebook" target="_blank" rel="noopener noreferrer">
                                         <i className="fa fa-facebook"></i>
                                     </a>
-                                    <a href={settingData?.instagram_link} target="_blank" rel="noopener noreferrer">
+                                    <a href={settingData?.instagram_link} className="instagram" target="_blank" rel="noopener noreferrer">
                                         <i className="fa fa-instagram"></i>
                                     </a>
-                                    <a href={settingData?.printrest_link} target="_blank" rel="noopener noreferrer">
+                                    <a href={settingData?.printrest_link} className="pinterest" target="_blank" rel="noopener noreferrer">
                                         <i className="fa fa-pinterest-p"></i>
                                     </a>
-                                    <a href={settingData?.youtube_link} target="_blank" rel="noopener noreferrer">
+                                    <a href={settingData?.youtube_link} className="youtube" target="_blank" rel="noopener noreferrer">
                                         <i className="fa fa-youtube"></i>
+                                    </a>
+                                    <a href={settingData?.linkedin_link} className="linkedin" target="_blank" rel="noopener noreferrer">
+                                        <i className="fa fa-linkedin"></i>
+                                    </a>
+                                    <a href={settingData?.etsy_link} className="etsy" target="_blank" rel="noopener noreferrer">
+                                        <i className="fa fa-etsy"></i>
                                     </a>
 
                                 </div>

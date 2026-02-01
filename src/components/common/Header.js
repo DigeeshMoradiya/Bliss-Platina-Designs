@@ -431,10 +431,12 @@ export default function Header({ settingData }) {
                                 </ul>
                             </div>
                             <div className="off-canvas-social-widget">
-                                <a href={settingData?.facebook_link} target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a>
-                                <a href={settingData?.instagram_link} target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a>
-                                <a href={settingData?.printrest_link} target="_blank" rel="noopener noreferrer"><i className="fa fa-pinterest-p"></i></a>
-                                <a href={settingData?.youtube_link} target="_blank" rel="noopener noreferrer"><i className="fa fa-youtube-play"></i></a>
+                                <a href={settingData?.facebook_link} className="facebook" target="_blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a>
+                                <a href={settingData?.instagram_link} className="instagram" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a>
+                                <a href={settingData?.printrest_link} className="pinterest" target="_blank" rel="noopener noreferrer"><i className="fa fa-pinterest-p"></i></a>
+                                <a href={settingData?.youtube_link} className="youtube" target="_blank" rel="noopener noreferrer"><i className="fa fa-youtube-play"></i></a>
+                                <a href={settingData?.linkedin_link} className="linkedin" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin"></i></a>
+                                <a href={settingData?.etsy_link} className="etsy" target="_blank" rel="noopener noreferrer"><i className="fa fa-etsy"></i></a>
                             </div>
                         </div>
                     </div>

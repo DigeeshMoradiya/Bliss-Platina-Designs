@@ -2312,13 +2312,19 @@ only screen and (max-width: 767.98px) {
 
 .off-canvas-social-widget {
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .off-canvas-social-widget a {
   color: #555555;
   font-size: 18px;
-  display: inline-block;
-  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0;
+  transition: all 0.3s ease;
 }
 
 .off-canvas-social-widget a:hover {
@@ -7519,20 +7525,24 @@ only screen and (max-width: 767.98px) {
 
 .social-link {
   margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .social-link a {
   width: 40px;
   height: 40px;
   font-size: 18px;
-  line-height: 40px;
-  margin-right: 10px;
   color: #777777;
-  display: inline-block;
-  text-align: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   background-color: #fff;
   border-radius: 50%;
   border: 1px solid #dedede;
+  margin-right: 0;
+  transition: all 0.3s ease;
 }
 
 .social-link a:last-child {
@@ -7607,3 +7617,71 @@ only screen and (max-width: 767.98px) {
 }
 
 /*----- footer area end -----*/
+
+/* Brand Specific Social Hover Colors */
+.off-canvas-social-widget a.facebook:hover,
+.header-social-link a.facebook:hover {
+  color: #1877F2 !important;
+}
+
+.off-canvas-social-widget a.instagram:hover,
+.header-social-link a.instagram:hover {
+  color: #E4405F !important;
+}
+
+.off-canvas-social-widget a.pinterest:hover,
+.header-social-link a.pinterest:hover {
+  color: #BD081C !important;
+}
+
+.off-canvas-social-widget a.youtube:hover,
+.header-social-link a.youtube:hover {
+  color: #FF0000 !important;
+}
+
+.off-canvas-social-widget a.linkedin:hover,
+.header-social-link a.linkedin:hover {
+  color: #0077B5 !important;
+}
+
+.off-canvas-social-widget a.etsy:hover,
+.header-social-link a.etsy:hover {
+  color: #F1641E !important;
+}
+
+/* Footer Social Icons with Backgrounds */
+.social-link a.facebook:hover {
+  background-color: #1877F2 !important;
+  color: #fff !important;
+  border-color: #1877F2 !important;
+}
+
+.social-link a.instagram:hover {
+  background-color: #E4405F !important;
+  color: #fff !important;
+  border-color: #E4405F !important;
+}
+
+.social-link a.pinterest:hover {
+  background-color: #BD081C !important;
+  color: #fff !important;
+  border-color: #BD081C !important;
+}
+
+.social-link a.youtube:hover {
+  background-color: #FF0000 !important;
+  color: #fff !important;
+  border-color: #FF0000 !important;
+}
+
+.social-link a.linkedin:hover {
+  background-color: #0077B5 !important;
+  color: #fff !important;
+  border-color: #0077B5 !important;
+}
+
+.social-link a.etsy:hover {
+  background-color: #F1641E !important;
+  color: #fff !important;
+  border-color: #F1641E !important;
+}
